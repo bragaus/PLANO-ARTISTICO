@@ -1,6 +1,39 @@
 import styled from 'styled-components';
 
-export const Cabecalho = styled.header`
+export const CabecalhoCelular = styled.header`
+    @media only screen and (min-width: 768px) {
+        display: none;
+    }
+
+    nav {
+        margin: 1% 1% 1% 3%;
+
+        a {
+            text-decoration: none;
+            color: black;
+            border: 0.2vw solid white;
+            font-size: 10vw;
+            &:hover{
+                color: red;
+                background: red;
+                border: 0.2vw solid red;
+            }
+        }         
+    }
+
+    ul li {       
+        display: inline;
+        font-size: 10vw;
+        padding: 3vw;        
+    }
+
+    hr {
+        border: none;
+        border-top: 0.3vh solid black;
+    }
+`;
+
+export const CabecalhoDesktop = styled.header`
     nav {
         margin: 1% 1% 1% 3%;
     }
@@ -21,8 +54,13 @@ export const Cabecalho = styled.header`
     }
 
     hr {
-        border: 0.3vh solid black;
+        border: none;
+        border-top: 0.3vh solid black;
     }
+
+    @media only screen and (max-width: 768px) {
+        display: none;
+    }     
 `;
 
 export const Principal = styled.main`
@@ -39,7 +77,8 @@ export const Rodape = styled.footer`
     width: 100%;
 
     hr {
-        border: 0.3vw dashed black;
+        border: none;
+        border-top:  0.3vw dashed black;
     }
 
     h2 {

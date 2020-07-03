@@ -1,11 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Cabecalho, Principal, Rodape } from './estilo';
+import { CabecalhoDesktop, CabecalhoCelular, Principal, Rodape } from './estilo';
 
 const Sobre = () => {
     return(
         <>
-        <Cabecalho>
+
+        <CabecalhoCelular>
+            <nav>
+                <Link to="/">
+                    <b>PLANO ARTÍSTICO</b>
+                </Link>                
+                <ul>
+                    <li>&#9755;</li>
+                    <li>&#9787;</li>					
+                    <li>&#10231;</li>
+                    <li>&#9843;</li>
+                    <li>&#8605;</li>
+                    <li>&#10085;</li>
+                </ul>
+            </nav>
+            <hr />
+        </CabecalhoCelular>
+
+        <CabecalhoDesktop>
             <nav>
                 <ul>
                     <li>
@@ -22,7 +40,7 @@ const Sobre = () => {
                 </ul>
             </nav>
             <hr />
-	    </Cabecalho>
+	    </CabecalhoDesktop>
 
         <Principal>
             <p>
