@@ -26,6 +26,7 @@ export const Titulo = styled.h1`
     position: relative;
     font-size: 13.5vw;
     text-align: center;
+    z-index: 0;
 
     @media only screen and (max-width: 768px) {
         text-align: left;
@@ -58,9 +59,7 @@ export const IlustracaoDescricao = styled.p`
             left: `${arte.esquerda}%`,
             right: `${arte.direita}%`,
             bottom: `${arte.cima}vw`,
-            top: `${arte.baixo}vw`,
-            fontSize: `1vw`,
-            zIndex: '1'               
+            top: `${arte.baixo}vw`,             
         })
     }}
 
@@ -85,6 +84,7 @@ export const Ilustracao = styled.img`
             top: `${arte.baixo}vw`,            
         })
     }}
+    z-index: 1;
 
     @media only screen and (max-width: 768px) {
         width: 80%;
@@ -131,6 +131,7 @@ export const ArteDeCapa = styled.img`
             top: `${arte.baixo}vw`,                
         })
     }}
+    z-index: 1;
 
     @media only screen and (max-width: 768px) {
         width: 80%;
@@ -177,6 +178,7 @@ export const Colagem = styled.img`
             top: `${arte.baixo}vw`,                
         })
     }}
+    z-index: 1;
 
     @media only screen and (max-width: 768px) {
         width: 80%;

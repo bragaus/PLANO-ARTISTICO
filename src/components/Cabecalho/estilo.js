@@ -79,7 +79,7 @@ export const Logo = styled.img`
     position: fixed;
     left: 10%;
     top: 5%;
-    z-index: 1;
+    z-index: 2;
     width: 15%;
     -webkit-animation:${rotacao} 8s linear infinite;
     -moz-animation:${rotacao} 8s linear infinite;
@@ -96,7 +96,7 @@ export const Logo = styled.img`
 export const Navegacao = styled.nav`
     position: fixed;
     right: 10%;
-    z-index: 1;
+    z-index: 2;
 
     @media only screen and (max-width: 768px) {
         right: 1%;
