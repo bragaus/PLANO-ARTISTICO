@@ -62,6 +62,7 @@ export const IlustracaoDescricao = styled.p`
             top: `${arte.baixo}vw`,             
         })
     }}
+    font-size: 50%;
 
     @media only screen and (max-width: 768px) {
         width: 80%;
@@ -104,11 +105,10 @@ export const CapaDescricao = styled.p`
             left: `${arte.esquerda}%`,
             right: `${arte.direita}%`,
             bottom: `${arte.cima}vw`,
-            top: `${arte.baixo}vw`,
-            fontSize: `1vw`,
-            zIndex: '1'               
+            top: `${arte.baixo}vw`,              
         })
     }}
+    font-size: 50%;
 
     @media only screen and (max-width: 768px) {
         width: 80%;
@@ -151,11 +151,10 @@ export const ColagemDescricao = styled.p`
             left: `${arte.esquerda}%`,
             right: `${arte.direita}%`,
             bottom: `${arte.cima}vw`,
-            top: `${arte.baixo}vw`,
-            fontSize: `1vw`,
-            zIndex: '1'               
+            top: `${arte.baixo}vw`,             
         })
     }}
+    font-size: 50%;    
 
     @media only screen and (max-width: 768px) {
         width: 80%;
