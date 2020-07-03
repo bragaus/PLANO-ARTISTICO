@@ -8,15 +8,14 @@ export const Cabecalho = styled.header`
     ul li {       
         display: inline;
         font-size: 6vw;
-        padding-right: 1%;
         a {
             text-decoration: none;
             color: black;
-            border: 2px solid white;
+            border: 0.2vw solid white;
             &:hover{
                 color: red;
                 background: red;
-                border: 2px solid red;
+                border: 0.2vw solid red;
             }
         }          
     }
