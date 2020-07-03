@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-scroll";
 import { Link as Ancora } from 'react-router-dom';
-import { Superior, Lista, Logo, Navegacao } from './estilo';
+import { Lista, Logo, Navegacao } from './estilo';
 import LogoImg from '../../estaticos/logo.png';
 import TelaEmail from '../TelaEmail/TelaEmail';
 
