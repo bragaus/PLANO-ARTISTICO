@@ -10,19 +10,19 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
             arte.forEach(ilustracao => {
                 if (ilustracao.ID === id_daArte) {
                     console.log(ilustracao.titulo)
-                    ilustracao.esquerda = ilustracao.esquerda + 10
+                    ilustracao.esquerda = ilustracao.esquerda + 5
                 }
             });
         } else if (tipo === 'ArteDeCapa') {
             arte.forEach(arteDeCapa => {
                 if (arteDeCapa.ID === id_daArte) {
-                    arteDeCapa.esquerda = arteDeCapa.esquerda + 10
+                    arteDeCapa.esquerda = arteDeCapa.esquerda + 5
                 }
             });            
         } else if (tipo === 'Colagem') {
             arte.forEach(colagem => {
                 if (colagem.ID === id_daArte) {
-                    colagem.esquerda = colagem.esquerda + 10
+                    colagem.esquerda = colagem.esquerda + 5
                 }
             });            
         }
@@ -33,19 +33,19 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
         if (tipo === 'Ilustracao') {        
             arte.forEach(ilustracao => {
                 if (ilustracao.ID === id_daArte) {
-                    ilustracao.esquerda = ilustracao.esquerda - 10
+                    ilustracao.esquerda = ilustracao.esquerda - 5
                 }
             });
         } else if (tipo === 'ArteDeCapa') {
             arte.forEach(arteDeCapa => {
                 if (arteDeCapa.ID === id_daArte) {
-                    arteDeCapa.esquerda = arteDeCapa.esquerda - 10
+                    arteDeCapa.esquerda = arteDeCapa.esquerda - 5
                 }
             });            
         } else if (tipo === 'Colagem') {
             arte.forEach(colagem => {
                 if (colagem.ID === id_daArte) {
-                    colagem.esquerda = colagem.esquerda - 10
+                    colagem.esquerda = colagem.esquerda - 5
                 }
             });            
         }
@@ -56,19 +56,19 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
         if (tipo === 'Ilustracao') {        
             arte.forEach(ilustracao => {
                 if (ilustracao.ID === id_daArte) {
-                    ilustracao.baixo = ilustracao.baixo + 10
+                    ilustracao.baixo = ilustracao.baixo + 5
                 }
             });
         } else if (tipo === 'ArteDeCapa') {
             arte.forEach(arteDeCapa => {
                 if (arteDeCapa.ID === id_daArte) {
-                    arteDeCapa.baixo = arteDeCapa.baixo + 10
+                    arteDeCapa.baixo = arteDeCapa.baixo + 5
                 }
             });            
         } else if (tipo === 'Colagem') {
             arte.forEach(colagem => {
                 if (colagem.ID === id_daArte) {
-                    colagem.baixo = colagem.baixo + 10
+                    colagem.baixo = colagem.baixo + 5
                 }
             });            
         }
@@ -79,19 +79,19 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
         if (tipo === 'Ilustracao') {    
             arte.forEach(ilustracao => {
                 if (ilustracao.ID === id_daArte) {
-                    ilustracao.baixo = ilustracao.baixo - 10
+                    ilustracao.baixo = ilustracao.baixo - 5
                 }
             });
         } else if (tipo === 'ArteDeCapa') {
             arte.forEach(arteDeCapa => {
                 if (arteDeCapa.ID === id_daArte) {
-                    arteDeCapa.baixo = arteDeCapa.baixo - 10
+                    arteDeCapa.baixo = arteDeCapa.baixo - 5
                 }
             });            
         } else if (tipo === 'Colagem') {
             arte.forEach(colagem => {
                 if (colagem.ID === id_daArte) {
-                    colagem.baixo = colagem.baixo - 10
+                    colagem.baixo = colagem.baixo - 5
                 }
             });            
         }
@@ -102,19 +102,19 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
         if (tipo === 'Ilustracao') {        
             arte.forEach(ilustracao => {
                 if (ilustracao.ID === id_daArte) {
-                    ilustracao.largura = ilustracao.largura + 10
+                    ilustracao.largura = ilustracao.largura + 5
                 }
             });
         } else if (tipo === 'ArteDeCapa') {
             arte.forEach(arteDeCapa => {
                 if (arteDeCapa.ID === id_daArte) {
-                    arteDeCapa.largura = arteDeCapa.largura + 10
+                    arteDeCapa.largura = arteDeCapa.largura + 5
                 }
             });            
         } else if (tipo === 'Colagem') {
             arte.forEach(colagem => {
                 if (colagem.ID === id_daArte) {
-                    colagem.largura = colagem.largura + 10
+                    colagem.largura = colagem.largura + 5
                 }
             });            
         }
@@ -125,19 +125,19 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
         if (tipo === 'Ilustracao') {        
             arte.forEach(ilustracao => {
                 if (ilustracao.ID === id_daArte) {
-                    ilustracao.largura = ilustracao.largura - 10
+                    ilustracao.largura = ilustracao.largura - 5
                 }
             });
         } else if (tipo === 'ArteDeCapa') {
             arte.forEach(arteDeCapa => {
                 if (arteDeCapa.ID === id_daArte) {
-                    arteDeCapa.largura = arteDeCapa.largura - 10
+                    arteDeCapa.largura = arteDeCapa.largura - 5
                 }
             });            
         } else if (tipo === 'Colagem') {
             arte.forEach(colagem => {
                 if (colagem.ID === id_daArte) {
-                    colagem.largura = colagem.largura - 10
+                    colagem.largura = colagem.largura - 5
                 }
             });            
         }
