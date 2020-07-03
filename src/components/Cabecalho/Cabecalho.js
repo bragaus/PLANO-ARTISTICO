@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from "react-scroll";
+import { Link, animateScroll } from "react-scroll";
 import { Link as Ancora } from 'react-router-dom';
 import { Lista, Logo, Navegacao } from './estilo';
 import LogoImg from '../../estaticos/logo.png';
@@ -11,7 +11,7 @@ const Cabecalho = () => {
     
     return (<>
 
-        <Logo src={LogoImg} />
+        <Logo src={LogoImg} onClick={animateScroll.scrollToTop}/>
 
         <Navegacao>
             <ul>                                           

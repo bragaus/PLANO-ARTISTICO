@@ -81,6 +81,7 @@ export const Logo = styled.img`
     top: 5%;
     z-index: 2;
     width: 15%;
+    cursor: pointer;
     -webkit-animation:${rotacao} 8s linear infinite;
     -moz-animation:${rotacao} 8s linear infinite;
     animation:${rotacao} 8s linear infinite;
