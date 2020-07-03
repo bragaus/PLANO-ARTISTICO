@@ -4,7 +4,6 @@ import Rodape from '../Rodape/Rodape';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
-import Draggable from 'react-draggable';
 
 import { 
     DivisorDeSecao, 
