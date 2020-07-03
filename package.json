@@ -31,12 +31,10 @@
     "yup": "^0.28.3"
   },
   "scripts": {
-    "start": "node ./src/servidor",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "install": "yarn",
-    "postinstall": "npm run build"    
+    "eject": "react-scripts eject"  
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,6 +50,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "http://localhost:3000/api"
+  }
 }
