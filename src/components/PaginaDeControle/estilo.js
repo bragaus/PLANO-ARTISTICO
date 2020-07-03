@@ -44,12 +44,13 @@ export const IlustracaoDescricao = styled.p`
             left: `${arte.esquerda}%`,
             right: `${arte.direita}%`,
             bottom: `${arte.cima}vw`,
-            top: `${arte.baixo}vw`,
-            fontSize: `1vw`,
-            zIndex: '1'               
+            top: `${arte.baixo}vw`,            
         })
     }}
+    font-size: 50%;
+
 `;
+
 
 export const Ilustracao = styled.img`
     ${(props) => {
@@ -74,11 +75,10 @@ export const CapaDescricao = styled.p`
             left: `${arte.esquerda}%`,
             right: `${arte.direita}%`,
             bottom: `${arte.cima}vw`,
-            top: `${arte.baixo}vw`,
-            fontSize: `1vw`,
-            zIndex: '1'               
+            top: `${arte.baixo}vw`,             
         })
     }}
+    font-size: 50%;    
 `;
 
 export const ArteDeCapa = styled.img`
@@ -104,11 +104,10 @@ export const ColagemDescricao = styled.p`
             left: `${arte.esquerda}%`,
             right: `${arte.direita}%`,
             bottom: `${arte.cima}vw`,
-            top: `${arte.baixo}vw`,
-            fontSize: `1vw`,
-            zIndex: '1'               
+            top: `${arte.baixo}vw`,           
         })
     }}
+    font-size: 50%;    
 `;
 
 export const Colagem = styled.img`
