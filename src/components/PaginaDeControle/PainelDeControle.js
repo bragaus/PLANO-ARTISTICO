@@ -47,9 +47,15 @@ const PainelDeControle = () => {
     }, []);
 
     function salvar() {
-        api.post('/controlesDaArte', ilustracoes)
-        api.post('/controlesDaArte', artesDeCapa)
-        api.post('/controlesDaArte', colagens)
+        api.post('/controlesDaArte', ilustracoes).then((e) => {
+            console.log(e)
+        })
+        // api.post('/controlesDaArte', artesDeCapa).then((e) => {
+        //     console.log(e)
+        // })
+        // api.post('/controlesDaArte', colagens).then((e) => {
+        //     console.log(e)
+        // })
     }    
 
     return (

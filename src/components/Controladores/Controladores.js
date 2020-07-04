@@ -9,7 +9,6 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
         if (tipo === 'Ilustracao') {
             arte.forEach(ilustracao => {
                 if (ilustracao.ID === id_daArte) {
-                    console.log(ilustracao.titulo)
                     ilustracao.esquerda = ilustracao.esquerda + 5
                 }
             });
