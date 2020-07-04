@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, animateScroll } from "react-scroll";
 import { Link as Ancora } from 'react-router-dom';
-import { Lista, Logo, Navegacao } from './estilo';
+import { Lista, Logo, Navegacao, Superior } from './estilo';
 import LogoImg from '../../estaticos/logo.png';
 import TelaEmail from '../TelaEmail/TelaEmail';
 
@@ -10,67 +10,68 @@ const Cabecalho = () => {
     const [telaDeEmail, setTelaDeEmail] = useState(false);
     
     return (<>
+        <Superior>
+            
+            <Ancora to="/sobre" className="info">
+                <b>INFO&#8599;</b>
+            </Ancora>    
 
-        <Logo src={LogoImg} onClick={animateScroll.scrollToTop}/>
+            <img src={LogoImg} onClick={animateScroll.scrollToTop}/>
 
-        <Navegacao>
-            <ul>                                           
-                <Lista>
-                    <Link
-                        activeClass="active"
-                        to="ilustrações"
-                        spy={true}
-                        smooth={true}
-                        offset={-70}
-                        duration={500}
-                    >
-                        <b>ILLUSTRATIONS</b>
-                    </Link>
-                </Lista>                    
-                <Lista>
-                    <Link
-                        activeClass="active"
-                        to="artesDeCapa"
-                        spy={true}
-                        smooth={true}
-                        offset={-70}
-                        duration={500}
-                    >
-                        <b>ALBUM COVER</b>
-                    </Link>
-                </Lista>
-                <Lista>
-                    <Link
-                        activeClass="active"
-                        to="colagens"
-                        spy={true}
-                        smooth={true}
-                        offset={-70}
-                        duration={500}
-                    >
-                        <b>COLLAGES</b>
-                    </Link>
-                </Lista>    
-                <Lista>
-                    <button 
-                        onClick={() => telaDeEmail ? setTelaDeEmail(false) : setTelaDeEmail(true)}
-                    >
-                        <b>CONTACT</b>
-                    </button>
-                </Lista>                                    
-                <Lista>
-                    <Ancora to="/sobre">
-                        <b>ABOUT</b>
-                    </Ancora>
-                </Lista>  
+            <nav>
+                <ul>                                           
+                    <li>
+                        <Link
+                            activeClass="active"
+                            to="ilustrações"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}
+                        >
+                            <b>ILLUSTRATIONS</b>
+                        </Link>
+                    </li>                    
+                    <li>
+                        <Link
+                            activeClass="active"
+                            to="artesDeCapa"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}
+                        >
+                            <b>ALBUM COVER</b>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            activeClass="active"
+                            to="colagens"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}
+                        >
+                            <b>COLLAGES</b>
+                        </Link>
+                    </li>    
+                    <li>
+                        <button 
+                            onClick={() => telaDeEmail ? setTelaDeEmail(false) : setTelaDeEmail(true)}
+                        >
+                            <b>CONTACT</b>
+                        </button>
+                    </li>
 
-            </ul>            
-        </Navegacao>
+                </ul>            
+            </nav>
 
-        <div style={{height: '35vh'}}></div>
+            <div style={{height: '35vh'}}></div>            
 
-        {telaDeEmail && <TelaEmail setTelaDeEmail={setTelaDeEmail}/>}
+        </Superior>
 
+        {telaDeEmail && <TelaEmail setTelaDeEmail={setTelaDeEmail}/>}        
     </>);
 };
 
