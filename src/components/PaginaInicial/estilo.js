@@ -30,7 +30,8 @@ export const Titulo = styled.h1`
 
     @media only screen and (max-width: 768px) {
         text-align: left;
-        font-size: 10vw;
+        left: -2%;
+        font-size: 13.5vw;
     }    
 `;
 
@@ -65,7 +66,7 @@ export const IlustracaoDescricao = styled.p`
     font-size: 50%;
 
     @media only screen and (max-width: 768px) {
-        width: 80%;
+        width: 100%;
         left: 0%;
         right: 0%;
         bottom: 0vw;
@@ -88,7 +89,7 @@ export const Ilustracao = styled.img`
     z-index: 1;
 
     @media only screen and (max-width: 768px) {
-        width: 80%;
+        width: 100%;
         left: 0%;
         right: 0%;
         bottom: 0vw;
@@ -111,7 +112,7 @@ export const CapaDescricao = styled.p`
     font-size: 50%;
 
     @media only screen and (max-width: 768px) {
-        width: 80%;
+        width: 100%;
         left: 0%;
         right: 0%;
         bottom: 0vw;
@@ -134,7 +135,7 @@ export const ArteDeCapa = styled.img`
     z-index: 1;
 
     @media only screen and (max-width: 768px) {
-        width: 80%;
+        width: 100%;
         left: 0%;
         right: 0%;
         bottom: 0vw;
@@ -157,7 +158,7 @@ export const ColagemDescricao = styled.p`
     font-size: 50%;    
 
     @media only screen and (max-width: 768px) {
-        width: 80%;
+        width: 100%;
         left: 0%;
         right: 0%;
         bottom: 0vw;
@@ -180,7 +181,7 @@ export const Colagem = styled.img`
     z-index: 1;
 
     @media only screen and (max-width: 768px) {
-        width: 80%;
+        width: 100%;
         left: 0%;
         right: 0%;
         bottom: 0vw;
