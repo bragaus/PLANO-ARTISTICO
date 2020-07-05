@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, animateScroll } from "react-scroll";
 import { Link as Ancora } from 'react-router-dom';
-import { Lista, Logo, Navegacao, Superior } from './estilo';
+import { Superior, Auxiliar } from './estilo';
 import LogoImg from '../../estaticos/logo.png';
 import TelaEmail from '../TelaEmail/TelaEmail';
 
@@ -12,13 +12,28 @@ const Cabecalho = () => {
     return (<>
         <Superior>
             
+            <nav className="celular">
+                <ul>
+                    <li>
+                        <Ancora to="/sobre">
+                            <b>INFO&#8599;</b>
+                        </Ancora>                    
+                    </li>
+                    <li>
+                        <Ancora to="/sobre">
+                            <b>CONTACT</b>
+                        </Ancora>                    
+                    </li>
+                </ul>
+            </nav>    
+
             <Ancora to="/sobre" className="info">
                 <b>INFO&#8599;</b>
-            </Ancora>    
+            </Ancora>               
 
             <img src={LogoImg} onClick={animateScroll.scrollToTop}/>
 
-            <nav>
+            <nav className="desktop">
                 <ul>                                           
                     <li>
                         <Link
@@ -65,11 +80,11 @@ const Cabecalho = () => {
                     </li>
 
                 </ul>            
-            </nav>
-
-            <div style={{height: '35vh'}}></div>            
+            </nav>          
 
         </Superior>
+
+        <Auxiliar />
 
         {telaDeEmail && <TelaEmail setTelaDeEmail={setTelaDeEmail}/>}        
     </>);
