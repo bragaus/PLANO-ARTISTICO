@@ -77,14 +77,44 @@ export const Superior = styled.header.attrs(props => ({
         animation:${rotacao} 8s linear infinite;
 
         @media only screen and (max-width: 768px) {
-            left: 55%;
             width: 35%;
-            top: 1%;   
-            /* display: none; */
         }           
     }
 
-    @media only screen and (max-width: 768px) {
+    & .celular {
         display: none;
-    }    
+    }
+
+    @media only screen and (max-width: 768px) {
+        img {
+            left: 0% !important;
+        }
+        & .desktop {
+            display: none !important;
+        }
+        & .info {
+            display: none !important;
+        }
+        & .celular {
+            display: contents !important;
+        }
+        ul {
+            text-decoration: none;
+            color: #000000;
+            position: fixed;
+            top: 5%;
+            right: 0%;
+            z-index: 2;
+            li {
+                font-size: 10vw;
+            }
+        }
+    }
+`;
+
+export const Auxiliar = styled.div`
+    height: 20vw;
+    @media only screen and (max-width: 768px) {
+        height: 35vw !important;
+    }     
 `;
