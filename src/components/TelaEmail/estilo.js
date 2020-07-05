@@ -227,3 +227,102 @@ export const Divisor = styled.div.attrs(props => ({
         }
     }
 `;
+
+export const DivTelaEmailCelular = styled.div.attrs((props) => ({
+    className: props.className
+}))`
+    padding: 2%;
+
+    ul {
+        border: 0.8vh solid #ff0000;
+        border-radius: 5vh;
+        list-style: none;
+
+        li {
+            font-size: 5vw;
+
+            text, img, input, textarea {
+                padding: 1% 2% 1% 2%
+            }
+
+            text {
+                font-weight: 1000;
+            }
+
+            textarea {
+                height: 50vw;
+            }
+
+            input, textarea {
+                width: 100%;
+                font-size: 1.5vw;
+                font-weight: normal; 
+                box-sizing: border-box;
+                border: none;
+                resize: none;   
+                outline: inherit;
+                color: #001eff;        
+            }
+
+            text, input, textarea {
+                font-size: 4vw;
+                color: #ff0000;
+
+                ::placeholder {
+                    font-weight: 1000;
+                    color: #ff0000;
+                }
+
+                ::-webkit-input-placeholder {
+                    font-weight: 1000;
+                    color: #ff0000;
+                }
+
+                :-ms-input-placeholder {
+                    font-weight: 1000;
+                    color: #ff0000;
+                }
+            }
+
+            border-bottom: 0.8vh solid #ff0000;
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+
+    & .areaDoTexto {
+        border-bottom: none;
+    }
+
+    & .flexivel {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        div {
+            width: 100%;
+
+            text {
+                font-size: 4vw;
+                font-weight: 1000;
+                color: #001eff;
+            }
+            span {
+                padding-left: 1%;
+                font-size: 2vw;
+                color: #ff0000;
+            }
+
+        }
+
+        img {
+            width: 8%;
+        }
+    }
+
+    & .enviar {
+        width: 20% !important;
+    }
+`;

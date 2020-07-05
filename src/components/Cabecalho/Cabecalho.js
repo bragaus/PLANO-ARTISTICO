@@ -4,10 +4,12 @@ import { Link as Ancora } from 'react-router-dom';
 import { Superior, Auxiliar } from './estilo';
 import LogoImg from '../../estaticos/logo.png';
 import TelaEmail from '../TelaEmail/TelaEmail';
+import TelaEmailCelular from '../TelaEmail/TelaEmailCelular';
 
 const Cabecalho = () => {
 
     const [telaDeEmail, setTelaDeEmail] = useState(false);
+    const [telaDeEmailCelular, setTelaDeEmailCelular] = useState(false);
     
     return (<>
         <Superior>
@@ -20,9 +22,11 @@ const Cabecalho = () => {
                         </Ancora>                    
                     </li>
                     <li>
-                        <Ancora to="/sobre">
+                        <button
+                            onClick={() => setTelaDeEmailCelular(true)}
+                        >
                             <b>CONTACT</b>
-                        </Ancora>                    
+                        </button>             
                     </li>
                 </ul>
             </nav>    
@@ -86,7 +90,9 @@ const Cabecalho = () => {
 
         <Auxiliar />
 
-        {telaDeEmail && <TelaEmail setTelaDeEmail={setTelaDeEmail}/>}        
+        {telaDeEmail && <TelaEmail setTelaDeEmail={setTelaDeEmail}/>}
+        {telaDeEmailCelular && <TelaEmailCelular/>}
+
     </>);
 };
 
