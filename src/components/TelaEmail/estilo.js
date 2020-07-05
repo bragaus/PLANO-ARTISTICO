@@ -3,8 +3,8 @@ import styled, { css } from 'styled-components';
 const restaurar = css`
     width: 40%;
     position: fixed;
-    top: 17%;
-    left: 17%;
+    top: 15%;
+    left: 27%;
     z-index: 2;
 
     & .aparecerMinimizado {
@@ -18,91 +18,93 @@ const restaurar = css`
 
 const minimizar = css` 
     ul {
-        display: none;
-    }
-    & .aparecerMinimizado {
-        display: contents !important;
         li {
-            border: 0.3vw solid #ff0000;
-            border-radius: 2vw;
+            display: none !important;
         }
-    }    
+    }
+
+    & #arrastavel {
+        display: contents !important;
+        div {
+            text {
+                margin: 3%;
+            }
+        }
+    }
 `;
 
 const desminimizar = css`
-    main {
-        display: initial;
-    }
+    display: initial;
 `;
 
 const maximizar = css`
-    width: 100%;
-    height: 100%;
-    position: absolute !important;
-    top: 0%;
-    left: 0%;
+    & .aparecerMinimizado {
+        display: none !important;
+    }
+
+    position: fixed !important;
+    top: 5%;
+    left: 1%;
+    width: 95vw;
+    margin: auto;
     z-index: 3;
-    border-radius: 0px !important;
 
     ul {
-        font-size: 3vw !important;
-        border-radius: 0% !important;        
+        font-size: 1.5vw !important;
         li {
-            span {
-                font-size: 2vw !important;
+            text {
+                font-size: 1.5vw !important;
             }
-            text { 
-                font-size: 3vw !important;
-            }
-
-            img {
-                width: 4% !important;
-            }
-
             input {
-                font-size: 3vw !important;
-
+                font-size: 1.5vw !important;
+                width: 10vh;
                 ::placeholder {
-                    font-size: 3vw !important;
+                    font-size: 1.5vw !important;
                 }
 
                 ::-webkit-input-placeholder {
-                    font-size: 3vw !important;
+                    font-size: 1.5vw !important;
                 }
 
                 :-ms-input-placeholder {
-                    font-size: 3vw !important;
-                } 
+                    font-size: 1.5vw !important;
+                }                
             }
-        }     
+            textarea {
+                font-size: 1.5vw !important;
+                height: 35vh;
+                ::placeholder {
+                    font-size: 1.5vw !important;
+                }
+
+                ::-webkit-input-placeholder {
+                    font-size: 1.5vw !important;
+                }
+
+                :-ms-input-placeholder {
+                    font-size: 1.5vw !important;
+                }                   
+            }
+        }
     }
 
-    textarea {
-        height: 33vh;
+    & .flexivel {
 
-        font-size: 3vw !important;  
-        ::placeholder {
-            font-size: 3vw !important;
+        div:first-child {
+            width: 90vh !important;
         }
-
-        ::-webkit-input-placeholder {
-            font-size: 3vw !important;
+        div {
+            width: 30vh !important;
         }
-
-        :-ms-input-placeholder {
-            font-size: 3vw !important;
-        }               
     }
-
-    & .aparecerMinimizado {
-        display: none !important;
-    }    
 
     & .botaoEnviar {
-        img {
-            width: 20% !important;
-        }
-    }  
+        width: 30vh !important;
+    }
+    
+    & .botaoAnexo {
+        width: 10vh !important;
+    }    
 `;
 
 export const Divisor = styled.div.attrs(props => ({
@@ -120,10 +122,24 @@ export const Divisor = styled.div.attrs(props => ({
     }
 
     & .botaoEnviar {
-        border: none;
-        img {
+        width: 30%;
+        margin: 0% !important;
+    }
+    
+    & .botaoAnexo {
+        width: 10%;
+    }
+
+    & .flexivel {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        div:first-child {
+            width: 80%;
+        }
+        div {
             width: 30%;
-            float: none;
         }
     }
 
@@ -144,14 +160,16 @@ export const Divisor = styled.div.attrs(props => ({
             &:first-child {
                 color: #001eff;
             }
+            &:last-child {
+                border: none;
+            }
 
             padding: 1% 2% 1% 2%;
             border-bottom: 0.3vw solid #ff0000;         
 
             img {
-                width: 5%;
-                margin: 0% 1% 0% 1%;
-                float: right;
+                width: 20%;
+                margin: 3% 0% 0% 10%;
             }
 
             input {
@@ -163,7 +181,7 @@ export const Divisor = styled.div.attrs(props => ({
                 color: #001eff;
 
                 ::placeholder {
-                    color: #ff0000
+                    color: #ff0000;
                 }
 
                 ::-webkit-input-placeholder {
@@ -185,119 +203,27 @@ export const Divisor = styled.div.attrs(props => ({
             textarea {
                 width: 100%;
                 font-size: 1.5vw;
-                font-weight: 1000; 
+                font-weight: normal; 
                 box-sizing: border-box;
                 border: none;
                 resize: none;   
                 outline: inherit;
                 color: #001eff;              
                 ::placeholder {
-                    color: #ff0000;
+                    font-weight: 1000;
+                    color: #001eff;
                 }
 
                 ::-webkit-input-placeholder {
-                    color: #ff0000;
+                    font-weight: 1000;
+                    color: #001eff;
                 }
 
                 :-ms-input-placeholder {
-                    color: #ff0000;
+                    font-weight: 1000;
+                    color: #001eff;
                 }                                 
             }             
         }
     }
-
-    /* header {
-        display: flex;
-        justify-content: space-between;
-        background-color: black;
-        cursor: move;
-
-        ul {
-            display: flex;
-            align-items: center;
-            li {
-                list-style-type: none;
-                padding-right: 1vw;
-                button {
-                    color: white;
-                    font-size: 1vw;
-                    cursor: pointer;
-                }
-            }
-        }
-    }
-
-    h2 {
-        font-size: 3vw;
-        margin: 2% 0%;
-
-        @media only screen and (max-width: 768px) {
-            font-size: 2vw;
-        }          
-    }
-
-    h1 {
-        color: white;
-        font-size: 3vw;        
-    }
-
-    span {
-        font-size: 3vw;
-    }
-
-    button {
-        margin: 2%;
-        font-size: 3vw;
-        color: black;
-        background: none;
-        border: none;
-        outline: inherit;
-        &:hover{
-            background: red;
-            color: red !important;
-        }
-    }
-
-    a {
-        margin: 1% !important;
-        font-size: 2vw !important; 
-        color: white !important;
-        background: none;
-        border: none;
-        outline: inherit;
-        text-decoration: none;
-        &:hover{
-            background: red;
-            color: red !important;
-        }         
-    }    
-
-    input {
-        width: 100%;
-        padding: 2%;
-        box-sizing: border-box;
-        border: none;
-        border-bottom: 0.3vw solid black;
-        font-size: 2vw;            
-        margin-bottom: 1%; 
-        outline: inherit;        
-    }
-
-    textarea {
-        width: 100%;
-        font-size: 2vw;
-        padding: 2%;
-        box-sizing: border-box;
-        border: none;
-        border-bottom: 0.3vw solid black;
-        background-color: #f8f8f8;
-        resize: none;   
-        outline: inherit;                  
-    }     */
 `;
-
-// export const DivisorFlexivel = styled.div`
-//     display: flex;
-//     justify-content: space-between;    
-//     align-items: center;
-// `;
