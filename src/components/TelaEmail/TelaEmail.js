@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import api from '../../services/api';
-import { Divisor, DivisorFlexivel } from './estilo';
+import { Divisor } from './estilo';
 import Draggable from 'react-draggable';
 import * as Yup from 'yup';
 import maximizador from '../../estaticos/maximizar.svg';
 import fechar from '../../estaticos/fechar.svg';
-import minizar from '../../estaticos/minimizar.svg';
+import minimizarSVG from '../../estaticos/minimizar.svg';
 import enviar from '../../estaticos/send.svg';
+import anexo from '../../estaticos/anexo.svg';
 
 const TelaEmail = ({ setTelaDeEmail }) => {
 
@@ -90,78 +91,91 @@ const TelaEmail = ({ setTelaDeEmail }) => {
 
             <ul className="aparecerMinimizado">
                 <li id="arrastavel">
-                    <text>NEW MESSAGE</text>
+                    <div className="flexivel">
+                        <text>NEW MESSAGE</text>
 
-                    <img 
-                        src={fechar}
-                        onClick={() => setTelaDeEmail(false)}
-                    />                    
-                    <img 
-                        src={maximizador} 
-                        src={maximizador} 
-                        onClick={() => {
-                            if (maximizar) {
-                                setMaximizar(false)                                
-                            } else {
-                                document.documentElement.scrollTop = 0     
-                                document.body.scrollTop = 0
-                                setMaximizar(true)                                                 
-                            }
-                        }}
-                    />
-                    <img 
-                        src={minizar}
-                        onClick={() => {
-                            if (minimizar) {
-                                setMinimizar(false)
-                            } else {
-                                setMinimizar(true)
-                                // deixa maximizar como false para habilitar o arrastavel
-                                setMaximizar(false)
-                            }
-                        }}
-                    />  
-
+                        <img 
+                            src={fechar}
+                            onClick={() => setTelaDeEmail(false)}
+                            alt="fechar"
+                        />                    
+                        <img 
+                            src={maximizador} 
+                            src={maximizador} 
+                            onClick={() => {
+                                if (maximizar) {
+                                    setMaximizar(false)                                
+                                } else {
+                                    document.documentElement.scrollTop = 0     
+                                    document.body.scrollTop = 0
+                                    setMaximizar(true)                                                 
+                                }
+                            }}
+                            alt="maximizar"
+                        />
+                        <img 
+                            src={minimizarSVG}
+                            onClick={() => {
+                                if (minimizar) {
+                                    setMinimizar(false)
+                                } else {
+                                    setMinimizar(true)
+                                    // deixa maximizar como false para habilitar o arrastavel
+                                    setMaximizar(false)
+                                }
+                            }}
+                            alt="minizar"
+                        />  
+                    </div>
                 </li>                
             </ul>
 
             <ul>
                 <li id="arrastavel">
+                    <div className="flexivel">
+                        <div>
+                            <text>NEW MESSAGE</text>
+                            
+                            {mensagemDeErroDoCorpo ? 
+                            <span>{mensagemDeErroDoCorpo}</span> : null}
 
-                    <text>NEW MESSAGE</text>                 
-
-                    <img 
-                        src={fechar}
-                        onClick={() => setTelaDeEmail(false)}
-                    />                    
-                    <img 
-                        src={maximizador} 
-                        onClick={() => {
-                            if (maximizar) {
-                                setMaximizar(false)                                
-                            } else {
-                                document.documentElement.scrollTop = 0     
-                                document.body.scrollTop = 0
-                                setMaximizar(true)                                                 
-                            }
-                        }}
-                    />
-                    <img 
-                        src={minizar}
-                        onClick={() => {
-                            if (minimizar) {
-                                setMinimizar(false)
-                            } else {
-                                setMinimizar(true)
-                                // deixa maximizar como false para habilitar o arrastavel
-                                setMaximizar(false)
-                            }
-                        }}
-                    />         
-
-                    {mensagemDeErroDoCorpo ? <span>{mensagemDeErroDoCorpo}</span> : null}                    
-                    {mensagemDeErroDoEmail && !mensagemDeErroDoCorpo ? <span>{mensagemDeErroDoEmail}</span> : null}                                  
-
+                            {mensagemDeErroDoEmail && !mensagemDeErroDoCorpo ? 
+                            <span>{mensagemDeErroDoEmail}</span> : null}                              
+                        </div>
+                        <div>
+                            <img 
+                                src={minimizarSVG}
+                                onClick={() => {
+                                    if (minimizar) {
+                                        setMinimizar(false)
+                                    } else {
+                                        setMinimizar(true)
+                                        // deixa maximizar como false para habilitar o arrastavel
+                                        setMaximizar(false)
+                                    }
+                                }}
+                                alt="minizar"
+                            />
+                            <img 
+                                src={maximizador} 
+                                onClick={() => {
+                                    if (maximizar) {
+                                        setMaximizar(false)                                
+                                    } else {
+                                        document.documentElement.scrollTop = 0     
+                                        document.body.scrollTop = 0
+                                        setMaximizar(true)                                                 
+                                    }
+                                }}
+                                alt="maximizar"
+                            />                                                     
+                            <img 
+                                src={fechar}
+                                onClick={() => setTelaDeEmail(false)}
+                                alt="fechar"
+                            />
+                        </div>   
+                    </div>
                 </li>
                 <li>TO: BUSINESS.PLANOART@GMAIL.COM</li>
 
@@ -181,7 +195,8 @@ const TelaEmail = ({ setTelaDeEmail }) => {
                             placeholder="FROM: ENTER YOUR EMAIL ADDRES" 
                             type="text"
                         />
-                        {errors.email && touched.email ? setMensagemDeErroDoEmail(errors.email) : setMensagemDeErroDoEmail('')}
+                        {errors.email && touched.email ? 
+                        setMensagemDeErroDoEmail(errors.email) : setMensagemDeErroDoEmail('')}
 
                     </li>
                     <li className="mensagem">
@@ -192,11 +207,15 @@ const TelaEmail = ({ setTelaDeEmail }) => {
                             component="textarea" 
                             rows="5"
                         />
-                        {errors.corpo && touched.corpo ? setMensagemDeErroDoCorpo(errors.corpo) : setMensagemDeErroDoCorpo('') }      
+                        {errors.corpo && touched.corpo ? 
+                        setMensagemDeErroDoCorpo(errors.corpo) : setMensagemDeErroDoCorpo('') }      
 
                     </li>
-                    <li className="botaoEnviar">
-                        <img src={enviar}/>
+                    <li>
+                        <div className="flexivel">
+                            <img className="botaoEnviar" src={enviar} alt="enviar"/>
+                            <img className="botaoAnexo" src={anexo} alt="anexo"/>
+                        </div>
                     </li>
                 </Form>
 
