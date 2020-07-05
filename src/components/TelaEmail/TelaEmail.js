@@ -4,6 +4,10 @@ import api from '../../services/api';
 import { Divisor, DivisorFlexivel } from './estilo';
 import Draggable from 'react-draggable';
 import * as Yup from 'yup';
+import maximizador from '../../estaticos/maximizar.svg';
+import fechar from '../../estaticos/fechar.svg';
+import minizar from '../../estaticos/minimizar.svg';
+import enviar from '../../estaticos/send.svg';
 
 const TelaEmail = ({ setTelaDeEmail }) => {
 
@@ -20,6 +24,9 @@ const TelaEmail = ({ setTelaDeEmail }) => {
     // Esses estados servem para controle do tamanho da tela do email
     const [maximizar, setMaximizar] = useState(false);
     const [minimizar, setMinimizar] = useState(false);
+
+    const [mensagemDeErroDoEmail, setMensagemDeErroDoEmail] = useState('');
+    const [mensagemDeErroDoCorpo, setMensagemDeErroDoCorpo] = useState('');
 
     // Esse estado serve para guardar os valores da posição da tela de email
     const [controladorDePosicao, setControladorDePosicao] = useState({
@@ -69,8 +76,8 @@ const TelaEmail = ({ setTelaDeEmail }) => {
 
     return(<>
         <Draggable
-            // Ativar o arrastavel apenas no header
-            handle="header"
+            // Ativar o arrastavel apenas no id
+            handle="#arrastavel"
             // Defini zona limite para arrastar
             bounds="parent" 
             // Controlador de posição
@@ -81,14 +88,29 @@ const TelaEmail = ({ setTelaDeEmail }) => {
 
         <Divisor maximizador={maximizar} minimizador={minimizar}>
 
-        <header>
-            {minimizar ?
-            <h1 onClick={() => setMinimizar(false)}>email sender</h1> : 
-            <h1>email sender</h1>}
-            
-            <ul>
-                <li>
-                    <button 
+            <ul className="aparecerMinimizado">
+                <li id="arrastavel">
+                    <text>NEW MESSAGE</text>
+
+                    <img 
+                        src={fechar}
+                        onClick={() => setTelaDeEmail(false)}
+                    />                    
+                    <img 
+                        src={maximizador} 
+                        src={maximizador} 
+                        onClick={() => {
+                            if (maximizar) {
+                                setMaximizar(false)                                
+                            } else {
+                                document.documentElement.scrollTop = 0     
+                                document.body.scrollTop = 0
+                                setMaximizar(true)                                                 
+                            }
+                        }}
+                    />
+                    <img 
+                        src={minizar}
                         onClick={() => {
                             if (minimizar) {
                                 setMinimizar(false)
@@ -98,86 +120,89 @@ const TelaEmail = ({ setTelaDeEmail }) => {
                                 setMaximizar(false)
                             }
                         }}
-                    >
-                        min
-                    </button>
-                </li>
-                
-                {minimizar ? null : <li>
-                    <button 
-                        onClick={() => maximizar ? setMaximizar(false) : setMaximizar(true)}
-                    >
-                        max
-                    </button>
-                </li>}
-                
-                <li>
-                    <button onClick={() => setTelaDeEmail(false)}> 
-                        close
-                    </button>
-                </li>
+                    />  
+
+                </li>                
             </ul>
-        </header>
 
-        <main>
-            <h2>To: business.planoart@gmail.com</h2>
+            <ul>
+                <li id="arrastavel">
 
-            <Formik 
-                initialValues = { camposDoFormulario } 
-                validationSchema = { EsquemaDeValidacao }                     
-                onSubmit = { enviarDadosParaRotaDeEmail }
-            >
+                    <text>NEW MESSAGE</text>                 
 
-            {({ handleSubmit, errors, touched }) => (
-                <Form onSubmit={handleSubmit} >                     
-                    <Field 
-                        name="email" 
-                        placeholder="From: Enter your email address" 
-                        type="text"
-                    />
-                    {errors.email && touched.email ? (
-                        <div>{errors.email}</div>
-                    ) : null }
-
-
-                    <Field 
-                        name="corpo" 
-                        placeholder="Message:" 
-                        component="textarea" 
-                        rows="5"
-                    />
-                    {errors.corpo && touched.corpo ? (
-                        <div>{errors.corpo}</div>
-                    ) : null }                        
-
-                    <DivisorFlexivel>
-
-                        {/* Mensagem de erro ao enviar email */}
-                        {emailNaoEnviado && <span>please try again</span>}
-
-                        {/* O botão de enviar email só é mostrado se ainda não foi
-                        enviado email ou se o email foi enviado com erro */}
-                        {!desativarEnvioDeEmail && <button
-                            type="submit"
-                            style={ // Travar o botão se o email estiver sendo enviado
-                                enviando === 'SENDING...' ? 
-                                {pointerEvents: 'none'} : 
-                                {pointerEvents: 'all'}
+                    <img 
+                        src={fechar}
+                        onClick={() => setTelaDeEmail(false)}
+                    />                    
+                    <img 
+                        src={maximizador} 
+                        onClick={() => {
+                            if (maximizar) {
+                                setMaximizar(false)                                
+                            } else {
+                                document.documentElement.scrollTop = 0     
+                                document.body.scrollTop = 0
+                                setMaximizar(true)                                                 
                             }
-                        >
-                            {enviando}
-                        </button>}
+                        }}
+                    />
+                    <img 
+                        src={minizar}
+                        onClick={() => {
+                            if (minimizar) {
+                                setMinimizar(false)
+                            } else {
+                                setMinimizar(true)
+                                // deixa maximizar como false para habilitar o arrastavel
+                                setMaximizar(false)
+                            }
+                        }}
+                    />         
 
-                        {/* Mensagem de email enviado com sucesso */}
-                        {emailEnviado && <span>Sent with success</span>}
+                    {mensagemDeErroDoCorpo ? <span>{mensagemDeErroDoCorpo}</span> : null}                    
+                    {mensagemDeErroDoEmail && !mensagemDeErroDoCorpo ? <span>{mensagemDeErroDoEmail}</span> : null}                                  
 
-                    </DivisorFlexivel>
+                </li>
+                <li>TO: BUSINESS.PLANOART@GMAIL.COM</li>
 
+                <Formik 
+                    initialValues = { camposDoFormulario } 
+                    validationSchema = { EsquemaDeValidacao }                     
+                    onSubmit = { enviarDadosParaRotaDeEmail }
+                >
+
+                {({ handleSubmit, errors, touched }) => (
+                    
+                <Form>
+                    <li>
+
+                        <Field 
+                            name="email" 
+                            placeholder="FROM: ENTER YOUR EMAIL ADDRES" 
+                            type="text"
+                        />
+                        {errors.email && touched.email ? setMensagemDeErroDoEmail(errors.email) : setMensagemDeErroDoEmail('')}
+
+                    </li>
+                    <li className="mensagem">
+
+                        <Field
+                            name="corpo" 
+                            placeholder="MESSAGE" 
+                            component="textarea" 
+                            rows="5"
+                        />
+                        {errors.corpo && touched.corpo ? setMensagemDeErroDoCorpo(errors.corpo) : setMensagemDeErroDoCorpo('') }      
+
+                    </li>
+                    <li className="botaoEnviar">
+                        <img src={enviar}/>
+                    </li>
                 </Form>
-            ) }
 
-            </Formik>
-        </main>
+                )}
+                </Formik>
+            </ul>
                 
         </Divisor>
         </Draggable>
