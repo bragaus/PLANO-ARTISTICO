@@ -19,8 +19,8 @@ export const Superior = styled.header.attrs(props => ({
         text-decoration: none;
         color: #000000;
         position: fixed;
-        top: -2%;
-        left: -0.2%;
+        top: -1%;
+        left: 0%;
         z-index: 2;             
         &:hover {
             color: #ff0000;
@@ -32,7 +32,7 @@ export const Superior = styled.header.attrs(props => ({
     ul {
         position: fixed;
         right: 0%;
-        top: -2%;
+        top: -1%;
         z-index: 2;
         li {
             text-align: right;
