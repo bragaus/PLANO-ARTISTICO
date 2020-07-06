@@ -121,11 +121,6 @@ export const Divisor = styled.div.attrs(props => ({
         border-bottom: none;
     }
 
-    & .botaoEnviar {
-        width: 30%;
-        margin: 0% !important;
-    }
-    
     & .botaoAnexo {
         width: 10%;
     }
@@ -136,12 +131,36 @@ export const Divisor = styled.div.attrs(props => ({
         align-items: center;
 
         div:first-child {
-            width: 80%;
+            width: 80%;  
         }
+/* 
+        & .botaoEnviar {
+        width: 50%;
+        float: left;
+        margin: 0% !important;
+    } */
+    
+
+        & .botaoEnviar {
+            background: none;
+            border: none;
+            outline: inherit;
+            cursor: pointer; 
+            width: 30%;
+            height: 3vw;
+            padding-bottom: 2%;
+            img {
+                width: 100%;
+                margin: 0% !important;
+            }
+        } 
+
         div {
             width: 30%;
         }
     }
+
+
 
     ul {     
         list-style: none;
@@ -226,17 +245,26 @@ export const Divisor = styled.div.attrs(props => ({
             }             
         }
     }
+
+    @media only screen and (max-width: 768px) {
+        display: none;
+    }       
 `;
 
 export const DivTelaEmailCelular = styled.div.attrs((props) => ({
     className: props.className
 }))`
-    padding: 2%;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 2;
+    width: 100%;
 
     ul {
         border: 0.8vh solid #ff0000;
         border-radius: 5vh;
         list-style: none;
+        background-color: white;
 
         li {
             font-size: 5vw;
@@ -250,7 +278,7 @@ export const DivTelaEmailCelular = styled.div.attrs((props) => ({
             }
 
             textarea {
-                height: 50vw;
+                height: 30vw;
             }
 
             input, textarea {
@@ -315,6 +343,13 @@ export const DivTelaEmailCelular = styled.div.attrs((props) => ({
                 color: #ff0000;
             }
 
+            button {
+                background: none;
+                border: none;
+                outline: inherit;
+                cursor: pointer;                
+            }
+
         }
 
         img {
@@ -325,4 +360,8 @@ export const DivTelaEmailCelular = styled.div.attrs((props) => ({
     & .enviar {
         width: 20% !important;
     }
+
+    @media only screen and (min-width: 768px) {
+        display: none;
+    }    
 `;

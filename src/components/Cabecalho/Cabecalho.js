@@ -8,7 +8,7 @@ import TelaEmailCelular from '../TelaEmail/TelaEmailCelular';
 
 const Cabecalho = () => {
 
-    const [telaDeEmail, setTelaDeEmail] = useState(false);
+    const [telaDeEmail, setTelaDeEmail] = useState(true);
     const [telaDeEmailCelular, setTelaDeEmailCelular] = useState(false);
     
     return (<>

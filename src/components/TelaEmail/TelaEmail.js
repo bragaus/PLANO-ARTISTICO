@@ -185,7 +185,7 @@ const TelaEmail = ({ setTelaDeEmail }) => {
                     onSubmit = { enviarDadosParaRotaDeEmail }
                 >
 
-                {({ handleSubmit, errors, touched }) => (
+                {({ errors, touched }) => (
                     
                 <Form>
                     <li>
@@ -213,7 +213,10 @@ const TelaEmail = ({ setTelaDeEmail }) => {
                     </li>
                     <li>
                         <div className="flexivel">
-                            <img className="botaoEnviar" src={enviar} alt="enviar"/>
+                            <button type="submit" className="botaoEnviar" >
+                                <img src={enviar} alt="enviar"/>
+                            </button>
+
                             <img className="botaoAnexo" src={anexo} alt="anexo"/>
                         </div>
                     </li>

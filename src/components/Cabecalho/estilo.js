@@ -107,6 +107,9 @@ export const Superior = styled.header.attrs(props => ({
             z-index: 2;
             li {
                 font-size: 10vw;
+                button {
+                    font-size: 10vw;
+                }                
             }
         }
     }
