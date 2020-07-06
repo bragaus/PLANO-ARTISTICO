@@ -188,3 +188,17 @@ export const Colagem = styled.img`
         top: 0vw;
     }        
 `;
+
+export const DivTemporario = styled.div`
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    font-size: 5vh;
+    color: white;
+
+    h1 {
+        margin: auto;
+    }
+`;
