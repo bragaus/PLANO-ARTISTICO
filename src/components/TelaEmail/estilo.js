@@ -117,7 +117,7 @@ export const Divisor = styled.div.attrs(props => ({
     background-color: #fff;
     border-radius: 2vw;
 
-    & .mensagem {
+    & .mensagemDoCorpoDoEmail {
         border-bottom: none;
     }
 
@@ -125,7 +125,7 @@ export const Divisor = styled.div.attrs(props => ({
         width: 10%;
     }
 
-    & .flexivel {
+    & .cabecalho {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -133,34 +133,43 @@ export const Divisor = styled.div.attrs(props => ({
         div:first-child {
             width: 80%;  
         }
-/* 
-        & .botaoEnviar {
-        width: 50%;
-        float: left;
-        margin: 0% !important;
-    } */
-    
-
-        & .botaoEnviar {
-            background: none;
-            border: none;
-            outline: inherit;
-            cursor: pointer; 
-            width: 30%;
-            height: 3vw;
-            padding-bottom: 2%;
-            img {
-                width: 100%;
-                margin: 0% !important;
-            }
-        } 
 
         div {
             width: 30%;
         }
     }
 
+    & .arquivoUpado {
+        font-size: 0.8vw;
+    }
 
+    & .rodape {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            width: 100%;
+            margin: 0 !important;
+            &:last-child {
+                float: right;
+            }
+        }
+
+        button, input {
+            display: none;
+        }
+
+        & .estiloBotaoEnviarEmail {
+            width: 30%;
+            height: 4vw;
+        }
+        & .estiloAnexoArquivoEmail {
+            width: 10%;
+            height: 4vw;   
+        }
+
+    }
 
     ul {     
         list-style: none;
@@ -245,6 +254,8 @@ export const Divisor = styled.div.attrs(props => ({
             }             
         }
     }
+
+
 
     @media only screen and (max-width: 768px) {
         display: none;

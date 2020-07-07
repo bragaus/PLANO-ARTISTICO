@@ -26,8 +26,11 @@ const TelaEmail = ({ setTelaDeEmail }) => {
     const [maximizar, setMaximizar] = useState(false);
     const [minimizar, setMinimizar] = useState(false);
 
+    // Esses estados servem para controlar as mensagem de erro do input de email e de mensagem
     const [mensagemDeErroDoEmail, setMensagemDeErroDoEmail] = useState('');
     const [mensagemDeErroDoCorpo, setMensagemDeErroDoCorpo] = useState('');
+
+    const [arquivoUpado, setArquivoUpado] = useState('');
 
     // Esse estado serve para guardar os valores da posição da tela de email
     const [controladorDePosicao, setControladorDePosicao] = useState({
@@ -43,26 +46,26 @@ const TelaEmail = ({ setTelaDeEmail }) => {
 
     // Função que recebe os dados do formulario e envia para rota que faz o envio do email
     function enviarDadosParaRotaDeEmail(dados) {
+        console.log(dados)
+        // // Mostrar enviando quando for clicado no botão enviar
+        // setEnviando('SENDING...');
 
-        // Mostrar enviando quando for clicado no botão enviar
-        setEnviando('SENDING...');
-
-        // Rota que faz o envio do email
-        api.post('/email', dados)
-        .then((res) => { // Resposta do status do envio
-            if (res.status === 200) {
-                setEmailEnviado(true);
-                setEnviando('SEND');
-                setDesativarEnvioDeEmail(true);
-            } else {
-                setEmailNaoEnviado(true);
-                setEnviando('SEND AGAIN');
-            }
-        })
-        .catch(() => { // Resposta caso ocorra algum erro
-            setEmailNaoEnviado(true);
-            setEnviando('SEND AGAIN');
-        })
+        // // Rota que faz o envio do email
+        // api.post('/email', dados)
+        // .then((res) => { // Resposta do status do envio
+        //     if (res.status === 200) {
+        //         setEmailEnviado(true);
+        //         setEnviando('SEND');
+        //         setDesativarEnvioDeEmail(true);
+        //     } else {
+        //         setEmailNaoEnviado(true);
+        //         setEnviando('SEND AGAIN');
+        //     }
+        // })
+        // .catch(() => { // Resposta caso ocorra algum erro
+        //     setEmailNaoEnviado(true);
+        //     setEnviando('SEND AGAIN');
+        // })
     }
 
     // Validação das entradas
@@ -72,7 +75,7 @@ const TelaEmail = ({ setTelaDeEmail }) => {
     })      
 
     const camposDoFormulario = {
-        email: '', corpo: ''
+        email: '', corpo: '', arquivo: null
     };
 
     return(<>
@@ -89,7 +92,7 @@ const TelaEmail = ({ setTelaDeEmail }) => {
 
         <Divisor maximizador={maximizar} minimizador={minimizar}>
 
-            <ul className="aparecerMinimizado">
+            {/* <ul className="aparecerMinimizado">
                 <li id="arrastavel">
                     <div className="flexivel">
                         <text>NEW MESSAGE</text>
@@ -128,14 +131,15 @@ const TelaEmail = ({ setTelaDeEmail }) => {
                         />  
                     </div>
                 </li>                
-            </ul>
+            </ul> */}
 
             <ul>
                 <li id="arrastavel">
-                    <div className="flexivel">
+                    <div className="cabecalho">
                         <div>
-                            <text>NEW MESSAGE</text>
+                            NEW MESSAGE
                             
+                            {/* Mensagens de erro */}
                             {mensagemDeErroDoCorpo ? 
                             <span>{mensagemDeErroDoCorpo}</span> : null}
 
@@ -151,6 +155,7 @@ const TelaEmail = ({ setTelaDeEmail }) => {
                                     } else {
                                         setMinimizar(true)
                                         // deixa maximizar como false para habilitar o arrastavel
+                                        // porque o arrastavel é travado quando está maximizado
                                         setMaximizar(false)
                                     }
                                 }}
@@ -199,7 +204,7 @@ const TelaEmail = ({ setTelaDeEmail }) => {
                         setMensagemDeErroDoEmail(errors.email) : setMensagemDeErroDoEmail('')}
 
                     </li>
-                    <li className="mensagem">
+                    <li className="mensagemDoCorpoDoEmail">
 
                         <Field
                             name="corpo" 
@@ -211,13 +216,29 @@ const TelaEmail = ({ setTelaDeEmail }) => {
                         setMensagemDeErroDoCorpo(errors.corpo) : setMensagemDeErroDoCorpo('') }      
 
                     </li>
-                    <li>
-                        <div className="flexivel">
-                            <button type="submit" className="botaoEnviar" >
-                                <img src={enviar} alt="enviar"/>
-                            </button>
 
-                            <img className="botaoAnexo" src={anexo} alt="anexo"/>
+                    {arquivoUpado && <li className="arquivoUpado">
+                        {arquivoUpado}
+                        <button onClick={() => setArquivoUpado('')}>
+                            x
+                        </button>
+                    </li>}
+
+                    <li>
+                        <div className="rodape">
+
+                            <label htmlFor="enviar" className="estiloBotaoEnviarEmail">
+                                <img src={enviar} alt="enviar" />
+                            </label>
+                            <button type="submit" id="enviar"/>
+
+                            <label htmlFor="anexo" className="estiloAnexoArquivoEmail">
+                                    <img src={anexo} alt="anexo"/>
+                                </label>
+                            <Field type="file" name="arquivo" id="anexo" onChange={(arquivo) => {
+                                setArquivoUpado(arquivo.target.files[0].name)
+                            }}/>                             
+
                         </div>
                     </li>
                 </Form>

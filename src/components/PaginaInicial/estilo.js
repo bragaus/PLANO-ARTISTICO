@@ -175,7 +175,7 @@ export const Colagem = styled.img`
             left: `${arte.esquerda}%`,
             right: `${arte.direita}%`,
             bottom: `${arte.cima}vw`,
-            top: `${arte.baixo}vw`,                
+            top: `${arte.baixo}vw`,     
         })
     }}
     z-index: 1;

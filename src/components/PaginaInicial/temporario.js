@@ -4,7 +4,7 @@ import {DivTemporario} from './estilo';
 const Temporario = () => (
     <DivTemporario>    
         <h1>WORK IN PROGRESS...</h1>
-        <a href="https://www.instagram.com/planoartistico/">INSTA</a>
+        <a href="https://www.instagram.com/planoartistico/">Instagram</a>
     </DivTemporario>
 )
 
