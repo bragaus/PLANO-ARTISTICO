@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import api from '../../services/api';
-import { Divisor } from './estilo';
+import { Container, ParteDeCima, Fechar } from './estilo';
 import Draggable from 'react-draggable';
 import * as Yup from 'yup';
 import maximizador from '../../estaticos/maximizar.svg';
@@ -90,164 +90,17 @@ const TelaEmail = ({ setTelaDeEmail }) => {
             position={maximizar ? {x: 0, y:0} : controladorDePosicao}
         >
 
-        <Divisor maximizador={maximizar} minimizador={minimizar}>
+        <Container>
+            <ParteDeCima>
+                <header>NEW MESSAGE</header>
+                <div>
+                    <Fechar />
+                    <button>a</button>
+                    <button>a</button>
+                </div>
+            </ParteDeCima>
+        </Container>
 
-            {/* <ul className="aparecerMinimizado">
-                <li id="arrastavel">
-                    <div className="flexivel">
-                        <text>NEW MESSAGE</text>
-
-                        <img 
-                            src={fechar}
-                            onClick={() => setTelaDeEmail(false)}
-                            alt="fechar"
-                        />                    
-                        <img 
-                            src={maximizador} 
-                            src={maximizador} 
-                            onClick={() => {
-                                if (maximizar) {
-                                    setMaximizar(false)                                
-                                } else {
-                                    document.documentElement.scrollTop = 0     
-                                    document.body.scrollTop = 0
-                                    setMaximizar(true)                                                 
-                                }
-                            }}
-                            alt="maximizar"
-                        />
-                        <img 
-                            src={minimizarSVG}
-                            onClick={() => {
-                                if (minimizar) {
-                                    setMinimizar(false)
-                                } else {
-                                    setMinimizar(true)
-                                    // deixa maximizar como false para habilitar o arrastavel
-                                    setMaximizar(false)
-                                }
-                            }}
-                            alt="minizar"
-                        />  
-                    </div>
-                </li>                
-            </ul> */}
-
-            <ul>
-                <li id="arrastavel">
-                    <div className="cabecalho">
-                        <div>
-                            NEW MESSAGE
-                            
-                            {/* Mensagens de erro */}
-                            {mensagemDeErroDoCorpo ? 
-                            <span>{mensagemDeErroDoCorpo}</span> : null}
-
-                            {mensagemDeErroDoEmail && !mensagemDeErroDoCorpo ? 
-                            <span>{mensagemDeErroDoEmail}</span> : null}                              
-                        </div>
-                        <div>
-                            <img 
-                                src={minimizarSVG}
-                                onClick={() => {
-                                    if (minimizar) {
-                                        setMinimizar(false)
-                                    } else {
-                                        setMinimizar(true)
-                                        // deixa maximizar como false para habilitar o arrastavel
-                                        // porque o arrastavel é travado quando está maximizado
-                                        setMaximizar(false)
-                                    }
-                                }}
-                                alt="minizar"
-                            />
-                            <img 
-                                src={maximizador} 
-                                onClick={() => {
-                                    if (maximizar) {
-                                        setMaximizar(false)                                
-                                    } else {
-                                        document.documentElement.scrollTop = 0     
-                                        document.body.scrollTop = 0
-                                        setMaximizar(true)                                                 
-                                    }
-                                }}
-                                alt="maximizar"
-                            />                                                     
-                            <img 
-                                src={fechar}
-                                onClick={() => setTelaDeEmail(false)}
-                                alt="fechar"
-                            />
-                        </div>   
-                    </div>
-                </li>
-                <li>TO: BUSINESS.PLANOART@GMAIL.COM</li>
-
-                <Formik 
-                    initialValues = { camposDoFormulario } 
-                    validationSchema = { EsquemaDeValidacao }                     
-                    onSubmit = { enviarDadosParaRotaDeEmail }
-                >
-
-                {({ errors, touched }) => (
-                    
-                <Form>
-                    <li>
-
-                        <Field 
-                            name="email" 
-                            placeholder="FROM: ENTER YOUR EMAIL ADDRES" 
-                            type="text"
-                        />
-                        {errors.email && touched.email ? 
-                        setMensagemDeErroDoEmail(errors.email) : setMensagemDeErroDoEmail('')}
-
-                    </li>
-                    <li className="mensagemDoCorpoDoEmail">
-
-                        <Field
-                            name="corpo" 
-                            placeholder="MESSAGE" 
-                            component="textarea" 
-                            rows="5"
-                        />
-                        {errors.corpo && touched.corpo ? 
-                        setMensagemDeErroDoCorpo(errors.corpo) : setMensagemDeErroDoCorpo('') }      
-
-                    </li>
-
-                    {arquivoUpado && <li className="arquivoUpado">
-                        {arquivoUpado}
-                        <button onClick={() => setArquivoUpado('')}>
-                            x
-                        </button>
-                    </li>}
-
-                    <li>
-                        <div className="rodape">
-
-                            <label htmlFor="enviar" className="estiloBotaoEnviarEmail">
-                                <img src={enviar} alt="enviar" />
-                            </label>
-                            <button type="submit" id="enviar"/>
-
-                            <label htmlFor="anexo" className="estiloAnexoArquivoEmail">
-                                    <img src={anexo} alt="anexo"/>
-                                </label>
-                            <Field type="file" name="arquivo" id="anexo" onChange={(arquivo) => {
-                                setArquivoUpado(arquivo.target.files[0].name)
-                            }}/>                             
-
-                        </div>
-                    </li>
-                </Form>
-
-                )}
-                </Formik>
-            </ul>
-                
-        </Divisor>
         </Draggable>
     </>)
 }
