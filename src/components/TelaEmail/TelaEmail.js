@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import api from '../../services/api';
-import { Container, ParteDeCima, Fechar } from './estilo';
+import { Container, ParteDeCima, Fechar, Minimizar, Maximizar, Enviar, Anexo, Flex } from './estilo';
 import Draggable from 'react-draggable';
 import * as Yup from 'yup';
 import maximizador from '../../estaticos/maximizar.svg';
@@ -90,15 +90,68 @@ const TelaEmail = ({ setTelaDeEmail }) => {
             position={maximizar ? {x: 0, y:0} : controladorDePosicao}
         >
 
-        <Container>
-            <ParteDeCima>
-                <header>NEW MESSAGE</header>
+        <Container maximizador={maximizar} minimizador={minimizar}>
+            <ParteDeCima id="arrastavel">
                 <div>
+                    <h1>NEW MESSAGE</h1>
+                </div>
+
+                <div>
+                    <Minimizar 
+                        onClick={() => minimizar ? setMinimizar(false) : setMinimizar(true) }
+                        minimizador={minimizar}
+                    />    
+                    <Maximizar 
+                        onClick={() => maximizar ? setMaximizar(false) : setMaximizar(true) }
+                        maximizador={maximizar}          
+                    />                                   
                     <Fechar />
-                    <button>a</button>
-                    <button>a</button>
                 </div>
             </ParteDeCima>
+
+            <Formik 
+                initialValues = { camposDoFormulario } 
+                validationSchema = { EsquemaDeValidacao }                     
+                onSubmit = { enviarDadosParaRotaDeEmail }
+            >
+
+            {({ errors, touched, disable }) => (
+
+                <Form>
+                    <Field 
+                        name="to" 
+                        placeholder="TO: BUSINESS.PLANOART@GMAIL.COM" 
+                        type="text"
+                        disabled 
+                    />                    
+                    <Field 
+                        name="email" 
+                        placeholder="FROM: ENTER YOUR EMAIL ADDRES" 
+                        type="text"          
+                    />
+                    <Field
+                        name="corpo" 
+                        placeholder="MESSAGE" 
+                        component="textarea" 
+                        rows="5"
+                    />
+
+                    <Flex className="anexo">
+                        <span>nome do arquivo nome do arquivo nome do arquivo nome do arquivo nome do arquivo nome do arquivo nome do arquivo nome do arquivo nome do arquivo </span>
+                        <button>x</button>
+                    </Flex>
+
+                    <Flex>
+                        <Enviar />
+                        <span>mensagem de erro</span>            
+                        <Anexo />
+                    </Flex>
+
+                </Form>
+
+            )}
+            
+            </Formik>
         </Container>
 
         </Draggable>
