@@ -9,6 +9,10 @@ import {
 } from '../../styles/Icones';
 
 const minimizar = css`
+    @media (max-width: 768px) {
+        height: 12vw !important;
+    }
+
     height: 3.5vw;
 
     > form {
@@ -17,19 +21,97 @@ const minimizar = css`
 `;
 
 const maximizar = css`
-    height: 95%;
-    width: 95% !important;
-    top: 2%;
-    left: 2%;
 
-    > form {
-        > input, textarea {
-            padding: 1% !important;
+    @media (min-width: 768px) {
+        height: 95%;
+        width: 95% !important;
+        top: 2%;
+        left: 2%;
+
+        > form {
+            > input, textarea {
+                padding: 1% !important;
+            }
+
+            > div {
+
+                /* margem dos dois svg do rodape */
+                > svg {
+                    margin: 0.5% 1% 1% 1% !important;
+                }
+
+                /* tamanho do svg de enviar */
+                > svg:first-child {
+                    width: 20% !important;
+                }
+
+                /* tamanho do svg de anexo de arquivos */
+                > label {
+                    justify-content: flex-end;
+                    margin-right: 1%;
+                    > svg:last-child {
+                        width: 70% !important;
+                    }
+                }
+            }
+        }
+        
+        & .arquivosUpados {
+            padding: 0% 1% 0% 1% !important;
+
+            > span, button {
+                margin-bottom: 1% !important;
+            }     
+        }
+
+        & #parteDeCima {
+            /* Titulo NEW MESSAGE */
+            > div {
+                padding-bottom: 0.2%;
+                
+                > h1 {
+                    margin-left: 2% !important;
+                }
+            }
+
+            /* Grupo de botões minimizar, maximizar e fechar */
+            > div + div {
+                padding-right: 1%;
+
+                > svg {
+                    width: 5% !important;
+                    margin: 0.6% !important;
+                    margin-left: 1% !important;
+                }
+            }
         }
     }
 `;
 
 export const Container = styled.div`
+    @media (max-width: 768px) {
+
+        width: 100%;
+        top: 0;
+        left: 0;
+
+        > form {
+            > textarea {
+                height: 10vw !important;
+            }
+
+            > input, textarea {
+                font-size: 4.5vw !important;
+            }
+
+            & .arquivosUpados {
+                > span, button {
+                    font-size: 3vw !important;
+                }
+            }            
+        }
+    }    
+
     display: flex;
     flex-direction: column;
 
@@ -41,6 +123,7 @@ export const Container = styled.div`
 
     ${props => props.minimizador ? minimizar : null}
     ${props => props.maximizador ? maximizar : null}
+
     width: 45%;
 
     background: var(--branco);
@@ -50,10 +133,16 @@ export const Container = styled.div`
     > form {
         display: flex;
         flex-direction: column;
+        height: 100%;
+
+        > textarea {
+            height: 100%;
+        }
 
         > input, textarea {
             border-top: var(--borda) solid var(--vermelho);
             padding: 2% 0% 2% 2%;
+            resize: none;
 
             font-size: var(--tamanho);
             color: var(--azul);
@@ -71,23 +160,32 @@ export const Container = styled.div`
             }
         }
 
-        & .anexo {
+        & .arquivosUpados {
             border-bottom: var(--borda) solid var(--vermelho);
+            padding: 0% 2% 0% 2%;
 
             > span, button {
                 font-size: 1.5vw;
-                margin: 2%;
+                margin-bottom: 2%;
             }
             > span {
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow: hidden;                
-            }            
+            }     
         }
     }
 `;
 
 export const ParteDeCima = styled.header`
+    @media (max-width: 768px) {
+        > div {
+            > h1 {
+                font-size: 5vw !important;
+            }
+        }
+    }
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -110,6 +208,10 @@ export const ParteDeCima = styled.header`
 `;
 
 export const Flex = styled.div`
+    @media (max-width: 768px) {
+
+    }
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -124,10 +226,25 @@ export const Flex = styled.div`
         text-overflow: ellipsis;
         overflow: hidden;
     }
+
+    > label {
+        display: flex;
+        align-items: center;
+        margin: 0% 2% 0% 2%;
+        width: 10%;
+        height: 5vw;
+    }
+
+    > input {
+        display: none;
+    }
 `;
 
-
 const iconCSS = css`
+    @media (max-width: 768px) {
+        width: 20%;
+    }
+
     width: 10%;
     margin: 2% 4% 2% 0%;
 
@@ -156,6 +273,10 @@ export const Minimizar = styled(MinimizarIcon)`
 `;
 
 export const Maximizar = styled(MaximizarIcon)`
+    @media (max-width: 768px) {
+        display: none;
+    }
+
     ${props => props.maximizador ? Transacao : null}
     transition: transform var(--segundos);
     
@@ -163,8 +284,7 @@ export const Maximizar = styled(MaximizarIcon)`
 `;
 
 export const Anexo = styled(AnexoIcon)`
-    width: 10%;
-    margin: 2%;
+    width: 100%;
 
     > path {
         fill: var(--azul) !important;

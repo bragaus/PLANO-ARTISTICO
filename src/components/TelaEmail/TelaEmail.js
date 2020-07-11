@@ -81,7 +81,7 @@ const TelaEmail = ({ setTelaDeEmail }) => {
     return(<>
         <Draggable
             // Ativar o arrastavel apenas no id
-            handle="#arrastavel"
+            handle="#parteDeCima"
             // Defini zona limite para arrastar
             bounds="parent" 
             // Controlador de posição
@@ -91,7 +91,7 @@ const TelaEmail = ({ setTelaDeEmail }) => {
         >
 
         <Container maximizador={maximizar} minimizador={minimizar}>
-            <ParteDeCima id="arrastavel">
+            <ParteDeCima id="parteDeCima">
                 <div>
                     <h1>NEW MESSAGE</h1>
                 </div>
@@ -103,9 +103,11 @@ const TelaEmail = ({ setTelaDeEmail }) => {
                     />    
                     <Maximizar 
                         onClick={() => maximizar ? setMaximizar(false) : setMaximizar(true) }
-                        maximizador={maximizar}          
+                        maximizador={maximizar}         
                     />                                   
-                    <Fechar />
+                    <Fechar 
+                        onClick={() => setTelaDeEmail(false)}
+                    />
                 </div>
             </ParteDeCima>
 
@@ -136,15 +138,19 @@ const TelaEmail = ({ setTelaDeEmail }) => {
                         rows="5"
                     />
 
-                    <Flex className="anexo">
+                    <Flex className="arquivosUpados">
                         <span>nome do arquivo nome do arquivo nome do arquivo nome do arquivo nome do arquivo nome do arquivo nome do arquivo nome do arquivo nome do arquivo </span>
                         <button>x</button>
                     </Flex>
 
                     <Flex>
                         <Enviar />
-                        <span>mensagem de erro</span>            
-                        <Anexo />
+                        <span>mensagem de erro mensagem de erro mensagem de erro </span>     
+
+                        <label htmlFor="inputAnexo">
+                            <Anexo />
+                        </label>
+                        <input type="file" id="inputAnexo"/>
                     </Flex>
 
                 </Form>
