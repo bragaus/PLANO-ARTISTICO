@@ -117,7 +117,7 @@ const TelaEmail = ({ setTelaDeEmail }) => {
                 onSubmit = { enviarDadosParaRotaDeEmail }
             >
 
-            {({ errors, touched, disable }) => (
+            {({ errors, touched }) => (
 
                 <Form>
                     <Field 
@@ -144,13 +144,24 @@ const TelaEmail = ({ setTelaDeEmail }) => {
                     </Flex>
 
                     <Flex>
-                        <Enviar />
+                        <label htmlFor="inputEnviar"  id="labelEnviar">
+                            <Enviar />
+                        </label>
+                        <button type="submit" id="inputEnviar"/>
+
                         <span>mensagem de erro mensagem de erro mensagem de erro </span>     
 
-                        <label htmlFor="inputAnexo">
+                        <label htmlFor="inputAnexo" id="labelAnexo">
                             <Anexo />
                         </label>
-                        <input type="file" id="inputAnexo"/>
+                        <Field 
+                            type="file" 
+                            name="arquivo" 
+                            id="inputAnexo" 
+                            onChange={(arquivo) => {
+                                setArquivoUpado(arquivo.target.files[0].name)
+                            }}
+                        />
                     </Flex>
 
                 </Form>

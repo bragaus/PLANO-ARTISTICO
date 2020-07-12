@@ -34,23 +34,18 @@ const maximizar = css`
             }
 
             > div {
-
-                /* margem dos dois svg do rodape */
-                > svg {
-                    margin: 0.5% 1% 1% 1% !important;
+                & #labelEnviar {
+                    width: 20%;
+                    margin-right: 1% !important;
+                    > svg {
+                        width: 100%;
+                    }
                 }
+                & #labelAnexo {
+                    margin: 0 !important;
 
-                /* tamanho do svg de enviar */
-                > svg:first-child {
-                    width: 20% !important;
-                }
-
-                /* tamanho do svg de anexo de arquivos */
-                > label {
-                    justify-content: flex-end;
-                    margin-right: 1%;
-                    > svg:last-child {
-                        width: 70% !important;
+                    > svg {
+                        width: 60%;
                     }
                 }
             }
@@ -227,12 +222,21 @@ export const Flex = styled.div`
         overflow: hidden;
     }
 
-    > label {
+    /* Botão de enviar */
+    & #labelEnviar {
+        width: 40%;
+        justify-content: flex-start;
+        margin-right: 2%;
+        margin-left: 1%;
+    }
+
+    /* botão de anexo */
+    & #labelAnexo {
         display: flex;
         align-items: center;
-        margin: 0% 2% 0% 2%;
         width: 10%;
         height: 5vw;
+        margin-right: 2%;
     }
 
     > input {
@@ -292,8 +296,8 @@ export const Anexo = styled(AnexoIcon)`
 `;
 
 export const Enviar = styled(EnviarIcon)`
-    width: 40%;
-    margin: 1% 2% 2% 2%;
+    width: 100%;
+    margin: 3% 2% 2% 2%;
 
     > text {
         font-size: 50px;
