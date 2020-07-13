@@ -47,24 +47,31 @@ const TelaEmail = ({ setTelaDeEmail }) => {
     // Função que recebe os dados do formulario e envia para rota que faz o envio do email
     function enviarDadosParaRotaDeEmail(dados) {
         // Mostrar enviando quando for clicado no botão enviar
-        setEnviando('SENDING...');
+        // setEnviando('SENDING...');
 
         // Rota que faz o envio do email
-        api.post('/email', dados)
-        .then((res) => { // Resposta do status do envio
-            if (res.status === 200) {
-                setEmailEnviado(true);
-                setEnviando('SEND');
-                setDesativarEnvioDeEmail(true);
-            } else {
-                setEmailNaoEnviado(true);
-                setEnviando('SEND AGAIN');
-            }
-        })
-        .catch(() => { // Resposta caso ocorra algum erro
-            setEmailNaoEnviado(true);
-            setEnviando('SEND AGAIN');
-        })
+        var formulario = new FormData();
+        formulario.append('file', dados.arquivo);
+        formulario.append('email', dados.email);
+        formulario.append('corpo', dados.corpo);
+
+        api.post('/email', formulario)
+        
+        
+        // .then((res) => { // Resposta do status do envio
+        //     if (res.status === 200) {
+        //         setEmailEnviado(true);
+        //         setEnviando('SEND');
+        //         setDesativarEnvioDeEmail(true);
+        //     } else {
+        //         setEmailNaoEnviado(true);
+        //         setEnviando('SEND AGAIN');
+        //     }
+        // })
+        // .catch(() => { // Resposta caso ocorra algum erro
+        //     setEmailNaoEnviado(true);
+        //     setEnviando('SEND AGAIN');
+        // })
     }
 
     // Validação das entradas
