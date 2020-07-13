@@ -46,26 +46,25 @@ const TelaEmail = ({ setTelaDeEmail }) => {
 
     // Função que recebe os dados do formulario e envia para rota que faz o envio do email
     function enviarDadosParaRotaDeEmail(dados) {
-        console.log(dados)
-        // // Mostrar enviando quando for clicado no botão enviar
-        // setEnviando('SENDING...');
+        // Mostrar enviando quando for clicado no botão enviar
+        setEnviando('SENDING...');
 
-        // // Rota que faz o envio do email
-        // api.post('/email', dados)
-        // .then((res) => { // Resposta do status do envio
-        //     if (res.status === 200) {
-        //         setEmailEnviado(true);
-        //         setEnviando('SEND');
-        //         setDesativarEnvioDeEmail(true);
-        //     } else {
-        //         setEmailNaoEnviado(true);
-        //         setEnviando('SEND AGAIN');
-        //     }
-        // })
-        // .catch(() => { // Resposta caso ocorra algum erro
-        //     setEmailNaoEnviado(true);
-        //     setEnviando('SEND AGAIN');
-        // })
+        // Rota que faz o envio do email
+        api.post('/email', dados)
+        .then((res) => { // Resposta do status do envio
+            if (res.status === 200) {
+                setEmailEnviado(true);
+                setEnviando('SEND');
+                setDesativarEnvioDeEmail(true);
+            } else {
+                setEmailNaoEnviado(true);
+                setEnviando('SEND AGAIN');
+            }
+        })
+        .catch(() => { // Resposta caso ocorra algum erro
+            setEmailNaoEnviado(true);
+            setEnviando('SEND AGAIN');
+        })
     }
 
     // Validação das entradas
@@ -117,7 +116,7 @@ const TelaEmail = ({ setTelaDeEmail }) => {
                 onSubmit = { enviarDadosParaRotaDeEmail }
             >
 
-            {({ errors, touched }) => (
+            {({ errors, touched, setFieldValue }) => (
 
                 <Form>
                     <Field 
@@ -154,12 +153,13 @@ const TelaEmail = ({ setTelaDeEmail }) => {
                         <label htmlFor="inputAnexo" id="labelAnexo">
                             <Anexo />
                         </label>
-                        <Field 
+                        <input 
                             type="file" 
                             name="arquivo" 
                             id="inputAnexo" 
                             onChange={(arquivo) => {
                                 setArquivoUpado(arquivo.target.files[0].name)
+                                setFieldValue('arquivo', arquivo.target.files[0])
                             }}
                         />
                     </Flex>
