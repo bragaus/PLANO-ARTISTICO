@@ -23,12 +23,12 @@ const minimizar = css`
 const maximizar = css`
 
     @media (min-width: 768px) {
-        height: 95%;
         width: 95% !important;
         top: 2%;
         left: 2%;
 
         > form {
+            height: 85vh !important;
             > input, textarea {
                 padding: 1% !important;
             }
@@ -86,6 +86,7 @@ export const Container = styled.div`
         width: 100%;
         top: 0;
         left: 0;
+        border-radius: 4vw !important;
 
         > form {
             > textarea {
@@ -173,7 +174,8 @@ export const ParteDeCima = styled.header`
     @media (max-width: 768px) {
         > div {
             > h1 {
-                font-size: 5vw !important;
+                font-size: 8vw !important;
+                white-space: nowrap;
             }
         }
     }
@@ -201,7 +203,23 @@ export const ParteDeCima = styled.header`
 
 export const Flex = styled.div`
     @media (max-width: 768px) {
+        /* Botão de enviar */
+        & #labelEnviar {
+            width: 25vw !important;
+        }
 
+        /* botão de anexo */
+        & #labelAnexo {
+            width: 10vw !important;
+        }
+
+        > div {
+            > ul {
+                > li {
+                    font-size: 5vw !important;
+                }
+            }
+        }        
     }
 
     display: flex;
@@ -250,7 +268,7 @@ export const Flex = styled.div`
 
 const iconCSS = css`
     @media (max-width: 768px) {
-        width: 20%;
+        width: 15%;
     }
 
     width: 10%;

@@ -4,12 +4,10 @@ import { Link as Ancora } from 'react-router-dom';
 import { Superior, Auxiliar } from './estilo';
 import LogoImg from '../../estaticos/logo.png';
 import TelaEmail from '../TelaEmail/TelaEmail';
-import TelaEmailCelular from '../TelaEmail/TelaEmailCelular';
 
 const Cabecalho = () => {
 
-    const [telaDeEmail, setTelaDeEmail] = useState(true);
-    const [telaDeEmailCelular, setTelaDeEmailCelular] = useState(false);
+    const [telaDeEmail, setTelaDeEmail] = useState(false);
     
     return (<>
         <Superior>
@@ -23,7 +21,7 @@ const Cabecalho = () => {
                     </li>
                     <li>
                         <button
-                            onClick={() => setTelaDeEmailCelular(true)}
+                            onClick={() => setTelaDeEmail(true)}
                         >
                             <b>CONTACT</b>
                         </button>             
@@ -91,7 +89,6 @@ const Cabecalho = () => {
         <Auxiliar />
 
         {telaDeEmail && <TelaEmail setTelaDeEmail={setTelaDeEmail}/>}
-        {telaDeEmailCelular && <TelaEmailCelular/>}
 
     </>);
 };

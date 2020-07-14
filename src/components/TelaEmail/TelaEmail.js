@@ -1,42 +1,37 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
-import api from '../../services/api';
-import { Container, ParteDeCima, Fechar, Minimizar, Maximizar, Enviar, Anexo, Flex } from './estilo';
 import Draggable from 'react-draggable';
 import * as Yup from 'yup';
-import maximizador from '../../estaticos/maximizar.svg';
-import fechar from '../../estaticos/fechar.svg';
-import minimizarSVG from '../../estaticos/minimizar.svg';
-import enviar from '../../estaticos/send.svg';
-import anexo from '../../estaticos/anexo.svg';
+
+import api from '../../services/api';
+
+import { 
+    Container,
+    ParteDeCima,
+    Fechar,
+    Minimizar,
+    Maximizar,
+    Enviar,
+    Anexo,
+    Flex 
+} from './estilo';
+
 
 const TelaEmail = ({ setTelaDeEmail }) => {
 
-    // Esses estados controlam o status de envio do email
-    const [emailEnviado, setEmailEnviado] = useState(false);
-    const [emailNaoEnviado, setEmailNaoEnviado] = useState(false);
-
-    // Esse estado serve para ocultar o botão de enviar email caso o email já tenha sido enviado
-    const [desativarEnvioDeEmail, setDesativarEnvioDeEmail] = useState(false);
-
-    // Esse estado serve para mostrar enviando quando for clicado no botão enviar
-    const [enviando, setEnviando] = useState('SEND');
-
     // Esses estados servem para controle do tamanho da tela do email
-    const [maximizar, setMaximizar] = useState(false);
-    const [minimizar, setMinimizar] = useState(false);
+    const [maximizar, setMaximizar] = useState(0);
+    const [minimizar, setMinimizar] = useState(0);
 
-    // Esses estados servem para controlar as mensagem de erro do input de email e de mensagem
-    const [erroDoArquivo, setErroDoArquivo] = useState('');
-
+    // Esse estado serve para guardar o nome do arquivo upado
     const [arquivoUpado, setArquivoUpado] = useState('');
+
+    // Esse estado serve para mostrar ao usuario que o email 
+    // está sendo enviado e se foi enviado com sucesso
     const [statusDoEnvio, setStatusDoEnvio] = useState('');
 
-
     // Esse estado serve para guardar os valores da posição da tela de email
-    const [controladorDePosicao, setControladorDePosicao] = useState({
-        x: 0, y: 0
-    });
+    const [controladorDePosicao, setControladorDePosicao] = useState({ x: 0, y: 0 });
 
     // Essa função serve para atribuir o valor da posição no estado controladorDePosicao
     const quandoArrastar = (e, posicao) => {
@@ -69,6 +64,7 @@ const TelaEmail = ({ setTelaDeEmail }) => {
             setStatusDoEnvio('error, please send again')
         })
 
+        // Esvaziando os campos do email
         resetForm({})
         setArquivoUpado('')
     }
@@ -114,11 +110,11 @@ const TelaEmail = ({ setTelaDeEmail }) => {
 
                 <div>
                     <Minimizar 
-                        onClick={() => minimizar ? setMinimizar(false) : setMinimizar(true) }
+                        onClick={() => minimizar ? setMinimizar(0) : setMinimizar(1) }
                         minimizador={minimizar}
                     />    
                     <Maximizar 
-                        onClick={() => maximizar ? setMaximizar(false) : setMaximizar(true) }
+                        onClick={() => maximizar ? setMaximizar(0) : setMaximizar(1) }
                         maximizador={maximizar}         
                     />                                   
                     <Fechar 
