@@ -90,7 +90,7 @@ export const Container = styled.div`
 
         > form {
             > textarea {
-                height: 10vw !important;
+                height: 20vw !important;
             }
 
             > input, textarea {
@@ -98,8 +98,11 @@ export const Container = styled.div`
             }
 
             & .arquivosUpados {
-                > span, button {
-                    font-size: 3vw !important;
+                > span {
+                    font-size: 4.5vw !important;
+                }
+                > button {
+                    font-size: 7vw !important;
                 }
             }            
         }
@@ -268,7 +271,7 @@ export const Flex = styled.div`
 
 const iconCSS = css`
     @media (max-width: 768px) {
-        width: 15%;
+        width: 20%;
     }
 
     width: 10%;
