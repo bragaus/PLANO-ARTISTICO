@@ -35,18 +35,15 @@ const maximizar = css`
 
             > div {
                 & #labelEnviar {
-                    width: 20%;
+                    width: 12vw;
                     margin-right: 1% !important;
                     > svg {
                         width: 100%;
                     }
                 }
                 & #labelAnexo {
-                    margin: 0 !important;
-
-                    > svg {
-                        width: 60%;
-                    }
+                    margin-right: 1% !important;
+                    width: 4vw;
                 }
             }
         }
@@ -211,20 +208,28 @@ export const Flex = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    > span {
-        font-size: 1.5vw;
+    > div {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
         width: 100%;
 
-        color: var(--vermelho);
+        > ul {
+            > li {
+                font-size: 1.5vw;
 
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
+                color: var(--vermelho);
+
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
     }
 
     /* Botão de enviar */
     & #labelEnviar {
-        width: 40%;
+        width: 12vw;
         justify-content: flex-start;
         margin-right: 2%;
         margin-left: 1%;
@@ -234,8 +239,7 @@ export const Flex = styled.div`
     & #labelAnexo {
         display: flex;
         align-items: center;
-        width: 10%;
-        height: 5vw;
+        width: 4vw;
         margin-right: 2%;
     }
 

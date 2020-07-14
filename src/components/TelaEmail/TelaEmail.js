@@ -27,10 +27,11 @@ const TelaEmail = ({ setTelaDeEmail }) => {
     const [minimizar, setMinimizar] = useState(false);
 
     // Esses estados servem para controlar as mensagem de erro do input de email e de mensagem
-    const [mensagemDeErroDoEmail, setMensagemDeErroDoEmail] = useState('');
-    const [mensagemDeErroDoCorpo, setMensagemDeErroDoCorpo] = useState('');
+    const [erroDoArquivo, setErroDoArquivo] = useState('');
 
     const [arquivoUpado, setArquivoUpado] = useState('');
+    const [statusDoEnvio, setStatusDoEnvio] = useState('');
+
 
     // Esse estado serve para guardar os valores da posição da tela de email
     const [controladorDePosicao, setControladorDePosicao] = useState({
@@ -45,39 +46,48 @@ const TelaEmail = ({ setTelaDeEmail }) => {
     }
 
     // Função que recebe os dados do formulario e envia para rota que faz o envio do email
-    function enviarDadosParaRotaDeEmail(dados) {
-        // Mostrar enviando quando for clicado no botão enviar
-        // setEnviando('SENDING...');
+    function enviarDadosParaRotaDeEmail(dados, { resetForm }) {
+        setStatusDoEnvio('Sending...')
 
-        // Rota que faz o envio do email
         var formulario = new FormData();
         formulario.append('file', dados.arquivo);
         formulario.append('email', dados.email);
-        formulario.append('corpo', dados.corpo);
+        formulario.append('corpo', dados.corpo);    
 
+        // Rota que faz o envio do email
         api.post('/email', formulario)
-        
-        
-        // .then((res) => { // Resposta do status do envio
-        //     if (res.status === 200) {
-        //         setEmailEnviado(true);
-        //         setEnviando('SEND');
-        //         setDesativarEnvioDeEmail(true);
-        //     } else {
-        //         setEmailNaoEnviado(true);
-        //         setEnviando('SEND AGAIN');
-        //     }
-        // })
-        // .catch(() => { // Resposta caso ocorra algum erro
-        //     setEmailNaoEnviado(true);
-        //     setEnviando('SEND AGAIN');
-        // })
+
+        // Resposta do status do envio
+        .then((res) => { 
+            if (res.status === 200) {
+                setStatusDoEnvio('success')
+            }
+        })
+
+        // Resposta caso ocorra algum erro
+        .catch(() => { 
+            setStatusDoEnvio('error, please send again')
+        })
+
+        resetForm({})
+        setArquivoUpado('')
     }
+
+    // formato que pode ser upado no input de email
+    const formatosSuportados = [
+        "image/jpg",
+        "image/jpeg",
+        "image/gif",
+        "image/png"
+    ];    
 
     // Validação das entradas
     const EsquemaDeValidacao = Yup.object().shape({
         email: Yup.string().email().required('enter email'),
         corpo: Yup.string().max(500, "Too Long!").required('enter any message'),
+        arquivo: Yup.mixed().test('fileFormat', 'Unsupported Format', arquivo => 
+            arquivo && formatosSuportados.includes(arquivo.type)
+        )
     })      
 
     const camposDoFormulario = {
@@ -145,17 +155,33 @@ const TelaEmail = ({ setTelaDeEmail }) => {
                     />
 
                     <Flex className="arquivosUpados">
-                        <span>nome do arquivo nome do arquivo nome do arquivo nome do arquivo nome do arquivo nome do arquivo nome do arquivo nome do arquivo nome do arquivo </span>
-                        <button>x</button>
+                        {arquivoUpado && <>
+                            <span>{arquivoUpado}</span>
+                            <button
+                                onClick={()=> {
+                                    setArquivoUpado('')
+                                }}
+                            >
+                                x
+                            </button>
+                        </>}
                     </Flex>
 
                     <Flex>
-                        <label htmlFor="inputEnviar"  id="labelEnviar">
-                            <Enviar />
-                        </label>
-                        <button type="submit" id="inputEnviar"/>
+                        <div>
+                            <label htmlFor="inputEnviar" id="labelEnviar">
+                                <Enviar />
+                            </label>
+                            <button type="submit" id="inputEnviar"/>
 
-                        <span>mensagem de erro mensagem de erro mensagem de erro </span>     
+                            <ul>
+                                {errors.arquivo && arquivoUpado && <li>{errors.arquivo}</li>} 
+                                {errors.corpo && touched.corpo && <li>{errors.corpo}</li>} 
+                                {errors.email && <li>{errors.email}</li>}
+                                {statusDoEnvio && <li>{statusDoEnvio}</li>}
+                            </ul>
+                        </div>
+
 
                         <label htmlFor="inputAnexo" id="labelAnexo">
                             <Anexo />
@@ -169,6 +195,7 @@ const TelaEmail = ({ setTelaDeEmail }) => {
                                 setFieldValue('arquivo', arquivo.target.files[0])
                             }}
                         />
+
                     </Flex>
 
                 </Form>
