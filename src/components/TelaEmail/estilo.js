@@ -59,22 +59,16 @@ const maximizar = css`
         & #parteDeCima {
             /* Titulo NEW MESSAGE */
             > div {
-                padding-bottom: 0.2%;
-                
+
                 > h1 {
                     margin-left: 2% !important;
                 }
-            }
 
-            /* Grupo de botões minimizar, maximizar e fechar */
-            > div + div {
-                padding-right: 1%;
-
-                > svg {
-                    width: 5% !important;
-                    margin: 0.6% !important;
-                    margin-left: 1% !important;
+                > label {
+                    margin-top: 0.5% !important;
+                    margin-right: 2% !important;          
                 }
+
             }
         }
     }
@@ -175,10 +169,17 @@ export const Container = styled.div`
 
 export const ParteDeCima = styled.header`
     @media (max-width: 768px) {
-        > div {
+        div {
             > h1 {
-                font-size: 8vw !important;
-                white-space: nowrap;
+                font-size: 7vw !important;
+            }
+
+            > label {
+                width: 10vw !important;
+            }
+
+            & #labelMaximizar {
+                display: none;
             }
         }
     }
@@ -189,12 +190,23 @@ export const ParteDeCima = styled.header`
 
     > div {
         width: 50%;
+
         > h1 {
             font-size: var(--tamanho);
             font-weight: 1000;
-            margin: 0 0 0 4%;
-
+            margin-left: 4%;
             color: var(--azul);
+            white-space: nowrap;
+        }
+
+        > label {
+            width: 3vw;
+            margin-right: 4%;
+            margin-top: 1%;
+        }
+
+        button {
+            display: none;
         }
     }
 
@@ -271,11 +283,10 @@ export const Flex = styled.div`
 
 const iconCSS = css`
     @media (max-width: 768px) {
-        width: 20%;
+        width: 100%;
     }
 
-    width: 10%;
-    margin: 2% 4% 2% 0%;
+    width: 80%;
 
     > path, rect {
         fill: var(--vermelho);

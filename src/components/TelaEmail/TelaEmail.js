@@ -109,21 +109,25 @@ const TelaEmail = ({ setTelaDeEmail }) => {
                 </div>
 
                 <div>
+
+                    <label htmlFor="ButtonMinizar"><Minimizar minimizador={minimizar}/></label>
                     <button
-                        onClick={() => minimizar ? setMinimizar(0) : setMinimizar(1) }                    
-                    >
-                        <Minimizar minimizador={minimizar} /> 
-                    </button>
+                        onClick={() => minimizar ? setMinimizar(0) : setMinimizar(1) }
+                        id="ButtonMinizar"                 
+                    />
+
+                    <label htmlFor="ButtonMaximizar" id="labelMaximizar"><Maximizar maximizador={maximizar}/></label>
                     <button
-                        onClick={() => maximizar ? setMaximizar(0) : setMaximizar(1) }                    
-                    >
-                        <Maximizar maximizador={maximizar}/>  
-                    </button>
+                        onClick={() => maximizar ? setMaximizar(0) : setMaximizar(1) }
+                        id="ButtonMaximizar"                  
+                    />
+
+                    <label htmlFor="ButtonFechar"><Fechar /></label>
                     <button
-                        onClick={() => setTelaDeEmail(false)}                    
-                    >
-                        <Fechar />                        
-                    </button>  
+                        onClick={() => setTelaDeEmail(false)}
+                        id="ButtonFechar"               
+                    />
+                    
                 </div>
             </ParteDeCima>
 
