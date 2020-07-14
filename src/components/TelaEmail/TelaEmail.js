@@ -93,7 +93,7 @@ const TelaEmail = ({ setTelaDeEmail }) => {
     return(<>
         <Draggable
             // Ativar o arrastavel apenas no id
-            handle="#parteDeCima"
+            handle="#arrastavel"
             // Defini zona limite para arrastar
             bounds="parent" 
             // Controlador de posição
@@ -104,7 +104,7 @@ const TelaEmail = ({ setTelaDeEmail }) => {
 
         <Container maximizador={maximizar} minimizador={minimizar}>
             <ParteDeCima id="parteDeCima">
-                <div>
+                <div id="arrastavel">
                     <h1>NEW MESSAGE</h1>
                 </div>
 
@@ -139,7 +139,7 @@ const TelaEmail = ({ setTelaDeEmail }) => {
 
             {({ errors, touched, setFieldValue }) => (
 
-                <Form>
+                <Form>                  
                     <Field 
                         name="to" 
                         placeholder="TO: BUSINESS.PLANOART@GMAIL.COM" 

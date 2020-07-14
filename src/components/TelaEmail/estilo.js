@@ -13,7 +13,7 @@ const minimizar = css`
         height: 12vw !important;
     }
 
-    height: 3.5vw;
+    height: 3.4vw;
 
     > form {
         display: none !important;
@@ -53,7 +53,7 @@ const maximizar = css`
 
             > span, button {
                 margin-bottom: 1% !important;
-            }     
+            }
         }
 
         & #parteDeCima {
@@ -65,10 +65,14 @@ const maximizar = css`
                 }
 
                 > label {
-                    margin-top: 0.5% !important;
-                    margin-right: 2% !important;          
+                    margin-top: 1% !important;
+                    margin-right: 2% !important;     
                 }
 
+            }
+
+            > div + div {
+                margin-right: 0.3%;
             }
         }
     }
@@ -175,7 +179,7 @@ export const ParteDeCima = styled.header`
             }
 
             > label {
-                width: 10vw !important;
+                width: 10vw !important;            
             }
 
             & #labelMaximizar {
@@ -189,7 +193,7 @@ export const ParteDeCima = styled.header`
     align-items: center;
 
     > div {
-        width: 50%;
+        width: 100%;
 
         > h1 {
             font-size: var(--tamanho);
@@ -202,7 +206,7 @@ export const ParteDeCima = styled.header`
         > label {
             width: 3vw;
             margin-right: 4%;
-            margin-top: 1%;
+            margin-top: 3%;
         }
 
         button {
@@ -211,6 +215,7 @@ export const ParteDeCima = styled.header`
     }
 
     > div + div {
+        width: 30%;
         display: flex;
         justify-content: flex-end;
     }
