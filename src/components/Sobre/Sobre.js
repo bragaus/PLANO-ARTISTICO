@@ -1,61 +1,49 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { CabecalhoDesktop, CabecalhoCelular, Principal, Rodape } from './estilo';
+import { Container, Principal } from './estilo';
 
 const Sobre = () => {
-    return(
-        <>
+    return (
 
-        <CabecalhoCelular>
-            <nav>
-                <Link to="/">
-                    <b>PLANO ARTÍSTICO</b>
-                </Link>                
-                <ul>
-                    <li>&#9755;</li>
-                    <li>&#9787;</li>					
-                    <li>&#10231;</li>
-                    <li>&#9843;</li>
-                    <li>&#8605;</li>
-                    <li>&#10085;</li>
-                </ul>
-            </nav>
-            <hr />
-        </CabecalhoCelular>
+        <Container>
+            <Principal>
+                <p>
+                    hi, my name is .....
+                </p>
 
-        <CabecalhoDesktop>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to="/">
-                            <b>PLANO ARTÍSTICO</b>
-                        </Link>
-                    </li>
-                    <li>&#128412;</li>
-                    <li>&#9787;</li>					
-                    <li>&#10231;</li>
-                    <li>&#9843;</li>
-                    <li>&#8605;</li>
-                    <li>&#10085;</li>
-                </ul>
-            </nav>
-            <hr />
-	    </CabecalhoDesktop>
+                <p>
+                    I’m a graphic designer, illustrator and 
+                    also a regular person.
+                    I like creating visual stuff, yea uh, 
+                    art you know?  
+                </p>
 
-        <Principal>
-            <p>
-                Plano Artístico is a graphic design and illustration company from Brazil, 
-                currently based on Rio de Janeiro. Created in 2017, plano art is trying to 
-                find his way on art.
-            </p>
-        </Principal>
+                <p>
+                    plano artístico was created in 2017
+                    for experimental study, i wanted like a 
+                    company name, so i came up with this.
+                    PLANO like a flat empty space, very far,
+                    as far as the eye can see.
+                    currently based in brazil, influenced 
+                    by the influence, Jean Giraud and
+                    Henry Chinaski. 
+                    motivated to do something                                    
+                </p>
 
-        <Rodape>
-            <hr />
-            <h2>PLANO ARTÍSTICO, AN WORLDWIDE OPERATION (copyright  symbol) 2019</h2>
-	    </Rodape>       
-        </>      
+                <p>
+                    an ironic, dark and twisted sense of humor,
+                    a mind-expanding kind of optimism that
+                    seems out of date, no smell, no colors,
+                    just light.                    
+                </p>
+
+                <p>
+                    como 40 páginas de um romance ruim.                    
+                </p>
+            </Principal>
+        </Container>
+
+
     );
-};
+}
 
 export default Sobre;
