@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Principal } from './estilo';
+import { Container, Principal, Star } from './estilo';
 
 const Sobre = () => {
     return (
@@ -39,6 +39,24 @@ const Sobre = () => {
                 <p>
                     como 40 páginas de um romance ruim.                    
                 </p>
+
+                <Star />
+
+                <p className="criadores">
+                    CODED BY <b>BM</b>
+                </p>
+
+                <p className="criadores">
+                    CREATIVE DIRECTION BY <b>AC</b>                                        
+                </p>
+
+                <Star />
+
+                <p className="niceDay">
+                    HAVE A NICE DAY!
+                    <br />
+                    SOMEWHERE ELSE              
+                </p>                
             </Principal>
         </Container>
 
