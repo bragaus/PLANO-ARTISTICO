@@ -26,7 +26,11 @@ export default createGlobalStyle`
         border: 0;
         background: none;
         outline: none;
-    }    
+    }
+
+    ul, li {
+        list-style: none;
+    }
 
     :root {
         --vermelho: #ff0000;

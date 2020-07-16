@@ -1,10 +1,28 @@
 import React from 'react';
-import { Container, Principal, Star } from './estilo';
+import { Container, Principal, Star, ParteDeCima, ParteDeBaixo } from './estilo';
 
 const Sobre = () => {
     return (
 
         <Container>
+            <ParteDeCima>
+                <div>
+                    <h1>PLANO ARTÍSTICO</h1>
+
+                    <ul>
+                        <li>&#128412;</li>
+                        <li>&#9787;</li>
+                        <li>&#10231;</li>
+                        <li>&#9843;</li>
+                        <li>&#8605;</li>
+                        <li>&#x2623;</li>
+                    </ul>
+
+                </div>
+
+                <hr />
+            </ParteDeCima>
+
             <Principal>
                 <p>
                     hi, my name is .....
@@ -36,7 +54,7 @@ const Sobre = () => {
                     just light.                    
                 </p>
 
-                <p>
+                <p className="como40Paginas">
                     como 40 páginas de um romance ruim.                    
                 </p>
 
@@ -52,12 +70,20 @@ const Sobre = () => {
 
                 <Star />
 
-                <p className="niceDay">
-                    HAVE A NICE DAY!
-                    <br />
-                    SOMEWHERE ELSE              
-                </p>                
+                <div>
+                    <p className="haveANiceDay">
+                        HAVE A NICE DAY!
+                    </p>
+                    <p className="someWhereElse">
+                        SOMEWHERE ELSE              
+                    </p>
+                </div>
+
             </Principal>
+
+            <ParteDeBaixo>
+                <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _	_ _</p>
+            </ParteDeBaixo>
         </Container>
 
 
