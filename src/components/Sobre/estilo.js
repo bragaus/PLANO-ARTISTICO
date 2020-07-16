@@ -93,6 +93,11 @@ export const ParteDeCima = styled.header`
 export const ParteDeBaixo = styled.footer`
     background:  #686868;
 
+    > span {
+        position: absolute;
+        font-size: 5vw;
+    }
+
     > p {
         font-size: 5vw;
         white-space: nowrap;

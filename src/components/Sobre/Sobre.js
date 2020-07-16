@@ -82,7 +82,9 @@ const Sobre = () => {
             </Principal>
 
             <ParteDeBaixo>
+                <span>&#9986;asdasd</span>
                 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _	_ _</p>
+                <p>plano artístico. an worldwide operation. 2017 - 2020 </p>
             </ParteDeBaixo>
         </Container>
 
