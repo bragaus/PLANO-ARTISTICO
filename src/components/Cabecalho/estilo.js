@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { LogoIcon } from '../../styles/Icones';
+import { LogoIcon, SetaIcon } from '../../styles/Icones';
 
 const rotacao = keyframes`
   from {
@@ -32,6 +32,11 @@ export const Logo = styled(LogoIcon)`
     animation:${rotacao} 8s linear infinite;
 `;
 
+export const Seta = styled(SetaIcon)`
+    width: 20%;
+    fill: #000;
+`;
+
 export const Superior = styled.header.attrs(props => ({
     className: props.className
 }))`
@@ -43,10 +48,14 @@ export const Superior = styled.header.attrs(props => ({
         position: fixed;
         top: -1%;
         left: 0%;
-        z-index: 2;             
+        z-index: 2;
+        width: 15%;          
         &:hover {
             color: #ff0000;
             background: #ff0000;
+            > svg {
+                fill: #ff0000;
+            }
         }
 
     }

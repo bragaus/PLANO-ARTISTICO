@@ -45,6 +45,12 @@ export const TesouraIcon = (props) => (
     </svg>
 )
 
+export const SetaIcon = (props) => (
+    <svg viewBox="0 0 115.41 115.79" fill="none" {...props}>
+        <path d="M101.22,24.61,10.07,115.79,0,105.7l91-91-.23-.42H39.12V0h76.29V76.36H101.22Z"/>
+    </svg>
+)
+
 export const LogoIcon = (props) => (
     <svg viewBox="0 0 1396.74 1407.18" fill="none" {...props}>
         <path d="M1268,846l11.1-38.55,117.62,33.86L1380.42,898q-7.14,24.84-21.64,34.64-13.87,9.45-32.49,4.09Q1285,924.86,1299,876l5.59-19.45Zm64,18.44-4.61,16Q1323,896,1336.7,900q12.42,3.57,18.35-17l3.15-11Z"/>

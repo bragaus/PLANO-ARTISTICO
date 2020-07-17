@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link, animateScroll } from "react-scroll";
 import { Link as Ancora } from 'react-router-dom';
-import { Superior, Auxiliar, Logo } from './estilo';
-import LogoImg from '../../estaticos/logo.png';
+import { Superior, Auxiliar, Logo, Seta } from './estilo';
 import TelaEmail from '../TelaEmail/TelaEmail';
 
 const Cabecalho = () => {
@@ -30,8 +29,9 @@ const Cabecalho = () => {
             </nav>    
 
             <Ancora to="/sobre" className="info">
-                <b>INFO&#8599;</b>
-            </Ancora>               
+                <b>INFO</b>
+                <Seta />                
+            </Ancora>
 
             <Logo onClick={animateScroll.scrollToTop}/>
 
