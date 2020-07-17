@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { LogoIcon } from '../../styles/Icones';
 
 const rotacao = keyframes`
   from {
@@ -8,6 +9,27 @@ const rotacao = keyframes`
   to {
     transform: rotate(360deg);
   }
+`;
+
+export const Logo = styled(LogoIcon)`
+     @media only screen and (max-width: 768px) {
+        width: 25% !important;
+        left: 2% !important;
+        top: 2% !important;
+    }
+
+    width: 15%;
+    fill: #000;
+
+    position: fixed;
+    left: 20%;
+    top: 1%;
+    z-index: 2;
+    cursor: pointer;
+
+    -webkit-animation:${rotacao} 8s linear infinite;
+    -moz-animation:${rotacao} 8s linear infinite;
+    animation:${rotacao} 8s linear infinite;
 `;
 
 export const Superior = styled.header.attrs(props => ({
@@ -65,30 +87,11 @@ export const Superior = styled.header.attrs(props => ({
         }
     }
 
-    img {
-        position: fixed;
-        left: 20%;
-        top: 1%;
-        z-index: 2;
-        width: 15%;
-        cursor: pointer;
-        -webkit-animation:${rotacao} 8s linear infinite;
-        -moz-animation:${rotacao} 8s linear infinite;
-        animation:${rotacao} 8s linear infinite;
-
-        @media only screen and (max-width: 768px) {
-            width: 35%;
-        }           
-    }
-
     & .celular {
         display: none;
     }
 
     @media only screen and (max-width: 768px) {
-        img {
-            left: 0% !important;
-        }
         & .desktop {
             display: none !important;
         }
