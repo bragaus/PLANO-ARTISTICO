@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Principal, Star, ParteDeCima, ParteDeBaixo } from './estilo';
+import { Link } from 'react-router-dom';
+import { Container, Principal, Star, ParteDeCima, ParteDeBaixo, Tesoura } from './estilo';
 
 const Sobre = () => {
     return (
@@ -7,7 +8,9 @@ const Sobre = () => {
         <Container>
             <ParteDeCima>
                 <div>
-                    <h1>PLANO ARTÍSTICO</h1>
+                    <Link to="/">
+                        <h1>PLANO ARTÍSTICO</h1>                    
+                    </Link>
 
                     <ul>
                         <li>&#128412;</li>
@@ -82,9 +85,9 @@ const Sobre = () => {
             </Principal>
 
             <ParteDeBaixo>
-                <span>&#9986;asdasd</span>
-                <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _	_ _</p>
-                <p>plano artístico. an worldwide operation. 2017 - 2020 </p>
+                {/* <Tesoura /> */}
+                <span>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
+                <p>PLANO ARTÍSTICO. A WORLDWIDE OPERATION.&trade; 2020 </p>
             </ParteDeBaixo>
         </Container>
 

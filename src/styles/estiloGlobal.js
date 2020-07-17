@@ -12,6 +12,11 @@ export default createGlobalStyle`
         overflow-x: hidden;
     }
 
+    a {
+        text-decoration: none;
+        color: var(--preto);
+    }
+
     html, body, #root {
         max-height: 100vh;
         max-width: 100vw;

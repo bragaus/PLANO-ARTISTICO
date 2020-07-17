@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { StarIcon } from '../../styles/Icones';
+import { StarIcon, TesouraIcon } from '../../styles/Icones';
 
 export const Container = styled.div`
     position: absolute;
@@ -32,6 +32,13 @@ export const Container = styled.div`
 `;
 
 export const Principal = styled.main`
+    @media (max-width: 768px) {
+        > p {
+            font-size: 2em !important;
+        }        
+    }
+
+
     background:  #686868;
 
     > p {
@@ -44,6 +51,7 @@ export const Principal = styled.main`
     }
 
     & .criadores {
+        font-size: 3em;
         text-align: right;
         font-family: 'Times New Roman';
         color: #000;
@@ -63,19 +71,21 @@ export const Star = styled(StarIcon)`
 `;
 
 export const ParteDeCima = styled.header`
-
     width: 100%;
 
     > div {
         display: flex;
         justify-content: space-between;
 
-        > h1 {
-            font-size: 7vw; 
-            margin-left: 0.5%;
-            margin-top: 0.2%;
-            white-space: nowrap;
+        > a {
+            > h1 {
+                font-size: 7vw; 
+                margin-left: 0.5%;
+                margin-top: 0.2%;
+                white-space: nowrap;
+            }
         }
+
 
         > ul {
             display: flex;
@@ -90,16 +100,28 @@ export const ParteDeCima = styled.header`
     }
 `;
 
+export const Tesoura = styled(TesouraIcon)`
+    position: absolute;
+    padding-top: 3.9%;
+    right: 3%;
+    width: 5%;
+    fill: #000;
+`;
+
 export const ParteDeBaixo = styled.footer`
     background:  #686868;
 
     > span {
-        position: absolute;
         font-size: 5vw;
+        white-space: nowrap;
     }
 
     > p {
-        font-size: 5vw;
+        font-size: 1.5vw;
         white-space: nowrap;
+        font-weight: bold;
+        text-align: center;
+        padding-bottom: 1%;
+        padding-top: 1%;
     }
 `;
