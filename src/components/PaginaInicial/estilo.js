@@ -24,8 +24,10 @@ export const Titulo = styled.h1`
     font-family: 'Arial', sans-serif;
     white-space: nowrap;
     position: relative;
+    user-select: none;
     font-size: 13.5vw;
     text-align: center;
+
     z-index: 0;
 
     @media only screen and (max-width: 768px) {
@@ -64,6 +66,8 @@ export const IlustracaoDescricao = styled.p`
         })
     }}
     font-size: 50%;
+    user-select: none;
+    
 
     @media only screen and (max-width: 768px) {
         width: 100%;
@@ -83,7 +87,7 @@ export const Ilustracao = styled.img`
             left: `${arte.esquerda}%`,
             right: `${arte.direita}%`,
             bottom: `${arte.cima}vw`,
-            top: `${arte.baixo}vw`,            
+            top: `${arte.baixo}vw`,          
         })
     }}
     z-index: 1;

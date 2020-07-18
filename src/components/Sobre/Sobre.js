@@ -86,8 +86,8 @@ const Sobre = () => {
 
             <ParteDeBaixo>
                 {/* <Tesoura /> */}
-                <span>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
-                <p>PLANO ARTÍSTICO. A WORLDWIDE OPERATION.&trade; 2020 </p>
+                <span>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
+                <p>PLANO ARTÍSTICO. A WORLDWIDE OPERATION.&trade; 2020</p>
             </ParteDeBaixo>
         </Container>
 

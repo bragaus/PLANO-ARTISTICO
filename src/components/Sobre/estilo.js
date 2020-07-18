@@ -86,7 +86,6 @@ export const ParteDeCima = styled.header`
             }
         }
 
-
         > ul {
             display: flex;
             font-size: 5.5vw;
@@ -117,10 +116,10 @@ export const ParteDeBaixo = styled.footer`
     }
 
     > p {
-        font-size: 1.5vw;
-        white-space: nowrap;
-        font-weight: bold;
+        font-size: 1.5em;
+        font-weight: bold;    
         text-align: center;
+        word-break: break-word;                                    
         padding-bottom: 1%;
         padding-top: 1%;
     }

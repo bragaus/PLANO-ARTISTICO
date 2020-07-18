@@ -38,6 +38,7 @@ const VisualizarArte = (props) => {
         // exceto nessa pagina para visualizar arte.
         // Adicionando rolagem horizontal quando iniciar
         document.body.style.overflowX = 'auto'
+        
         // Removendo rolagem horizontal quando finalizar
         return function cleanup() {
             document.body.style.overflowX = 'hidden'

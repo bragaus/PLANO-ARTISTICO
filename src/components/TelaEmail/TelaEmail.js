@@ -99,7 +99,7 @@ const TelaEmail = ({ setTelaDeEmail }) => {
             // Controlador de posição
             onDrag={quandoArrastar}
             // Zerando a posição se a tela for maximizada
-            position={maximizar ? {x: 0, y:0} : controladorDePosicao}
+            position={maximizar ? {x: 0, y: 0} : controladorDePosicao}
         >
 
         <Container maximizador={maximizar} minimizador={minimizar}>
@@ -110,19 +110,25 @@ const TelaEmail = ({ setTelaDeEmail }) => {
 
                 <div>
 
-                    <label htmlFor="ButtonMinizar"><Minimizar minimizador={minimizar}/></label>
+                    <label htmlFor="ButtonMinizar">
+                        <Minimizar minimizador={minimizar}/>
+                    </label>
                     <button
                         onClick={() => minimizar ? setMinimizar(0) : setMinimizar(1) }
                         id="ButtonMinizar"                 
                     />
 
-                    <label htmlFor="ButtonMaximizar" id="labelMaximizar"><Maximizar maximizador={maximizar}/></label>
+                    <label htmlFor="ButtonMaximizar" id="labelMaximizar">
+                        <Maximizar maximizador={maximizar}/>
+                    </label>
                     <button
                         onClick={() => maximizar ? setMaximizar(0) : setMaximizar(1) }
                         id="ButtonMaximizar"                  
                     />
 
-                    <label htmlFor="ButtonFechar"><Fechar /></label>
+                    <label htmlFor="ButtonFechar">
+                        <Fechar />
+                    </label>
                     <button
                         onClick={() => setTelaDeEmail(false)}
                         id="ButtonFechar"               
