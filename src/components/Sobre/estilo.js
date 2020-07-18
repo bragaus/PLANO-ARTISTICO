@@ -110,9 +110,8 @@ export const Tesoura = styled(TesouraIcon)`
 export const ParteDeBaixo = styled.footer`
     background:  #686868;
 
-    > span {
-        font-size: 5vw;
-        white-space: nowrap;
+    > hr {
+        border-top: 0.3vw dashed #000;
     }
 
     > p {
