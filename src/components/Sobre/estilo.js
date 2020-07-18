@@ -78,6 +78,7 @@ export const ParteDeCima = styled.header`
             > a {
                 > h1 {
                     margin-left: 0 !important;
+                    width: 100% !important;
                 }
             }
 
@@ -86,6 +87,7 @@ export const ParteDeCima = styled.header`
             }
         }
     }
+
     width: 100%;
 
     > div {
@@ -123,6 +125,13 @@ export const Tesoura = styled(TesouraIcon)`
 `;
 
 export const ParteDeBaixo = styled.footer`
+    @media (max-width: 768px) {
+        > p {
+            font-size: 0.8em !important;
+        }
+
+    }
+
     background:  #686868;
 
     > hr {
