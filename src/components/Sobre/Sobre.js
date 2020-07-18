@@ -85,7 +85,6 @@ const Sobre = () => {
             </Principal>
 
             <ParteDeBaixo>
-                {/* <Tesoura /> */}
                 <hr />
                 <p>PLANO ARTÍSTICO. A WORLDWIDE OPERATION.&trade; 2020</p>
             </ParteDeBaixo>

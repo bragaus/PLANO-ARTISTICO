@@ -71,6 +71,21 @@ export const Star = styled(StarIcon)`
 `;
 
 export const ParteDeCima = styled.header`
+    @media (max-width: 768px) {
+        > div {
+            justify-content: flex-start !important;
+
+            > a {
+                > h1 {
+                    margin-left: 0 !important;
+                }
+            }
+
+            > ul {
+                margin-right: 0 !important;
+            }
+        }
+    }
     width: 100%;
 
     > div {
