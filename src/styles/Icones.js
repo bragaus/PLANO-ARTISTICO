@@ -51,6 +51,16 @@ export const SetaIcon = (props) => (
     </svg>
 )
 
+export const MiraIcon = (props) => (
+    <svg viewBox="0 0 305 305" fill="none" {...props}>
+        <line x1="152.57" y1="305" x2="152.43" style={{color: 'red'}}/>
+        <circle  cx="152.5" cy="152.5" r="62"/>
+        <circle cx="152.5" cy="152.5" r="31.4"/>
+        <line x1="305" y1="152.43" y2="152.57"/>
+    </svg>
+)
+
+
 export const LogoIcon = (props) => (
     <svg viewBox="0 0 1396.74 1407.18" fill="none" {...props}>
         <path d="M1268,846l11.1-38.55,117.62,33.86L1380.42,898q-7.14,24.84-21.64,34.64-13.87,9.45-32.49,4.09Q1285,924.86,1299,876l5.59-19.45Zm64,18.44-4.61,16Q1323,896,1336.7,900q12.42,3.57,18.35-17l3.15-11Z"/>
