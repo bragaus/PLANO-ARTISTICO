@@ -77,11 +77,12 @@ export const Principal = styled.main`
 
     & .haveANiceDay {
         &::first-line { 
-            font-size: 2.150rem;
+            font-size: 10.8vw;
         }
 
+        font-size: 10vw;
         color: var(--azul);
-        line-height: 1.5rem;
+        line-height: 80%;
         text-align: center;
 
         padding-bottom: 2rem;
@@ -98,10 +99,10 @@ export const Principal = styled.main`
 
         & .haveANiceDay {
             &::first-line { 
-                font-size: 3.250rem;
+                font-size: 10.8vw;
             }
 
-            line-height: 2.5rem;
+            font-size: 10vw;
         }
     }
 
@@ -122,10 +123,10 @@ export const Principal = styled.main`
 
         & .haveANiceDay {
             &::first-line { 
-                font-size: 4.3rem;
+                font-size: 6vw;
             }
 
-            line-height: 3rem;
+            font-size: 5.5vw;
         }        
     }
 
@@ -210,6 +211,7 @@ export const IconesDeCima = styled(InfoIcon)`
 `;
 
 export const Arame = styled(ArameIcon)`
+    padding-top: 10px;
     width: 100%;
     fill: #000;
 `;
