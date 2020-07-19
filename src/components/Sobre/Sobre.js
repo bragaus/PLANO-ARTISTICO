@@ -6,6 +6,7 @@ const Sobre = () => {
     return (
 
         <Container>
+
             <ParteDeCima>
                 <div>
                     <Link to="/">
@@ -27,6 +28,7 @@ const Sobre = () => {
             </ParteDeCima>
 
             <Principal>
+
                 <p>
                     hi, my name is .....
                 </p>
@@ -47,7 +49,8 @@ const Sobre = () => {
                     currently based in brazil, influenced 
                     by the influence, Jean Giraud and
                     Henry Chinaski. 
-                    motivated to do something                                    
+                    motivated to do something
+                    bigger than myself.                               
                 </p>
 
                 <p>
@@ -73,21 +76,18 @@ const Sobre = () => {
 
                 <Star />
 
-                <div>
-                    <p className="haveANiceDay">
-                        HAVE A NICE DAY!
-                    </p>
-                    <p className="someWhereElse">
-                        SOMEWHERE ELSE              
-                    </p>
-                </div>
+                <p className="haveANiceDay">
+                    HAVE A NICE DAY! <br />
+                    SOMEWHERE ELSE
+                </p>
 
             </Principal>
 
             <ParteDeBaixo>
                 <hr />
-                <p>PLANO ARTÍSTICO. A WORLDWIDE OPERATION.&trade; 2020</p>
+                <h3>PLANO ARTÍSTICO. A WORLDWIDE OPERATION.&trade; 2020</h3>
             </ParteDeBaixo>
+
         </Container>
 
 

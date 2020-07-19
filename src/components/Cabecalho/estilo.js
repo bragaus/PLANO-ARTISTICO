@@ -25,7 +25,6 @@ export const Logo = styled(LogoIcon)`
     left: 20%;
     top: 1%;
     z-index: 2;
-    cursor: pointer;
 
     -webkit-animation:${rotacao} 8s linear infinite;
     -moz-animation:${rotacao} 8s linear infinite;
