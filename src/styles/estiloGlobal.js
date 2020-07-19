@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+import { MiraIcon } from '../styles/Icones';
 
 export default createGlobalStyle`
     * {
@@ -6,15 +7,26 @@ export default createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        cursor: none;
     }
 
     body {
-        overflow-x: hidden;
+        overflow-x: hidden;        
+    }
+
+    h1, a {
+        padding: 0;
+        margin: 0;
     }
 
     a {
         text-decoration: none;
         color: var(--preto);
+    }
+
+    html {
+        /* a cada 1 rem será considerado 10px */
+        font-size: 62.5%;
     }
 
     html, body, #root {
@@ -24,7 +36,13 @@ export default createGlobalStyle`
         width: 100%;
         height: 100%;
         
+        text-rendering: optimizelegibility;
+        -webkit-font-smoothing: antialiased;        
         color: var(--preto);
+    }
+
+    body {
+        font-size: 1.6rem;
     }
 
     *, button, input {
@@ -45,5 +63,16 @@ export default createGlobalStyle`
         --segundos: 0.2s;
         --tamanho: 2vw;
         --borda: 0.2vw;
+        --cinza: #686868;
     }
+`;
+
+export const Mira = styled(MiraIcon)`
+    width: 10%;
+    position: absolute;
+    transform: translate(-49.5%, -48%);
+
+    stroke: red;
+    stroke-miterlimit: 10;
+    stroke-width: 6px;
 `;
