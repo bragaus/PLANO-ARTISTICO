@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Principal, Star, ParteDeCima, ParteDeBaixo, Tesoura } from './estilo';
+import { Container, Principal, Star, ParteDeCima, ParteDeBaixo, IconesDeCima, Arame } from './estilo';
 
 const Sobre = () => {
     return (
@@ -13,14 +13,7 @@ const Sobre = () => {
                         <h1>PLANO ARTÍSTICO</h1>                    
                     </Link>
 
-                    <ul>
-                        <li>&#128412;</li>
-                        <li>&#9787;</li>
-                        <li>&#10231;</li>
-                        <li>&#9843;</li>
-                        <li>&#8605;</li>
-                        <li>&#x2623;</li>
-                    </ul>
+                    <IconesDeCima />
 
                 </div>
 
@@ -84,7 +77,7 @@ const Sobre = () => {
             </Principal>
 
             <ParteDeBaixo>
-                <hr />
+                <Arame />
                 <h3>PLANO ARTÍSTICO. A WORLDWIDE OPERATION.&trade; 2020</h3>
             </ParteDeBaixo>
 

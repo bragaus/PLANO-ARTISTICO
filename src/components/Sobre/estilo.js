@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { StarIcon, TesouraIcon } from '../../styles/Icones';
+import { StarIcon, TesouraIcon, InfoIcon, ArameIcon } from '../../styles/Icones';
 
 export const Container = styled.div`
     background: var(--cinza);
@@ -22,7 +22,7 @@ export const ParteDeCima = styled.header`
             }
         }
 
-        > ul {
+        > svg {
             display: none;
         }
     } 
@@ -41,13 +41,8 @@ export const ParteDeCima = styled.header`
                 }
             }
 
-            > ul {
-                display: flex;
-
-                > li {
-                    font-size: 6vw;
-                    white-space: nowrap;
-                }
+            > svg {
+                display: block;
             }
         }
     }
@@ -61,10 +56,6 @@ export const ParteDeCima = styled.header`
                     font-size: 6vw;
                     margin-left: 0;
                 }
-            }
-            
-            > ul {
-                margin-top: -10px !important;
             }
         }
     }    
@@ -208,6 +199,18 @@ export const Tesoura = styled(TesouraIcon)`
     padding-top: 3.9%;
     right: 3%;
     width: 5%;
+    fill: #000;
+`;
+
+export const IconesDeCima = styled(InfoIcon)`
+    width: 41%;
+    fill: #000;
+    padding-top: 3px;
+    padding-right: 4px;
+`;
+
+export const Arame = styled(ArameIcon)`
+    width: 100%;
     fill: #000;
 `;
 
