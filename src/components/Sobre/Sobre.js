@@ -30,7 +30,7 @@ const Sobre = () => {
             <Principal>
 
                 <p>
-                    hi, my name is .....
+                    hi, my name is cesar
                 </p>
 
                 <p>
@@ -46,7 +46,7 @@ const Sobre = () => {
                     company name, so i came up with this.
                     PLANO like a flat empty space, very far,
                     as far as the eye can see.
-                    currently based in brazil, influenced 
+                    currently based in Brazil, influenced 
                     by the influence, Jean Giraud and
                     Henry Chinaski. 
                     motivated to do something

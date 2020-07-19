@@ -143,16 +143,27 @@ export const Principal = styled.main`
             font-size: 8rem;
         }
 
+        > p + p {
+            font-size: 8rem;
+            padding-top: 15rem;
+        }
+
+        & .como40Paginas {
+            padding-top: 40rem;
+        }
+
         & .criadores {
-            font-size: 7rem;
+            font-size: 4rem;
+            padding-top: 7rem;
         }
 
         & .haveANiceDay {
             &::first-line { 
-                font-size: 8.6rem;
+                font-size: 7.6rem;
             }
 
-            line-height: 6rem;
+            font-size: 7rem;
+            line-height: 5.5rem;
         }         
     }
 `;
@@ -179,7 +190,17 @@ export const ParteDeBaixo = styled.footer`
         > h3 {
             font-size: 2vw;            
         }
-    }     
+    } 
+    
+    @media only screen and (min-width: 1024px) {
+        > hr {
+            border-top: 5px dashed var(--preto);
+        }
+
+        > h3 {
+            font-size: 1.5vw;                     
+        }        
+    }    
 `;
 
 export const Tesoura = styled(TesouraIcon)`
