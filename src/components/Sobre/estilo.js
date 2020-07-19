@@ -86,7 +86,7 @@ export const Principal = styled.main`
 
     & .haveANiceDay {
         &::first-line { 
-            font-size: 2.2rem;
+            font-size: 2.150rem;
         }
 
         color: var(--azul);
@@ -163,26 +163,21 @@ export const ParteDeBaixo = styled.footer`
     }
 
     > h3 {
-        font-size: 1rem;
+        font-size: 5vw;
         padding-top: 1rem;
+        padding-bottom: 1rem;
         text-align: center;
     }
-
-    @media only screen and (min-width: 320px) {
-        > h3 {
-            font-size: 1.5rem;
-        }
-    }
-
-    @media only screen and (min-width: 360px) {
-        > h3 {
-            font-size: 2rem;
-        }
-    }
    
-    @media only screen and (min-width: 490px) {
+    @media only screen and (min-width: 425px) {
         > h3 {
-            font-size: 2.5rem;            
+            font-size: 3vw;            
+        }
+    }   
+
+    @media only screen and (min-width: 768px) {
+        > h3 {
+            font-size: 2vw;            
         }
     }     
 `;
