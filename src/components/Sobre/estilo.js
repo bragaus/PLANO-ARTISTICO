@@ -6,7 +6,7 @@ export const Container = styled.div`
 `;
 
 export const ParteDeCima = styled.header`
-    > div { 
+    > div {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -18,6 +18,7 @@ export const ParteDeCima = styled.header`
             > h1 {
                 font-size: 11vw;
                 white-space: nowrap;
+                margin-left: 3px;
             }
         }
 
@@ -58,6 +59,7 @@ export const ParteDeCima = styled.header`
             > a {
                 > h1 {
                     font-size: 6vw;
+                    margin-left: 0;
                 }
             }
             
@@ -134,6 +136,24 @@ export const Principal = styled.main`
 
             line-height: 3rem;
         }        
+    }
+
+    @media only screen and (min-width: 1024px) {
+        > p {
+            font-size: 8rem;
+        }
+
+        & .criadores {
+            font-size: 7rem;
+        }
+
+        & .haveANiceDay {
+            &::first-line { 
+                font-size: 8.6rem;
+            }
+
+            line-height: 6rem;
+        }         
     }
 `;
 
