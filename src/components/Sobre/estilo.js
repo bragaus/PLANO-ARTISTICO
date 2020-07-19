@@ -77,7 +77,7 @@ export const Principal = styled.main`
 
     & .haveANiceDay {
         &::first-line { 
-            font-size: 10.8vw;
+            font-size: 10.3vw;
         }
 
         font-size: 10vw;
@@ -95,14 +95,6 @@ export const Principal = styled.main`
 
         & .criadores {
             font-size: 2rem;
-        }        
-
-        & .haveANiceDay {
-            &::first-line { 
-                font-size: 10.8vw;
-            }
-
-            font-size: 10vw;
         }
     }
 
