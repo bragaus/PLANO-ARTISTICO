@@ -1,6 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Principal, Star, ParteDeCima, ParteDeBaixo, IconesDeCima, Arame } from './estilo';
+import { 
+    Container,
+    Principal,
+    Star,
+    ParteDeCima,
+    ParteDeBaixo,
+    IconesDeCima,
+    ArameComputadorDeMesa,
+    ArameDispositivoMovel
+} from './estilo';
 
 const Sobre = () => {
     return (
@@ -77,7 +86,8 @@ const Sobre = () => {
             </Principal>
 
             <ParteDeBaixo>
-                <Arame />
+                <ArameComputadorDeMesa />
+                <ArameDispositivoMovel />
                 <h3>PLANO ARTÍSTICO. A WORLDWIDE OPERATION.&trade; 2020</h3>
             </ParteDeBaixo>
 

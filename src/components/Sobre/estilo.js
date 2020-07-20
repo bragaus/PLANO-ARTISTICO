@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { StarIcon, TesouraIcon, InfoIcon, ArameIcon } from '../../styles/Icones';
+import { StarIcon, TesouraIcon, InfoIcon, ArameNormalIcon, ArameLargoIcon } from '../../styles/Icones';
 
 export const Container = styled.div`
     background: var(--cinza);
@@ -202,10 +202,26 @@ export const IconesDeCima = styled(InfoIcon)`
     padding-right: 4px;
 `;
 
-export const Arame = styled(ArameIcon)`
-    padding-top: 10px;
-    width: 100%;
-    fill: #000;
+export const ArameComputadorDeMesa = styled(ArameLargoIcon)`
+    display: none;
+
+    @media only screen and (min-width: 769px) {
+        display: initial;
+        padding-top: 10px;
+        width: 100%;
+        fill: #000;
+    }
+`;
+
+export const ArameDispositivoMovel = styled(ArameNormalIcon)`
+    display: none;
+
+    @media only screen and (max-width: 768px) {
+        display: initial;
+        padding-top: 10px;
+        width: 100%;
+        fill: #000;
+    }
 `;
 
 export const Star = styled(StarIcon)`
