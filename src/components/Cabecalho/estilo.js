@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { LogoIcon, SetaIcon } from '../../styles/Icones';
+import { LogoIcon, SetaIcon, PictogramaSVG } from '../../styles/Icones';
 
 const rotacao = keyframes`
   from {
@@ -12,23 +12,41 @@ const rotacao = keyframes`
 `;
 
 export const Logo = styled(LogoIcon)`
-     @media only screen and (max-width: 768px) {
-        width: 25% !important;
-        left: 2% !important;
-        top: 2% !important;
+    display: none;
+
+    @media only screen and (min-width: 768px) {
+        display: initial;
+
+        width: 15%;
+        fill: #000;
+
+        position: fixed;
+        left: 20%;
+        top: 1%;
+        z-index: 2;
+
+        -webkit-animation:${rotacao} 8s linear infinite;
+        -moz-animation:${rotacao} 8s linear infinite;
+        animation:${rotacao} 8s linear infinite;        
     }
+`;
 
-    width: 15%;
+export const Pictograma = styled(PictogramaSVG)`
+    width: 10%;
     fill: #000;
+    margin: 2%;
 
-    position: fixed;
-    left: 20%;
-    top: 1%;
-    z-index: 2;
+    @media only screen and (min-width: 768px) {
+        display: none;
+    }
+`;
 
-    -webkit-animation:${rotacao} 8s linear infinite;
-    -moz-animation:${rotacao} 8s linear infinite;
-    animation:${rotacao} 8s linear infinite;
+export const Menu = styled.h1`
+    position: absolute;
+    font-size: 10vw;
+    color: var(--preto);
+    right: 2%;
+    top: 0;
 `;
 
 export const Seta = styled(SetaIcon)`
@@ -39,6 +57,17 @@ export const Seta = styled(SetaIcon)`
 export const Superior = styled.header.attrs(props => ({
     className: props.className
 }))`
+    & .dispositivo-movel {
+        position: fixed;
+        width: 100%;        
+        z-index: 2;
+    }
+
+    @media only screen and (min-width: 768px) {
+        & .dispositivo-movel {
+            display: none;
+        }
+    }
 
     & .info {
         font-size: 4vw;
@@ -129,6 +158,6 @@ export const Superior = styled.header.attrs(props => ({
 export const Auxiliar = styled.div`
     height: 20vw;
     @media only screen and (max-width: 768px) {
-        height: 35vw !important;
-    }     
+        height: 10vh !important;
+    }
 `;

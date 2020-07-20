@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, animateScroll } from "react-scroll";
 import { Link as Ancora } from 'react-router-dom';
-import { Superior, Auxiliar, Logo, Seta } from './estilo';
+import { Superior, Auxiliar, Logo, Seta, Pictograma, Menu } from './estilo';
 import TelaEmail from '../TelaEmail/TelaEmail';
 
 const Cabecalho = () => {
@@ -10,23 +10,13 @@ const Cabecalho = () => {
     
     return (<>
         <Superior>
-            
-            <nav className="celular">
-                <ul>
-                    <li>
-                        <Ancora to="/sobre">
-                            <b>INFO&#8599;</b>
-                        </Ancora>                    
-                    </li>
-                    <li>
-                        <button
-                            onClick={() => setTelaDeEmail(true)}
-                        >
-                            <b>CONTACT</b>
-                        </button>             
-                    </li>
-                </ul>
-            </nav>    
+
+            <section className="dispositivo-movel">
+                <Pictograma />
+                <Menu>
+                    MENU
+                </Menu>
+            </section>
 
             <Ancora to="/sobre" className="info">
                 <b>INFO</b>
