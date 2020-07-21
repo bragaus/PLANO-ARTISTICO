@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { StarIcon, TesouraIcon, InfoIcon, ArameNormalIcon, ArameLargoIcon } from '../../styles/Icones';
+import { EstrelaSVG, InfoSVG, ArameNormalSVG, ArameLargoSVG } from '../../styles/Icones';
 
 export const Container = styled.div`
     background: var(--cinza);
@@ -187,22 +187,14 @@ export const ParteDeBaixo = styled.footer`
     }    
 `;
 
-export const Tesoura = styled(TesouraIcon)`
-    position: absolute;
-    padding-top: 3.9%;
-    right: 3%;
-    width: 5%;
-    fill: #000;
-`;
-
-export const IconesDeCima = styled(InfoIcon)`
+export const IconesDeCima = styled(InfoSVG)`
     width: 41%;
     fill: #000;
     padding-top: 3px;
     padding-right: 4px;
 `;
 
-export const ArameComputadorDeMesa = styled(ArameLargoIcon)`
+export const ArameComputadorDeMesa = styled(ArameLargoSVG)`
     display: none;
 
     @media only screen and (min-width: 769px) {
@@ -213,7 +205,7 @@ export const ArameComputadorDeMesa = styled(ArameLargoIcon)`
     }
 `;
 
-export const ArameDispositivoMovel = styled(ArameNormalIcon)`
+export const ArameDispositivoMovel = styled(ArameNormalSVG)`
     display: none;
 
     @media only screen and (max-width: 768px) {
@@ -224,7 +216,8 @@ export const ArameDispositivoMovel = styled(ArameNormalIcon)`
     }
 `;
 
-export const Star = styled(StarIcon)`
+export const Estrela = styled(EstrelaSVG)`
     width: 20%;
     margin: 20% 39%;
+    fill: var(--vermelho)
 `;

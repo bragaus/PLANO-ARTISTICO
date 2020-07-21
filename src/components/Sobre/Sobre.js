@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { 
     Container,
     Principal,
-    Star,
+    Estrela,
     ParteDeCima,
     ParteDeBaixo,
     IconesDeCima,
@@ -66,7 +66,7 @@ const Sobre = () => {
                     como 40 páginas de um romance ruim.                    
                 </p>
 
-                <Star />
+                <Estrela />
 
                 <p className="criadores">
                     CODED BY <b>BM</b>
@@ -76,7 +76,7 @@ const Sobre = () => {
                     CREATIVE DIRECTION BY <b>AC</b>                                        
                 </p>
 
-                <Star />
+                <Estrela />
 
                 <p className="haveANiceDay">
                     HAVE A NICE DAY! <br />
