@@ -9,9 +9,14 @@ const Cabecalho = () => {
 
     const [telaDeEmail, setTelaDeEmail] = useState(false);
     const [menuDispositivoMovel, setMenuDispositivoMovel] = useState(false);
-    
-    // escondendo o scroll caso seja clicado no menu quando estiver no celular
-    document.body.style.overflow = menuDispositivoMovel ? 'hidden' : 'initial'
+
+    if (menuDispositivoMovel) {
+        document.body.style.overflow = 'hidden'
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera     
+    } else {
+        document.body.style.overflow = 'initial'
+    }
 
     return (<>
         <Superior>
@@ -89,26 +94,50 @@ const Cabecalho = () => {
             <Container>
                 <nav>
                     <ul>
-                        <li
-                            onClick={() => {
-                                setMenuDispositivoMovel(false)
-                                document.body.style.overflow = 'initial !important'
-                            }}
-                        >
+                        <li>
                             <Link
                                 activeClass="active"
                                 to="ilustrações"
-                                spy={true}
-                                smooth={true}
                                 offset={-70}
-                                duration={500}
+                                onClick={() => {
+                                    setMenuDispositivoMovel(false)
+                                }}                                
                             >
                                ILLUSTRATIONS
                             </Link>                      
                         </li>
-                        <li>ALBUM COVER</li>
-                        <li>COLLAGE</li>
-                        <li>INFO</li>
+                        <li>
+                            <Link
+                                activeClass="active"
+                                to="artesDeCapa"
+                                offset={-70}
+                                onClick={() => {
+                                    setMenuDispositivoMovel(false)
+                                }}                                 
+                            >
+                                ALBUM COVER
+                            </Link>                            
+                        </li>
+                        <li>
+                            <Link
+                                activeClass="active"
+                                to="colagens"
+                                offset={-70}
+                                onClick={() => {
+                                    setMenuDispositivoMovel(false)
+                                }}                                
+                            >
+                                COLLAGES
+                            </Link>                            
+                        </li>
+                        <li>
+                            <Ancora 
+                                to="/sobre" 
+                                className="info"                             
+                            >
+                                INFO 
+                            </Ancora>                            
+                        </li>
                     </ul>
                 </nav>
             </Container>

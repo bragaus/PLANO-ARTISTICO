@@ -12,6 +12,8 @@ import {
 } from './estilo';
 
 const Sobre = () => {
+    document.body.style.overflow = 'initial'
+
     return (
 
         <Container>
