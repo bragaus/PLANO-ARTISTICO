@@ -14,6 +14,21 @@ export const Menu = styled.h1`
     top: 0;
 `;
 
+export const Container = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+
+    height: 100%;
+    > nav {
+        text-align: center;
+        font-size: 10vw;
+        font-weight: bold;
+    }
+`;
+
 const rotacao = keyframes`
   from {
     transform: rotate(0deg);
