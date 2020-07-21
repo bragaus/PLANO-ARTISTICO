@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link, animateScroll } from "react-scroll";
 import { Link as Ancora } from 'react-router-dom';
-import { Superior, Auxiliar, Logo, Seta, Pictograma, Menu } from './estilo';
+
 import TelaEmail from '../TelaEmail/TelaEmail';
+import { Superior, Logo, Seta, Pictograma, Menu } from './estilo';
 
 const Cabecalho = () => {
 
@@ -18,65 +19,62 @@ const Cabecalho = () => {
                 </Menu>
             </section>
 
-            <Ancora to="/sobre" className="info">
-                <b>INFO</b>
-                <Seta />                
-            </Ancora>
+            <section className="desktop">
+                <Ancora to="/sobre" className="info">
+                    INFO
+                    <Seta />   
+                </Ancora>
 
-            <Logo onClick={animateScroll.scrollToTop}/>
+                <Logo onClick={animateScroll.scrollToTop}/>
 
-            <nav className="desktop">
-                <ul>                                           
-                    <li>
-                        <Link
-                            activeClass="active"
-                            to="ilustrações"
-                            spy={true}
-                            smooth={true}
-                            offset={-70}
-                            duration={500}
-                        >
-                            <b>ILLUSTRATIONS</b>
-                        </Link>
-                    </li>                    
-                    <li>
-                        <Link
-                            activeClass="active"
-                            to="artesDeCapa"
-                            spy={true}
-                            smooth={true}
-                            offset={-70}
-                            duration={500}
-                        >
-                            <b>ALBUM COVER</b>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            activeClass="active"
-                            to="colagens"
-                            spy={true}
-                            smooth={true}
-                            offset={-70}
-                            duration={500}
-                        >
-                            <b>COLLAGES</b>
-                        </Link>
-                    </li>    
-                    <li>
-                        <button 
+                <nav>
+                    <ul>                                           
+                        <li>
+                            <Link
+                                activeClass="active"
+                                to="ilustrações"
+                                spy={true}
+                                smooth={true}
+                                offset={-70}
+                                duration={500}
+                            >
+                               ILLUSTRATIONS
+                            </Link>
+                        </li>                    
+                        <li>
+                            <Link
+                                activeClass="active"
+                                to="artesDeCapa"
+                                spy={true}
+                                smooth={true}
+                                offset={-70}
+                                duration={500}
+                            >
+                                ALBUM COVER
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                activeClass="active"
+                                to="colagens"
+                                spy={true}
+                                smooth={true}
+                                offset={-70}
+                                duration={500}
+                            >
+                                COLLAGES
+                            </Link>
+                        </li>    
+                        <li 
                             onClick={() => telaDeEmail ? setTelaDeEmail(false) : setTelaDeEmail(true)}
                         >
-                            <b>CONTACT</b>
-                        </button>
-                    </li>
-
-                </ul>            
-            </nav>          
+                            <span>CONTACT</span>
+                        </li>
+                    </ul>   
+                </nav> 
+            </section>         
 
         </Superior>
-
-        <Auxiliar />
 
         {telaDeEmail && <TelaEmail setTelaDeEmail={setTelaDeEmail}/>}
 
