@@ -10,6 +10,7 @@ const Cabecalho = () => {
     const [telaDeEmail, setTelaDeEmail] = useState(false);
     const [menuDispositivoMovel, setMenuDispositivoMovel] = useState(false);
 
+    // Esconder e mostrar a barra de rolagem
     if (menuDispositivoMovel) {
         document.body.style.overflow = 'hidden'
         document.body.scrollTop = 0; // For Safari
@@ -91,56 +92,56 @@ const Cabecalho = () => {
         {telaDeEmail && <TelaEmail setTelaDeEmail={setTelaDeEmail}/>}
 
         {menuDispositivoMovel && (<>
-            <Container>
-                <nav>
-                    <ul>
-                        <li>
-                            <Link
-                                activeClass="active"
-                                to="ilustrações"
-                                offset={-70}
-                                onClick={() => {
-                                    setMenuDispositivoMovel(false)
-                                }}                                
-                            >
-                               ILLUSTRATIONS
-                            </Link>                      
-                        </li>
-                        <li>
-                            <Link
-                                activeClass="active"
-                                to="artesDeCapa"
-                                offset={-70}
-                                onClick={() => {
-                                    setMenuDispositivoMovel(false)
-                                }}                                 
-                            >
-                                ALBUM COVER
-                            </Link>                            
-                        </li>
-                        <li>
-                            <Link
-                                activeClass="active"
-                                to="colagens"
-                                offset={-70}
-                                onClick={() => {
-                                    setMenuDispositivoMovel(false)
-                                }}                                
-                            >
-                                COLLAGES
-                            </Link>                            
-                        </li>
-                        <li>
-                            <Ancora 
-                                to="/sobre" 
-                                className="info"                             
-                            >
-                                INFO 
-                            </Ancora>                            
-                        </li>
-                    </ul>
-                </nav>
-            </Container>
+        <Container>
+            <nav>
+                <ul>
+                    <li>
+                        <Link
+                            activeClass="active"
+                            to="ilustrações"
+                            offset={-70}
+                            onClick={() => {
+                                setMenuDispositivoMovel(false)
+                            }}                                
+                        >
+                            ILLUSTRATIONS
+                        </Link>                      
+                    </li>
+                    <li>
+                        <Link
+                            activeClass="active"
+                            to="artesDeCapa"
+                            offset={-70}
+                            onClick={() => {
+                                setMenuDispositivoMovel(false)
+                            }}                                 
+                        >
+                            ALBUM COVER
+                        </Link>                            
+                    </li>
+                    <li>
+                        <Link
+                            activeClass="active"
+                            to="colagens"
+                            offset={-70}
+                            onClick={() => {
+                                setMenuDispositivoMovel(false)
+                            }}                                
+                        >
+                            COLLAGES
+                        </Link>                            
+                    </li>
+                    <li>
+                        <Ancora 
+                            to="/sobre" 
+                            className="info"                             
+                        >
+                            INFO 
+                        </Ancora>                            
+                    </li>
+                </ul>
+            </nav>
+        </Container>
         </>)}
     </>);
 };

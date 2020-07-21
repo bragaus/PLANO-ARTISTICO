@@ -8,10 +8,12 @@ import {
 
 export const Menu = styled.h1`
     position: absolute;
-    font-size: 10vw;
-    color: var(--preto);
     right: 2%;
     top: 0;
+
+    font-size: min(10vw, 40px);
+
+    color: var(--preto);
 `;
 
 export const Container = styled.div`
@@ -22,10 +24,17 @@ export const Container = styled.div`
     background: #fff;
 
     height: 100%;
+
     > nav {
         text-align: center;
-        font-size: 10vw;
+        font-size: min(10vw, 50px);
         font-weight: bold;
+        
+    z-index: 10;
+    }
+
+    @media only screen and (min-width: 768px) {
+        display: none;
     }
 `;
 
@@ -61,9 +70,10 @@ export const Logo = styled(LogoSVG)`
 `;
 
 export const Pictograma = styled(PictogramaSVG)`
-    width: 10%;
+    width: min(10%, 40px);
+    margin: min(2%, 5px);
+
     fill: #000;
-    margin: 2%;
 `;
 
 export const Seta = styled(SetaSVG)`
