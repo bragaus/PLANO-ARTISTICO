@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components';
 
 import { 
-    FecharIcon, 
-    MinimizarIcon, 
-    MaximizarIcon, 
-    EnviarIcon, 
-    AnexoIcon 
+    FecharSVG, 
+    MinimizarSVG, 
+    MaximizarSVG, 
+    EnviarSVG, 
+    AnexoSVG 
 } from '../../styles/Icones';
 
 const minimizar = css`
@@ -306,18 +306,18 @@ const Transacao = css`
     transform: rotateZ(180deg);
 `;
 
-export const Fechar = styled(FecharIcon)`
+export const Fechar = styled(FecharSVG)`
     ${iconCSS}
 `;
 
-export const Minimizar = styled(MinimizarIcon)`
+export const Minimizar = styled(MinimizarSVG)`
     ${props => props.minimizador ? Transacao : null}
     transition: transform var(--segundos);
 
     ${iconCSS}
 `;
 
-export const Maximizar = styled(MaximizarIcon)`
+export const Maximizar = styled(MaximizarSVG)`
     @media (max-width: 768px) {
         display: none;
     }
@@ -328,7 +328,7 @@ export const Maximizar = styled(MaximizarIcon)`
     ${iconCSS}
 `;
 
-export const Anexo = styled(AnexoIcon)`
+export const Anexo = styled(AnexoSVG)`
     width: 100%;
 
     > path {
@@ -336,7 +336,7 @@ export const Anexo = styled(AnexoIcon)`
     }
 `;
 
-export const Enviar = styled(EnviarIcon)`
+export const Enviar = styled(EnviarSVG)`
     width: 100%;
     margin: 3% 2% 2% 2%;
 

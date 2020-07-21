@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { MiraIcon } from '../styles/Icones';
+import { MiraSVG } from '../styles/Icones';
 
 export default createGlobalStyle`
     * {
@@ -66,7 +66,7 @@ export default createGlobalStyle`
     }
 `;
 
-export const Mira = styled(MiraIcon)`
+export const Mira = styled(MiraSVG)`
     width: 10%;
     position: absolute;
     transform: translate(-49.5%, -48%);
