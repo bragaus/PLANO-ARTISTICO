@@ -15,7 +15,8 @@ import {
     CapaDescricao,
     ColagemDescricao,
     Colagem,
-    Painel
+    Painel,
+    Container
 } from './estilo';
 
 const PaginaInicial = () => {
@@ -48,6 +49,8 @@ const PaginaInicial = () => {
     return (
     <>
         <Cabecalho />
+
+        <Container>
 
             {/* Seção de Ilustrações */}
             <Titulo id="ilustrações">ILLUSTRATION</Titulo>                
@@ -133,6 +136,8 @@ const PaginaInicial = () => {
                     Dashboard
                 </Link>
             </Painel>}
+            
+        </Container>
 
         <Rodape />
     </>

@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 
+export const Container = styled.section`
+    padding-top: 10%;
+
+    @media only screen and (min-width: 768px) {
+        padding-top: 20%;
+    }
+`;
+
 export const DivisorDeSecao = styled.div`
     /* Define o elemento como um flex container, tornando os seus filhos flex-itens */
     display: flex;
@@ -34,7 +42,7 @@ export const Titulo = styled.h1`
         text-align: left;
         left: -2%;
         font-size: 13.5vw;
-    }    
+    }
 `;
 
 export const Controlador = styled.button`
