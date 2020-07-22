@@ -20,7 +20,9 @@ import {
     // Painel,
 
     Main,
-    Section,
+    Titulo,
+    Flex,
+    Ilustracao,
     EmailDispositivoMovel
 } from './estilo';
 
@@ -56,9 +58,25 @@ const PaginaInicial = () => {
         <Cabecalho />
 
         <Main>
-            <Section>
+            <section>
+                <header>
+                    <Titulo id="ilustrações">ILLUSTRATION</Titulo>
+                </header>
 
-            </Section>
+                <Flex>
+
+                    {ilustracoes.map(ilustracao => (
+                        <figure>
+                            <Ilustracao 
+                                src={ilustracao.url || ilustracao.urlPreview }
+                                alt={ilustracao.titulo}
+                            />
+                            <figcaption>{ilustracao.titulo}</figcaption>
+                        </figure>
+                    ))}
+
+                </Flex>
+            </section>
         </Main>
 
 {/*

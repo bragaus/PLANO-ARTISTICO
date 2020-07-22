@@ -29,14 +29,31 @@ export const EmailDispositivoMovel = styled.section`
 
 export const Main = styled.main`
     padding-top: 10%;
+    
+    figure {
+        border: 1px solid blue;
+        width: min(100%, 500px);
+    }            
+
 
     @media only screen and (min-width: 768px) {
         padding-top: 20%;
     }
 `;
 
-export const Section = styled.section`
+export const Titulo = styled.h1`
 
+`;
+
+export const Flex = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: 2px solid red;
+`;
+
+export const Ilustracao = styled.img`
+    width: min(100%, 500px);
 `;
 
 // export const DivisorDeSecao = styled.div`
