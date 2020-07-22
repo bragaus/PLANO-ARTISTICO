@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
-import Cabecalho from '../Cabecalho/Cabecalho';
-import Rodape from '../Rodape/Rodape';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
+
 import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
+
+import Cabecalho from '../Cabecalho/Cabecalho';
+import Rodape from '../Rodape/Rodape';
+import TelaEmailDispositivoMovel from '../TelaEmailDispositivoMovel';
 
 import { 
     DivisorDeSecao, 
@@ -138,6 +141,8 @@ const PaginaInicial = () => {
             </Painel>}
             
         </Container>
+
+        <TelaEmailDispositivoMovel />
 
         <Rodape />
     </>

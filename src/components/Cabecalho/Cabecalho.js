@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Link, animateScroll } from "react-scroll";
 import { Link as Ancora } from 'react-router-dom';
 
-import TelaEmail from '../TelaEmail/TelaEmail';
 import { Superior, Logo, Seta, Pictograma, Menu, Container } from './estilo';
+
+import TelaEmail from '../TelaEmail/TelaEmail';
 
 const Cabecalho = () => {
 
@@ -12,11 +13,13 @@ const Cabecalho = () => {
 
     // Esconder e mostrar a barra de rolagem
     if (menuDispositivoMovel) {
-        document.body.style.overflow = 'hidden'
         document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera     
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera 
+        document.body.style.overflowY = 'hidden'    
+        document.body.style.overflowX = 'hidden'    
     } else {
-        document.body.style.overflow = 'initial'
+        document.body.style.overflowY = 'initial'
+        document.body.style.overflowX = 'hidden'
     }
 
     return (<>
@@ -78,7 +81,7 @@ const Cabecalho = () => {
                             </Link>
                         </li>    
                         <li 
-                            onClick={() => telaDeEmail ? setTelaDeEmail(false) : setTelaDeEmail(true)}
+                            onClick={() => setTelaDeEmail(!telaDeEmail)}
                         >
                             <span>CONTACT</span>
                         </li>
