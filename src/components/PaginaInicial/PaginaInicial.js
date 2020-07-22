@@ -6,7 +6,6 @@ import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
 
 import Cabecalho from '../Cabecalho/Cabecalho';
 import Rodape from '../Rodape/Rodape';
-import TelaEmailDispositivoMovel from '../TelaEmailDispositivoMovel';
 
 import { 
     DivisorDeSecao, 
@@ -19,7 +18,8 @@ import {
     ColagemDescricao,
     Colagem,
     Painel,
-    Container
+    Container,
+    EmailDispositivoMovel
 } from './estilo';
 
 const PaginaInicial = () => {
@@ -142,7 +142,12 @@ const PaginaInicial = () => {
             
         </Container>
 
-        <TelaEmailDispositivoMovel />
+        <EmailDispositivoMovel>
+            <div>
+                <span>enter message</span>
+                <span>&gt;</span>
+            </div>
+        </EmailDispositivoMovel>
 
         <Rodape />
     </>

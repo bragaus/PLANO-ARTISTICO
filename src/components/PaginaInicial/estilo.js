@@ -1,5 +1,26 @@
 import styled from 'styled-components';
 
+export const EmailDispositivoMovel = styled.section`
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+
+    z-index: 2;
+
+    font-size: min(10vw, 50px);
+
+    > div {
+        display: flex;
+        justify-content: space-between;
+
+        border: 2px solid var(--vermelho);
+        border-radius: 20px;
+        background: var(--branco);
+
+
+    }
+`;
+
 export const Container = styled.section`
     padding-top: 10%;
 
