@@ -8,17 +8,19 @@ import Cabecalho from '../Cabecalho/Cabecalho';
 import Rodape from '../Rodape/Rodape';
 
 import { 
-    DivisorDeSecao, 
-    DivisorDeArte,
-    Titulo,
-    IlustracaoDescricao, 
-    Ilustracao,
-    ArteDeCapa,
-    CapaDescricao,
-    ColagemDescricao,
-    Colagem,
-    Painel,
-    Container,
+    // DivisorDeSecao, 
+    // DivisorDeArte,
+    // Titulo,
+    // IlustracaoDescricao, 
+    // Ilustracao,
+    // ArteDeCapa,
+    // CapaDescricao,
+    // ColagemDescricao,
+    // Colagem,
+    // Painel,
+
+    Main,
+    Section,
     EmailDispositivoMovel
 } from './estilo';
 
@@ -53,16 +55,21 @@ const PaginaInicial = () => {
     <>
         <Cabecalho />
 
-        <Container>
+        <Main>
+            <Section>
 
-            {/* Seção de Ilustrações */}
+            </Section>
+        </Main>
+
+{/*
+            
             <Titulo id="ilustrações">ILLUSTRATION</Titulo>                
             <DivisorDeSecao>
 
                 {ilustracoes.map(arte => (
                 <DivisorDeArte key={arte.ID}>          
 
-                    {/** Pagina individual da arte */}             
+                        
                     <Link to={{pathname: `/visualizarArte/${arte.ID}`, id: arte.ID}}>
                         <Ilustracao 
                             src={arte.url || arte.urlPreview} 
@@ -81,7 +88,7 @@ const PaginaInicial = () => {
 
             </DivisorDeSecao>
 
-            {/* Seção de CoverArts */}
+
             <Titulo id="artesDeCapa">ALBUM COVER</Titulo>   
             <DivisorDeSecao>
 
@@ -106,7 +113,7 @@ const PaginaInicial = () => {
 
             </DivisorDeSecao>                
 
-            {/* Seção de Colagens */}
+ 
             <Titulo id="colagens">COLLAGE</Titulo>  
             <DivisorDeSecao>
 
@@ -138,13 +145,12 @@ const PaginaInicial = () => {
                 >
                     Dashboard
                 </Link>
-            </Painel>}
-            
-        </Container>
+            </Painel>} 
+*/}        
 
         <EmailDispositivoMovel>
             <div>
-                <span>enter message</span>
+                <span>ENTER MESSAGE</span>
                 <span>&gt;</span>
             </div>
         </EmailDispositivoMovel>
