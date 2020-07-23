@@ -4,7 +4,7 @@ import api from '../../services/api';
 
 import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
 
-import Cabecalho from '../Cabecalho/Cabecalho';
+import Header from '../Header';
 import Rodape from '../Rodape/Rodape';
 
 import { 
@@ -23,7 +23,7 @@ import {
     Titulo,
     Flex,
     Ilustracao,
-    EmailDispositivoMovel
+    DivEmail
 } from './estilo';
 
 const PaginaInicial = () => {
@@ -55,7 +55,7 @@ const PaginaInicial = () => {
 
     return (
     <>
-        <Cabecalho />
+        <Header />
 
         <Main>
             <section>
@@ -78,6 +78,16 @@ const PaginaInicial = () => {
                 </Flex>
             </section>
         </Main>
+
+        <section>
+            <DivEmail>
+                <span>NEW EMAIL...</span>
+            </DivEmail>
+        </section>
+
+        <Rodape />
+    </>
+    );        
 
 {/*
             
@@ -165,17 +175,6 @@ const PaginaInicial = () => {
                 </Link>
             </Painel>} 
 */}        
-
-        <EmailDispositivoMovel>
-            <div>
-                <span>ENTER MESSAGE</span>
-                <span>&gt;</span>
-            </div>
-        </EmailDispositivoMovel>
-
-        <Rodape />
-    </>
-    );
 };
 
 export default PaginaInicial;

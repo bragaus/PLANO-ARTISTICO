@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Cabecalho from '../Cabecalho/Cabecalho';
+import Header from '../Header';
 import Rodape from '../Rodape/Rodape';
 import { Link } from 'react-router-dom';
 import Controladores from '../Controladores/Controladores';
@@ -60,7 +60,7 @@ const PainelDeControle = () => {
 
     return (
         <>
-            <Cabecalho />
+            <Header />
 
                 {/* Seção de Ilustrações */}
                 <Titulo id="ilustrações">ILLUSTRATION</Titulo>                

@@ -6,7 +6,7 @@ import { Superior, Logo, Seta, Pictograma, Menu, Container } from './estilo';
 
 import TelaEmail from '../TelaEmail/TelaEmail';
 
-const Cabecalho = () => {
+const Header = () => {
 
     const [telaDeEmail, setTelaDeEmail] = useState(false);
     const [menuDispositivoMovel, setMenuDispositivoMovel] = useState(false);
@@ -26,7 +26,15 @@ const Cabecalho = () => {
         <Superior>
 
             <section className="dispositivo-movel">
-                <Pictograma />
+
+                    <Pictograma />
+                    <Ancora 
+                        to="/sobre" 
+                        className="info"                             
+                    >
+                        ?
+                    </Ancora> 
+                                        
                 <Menu
                     onClick={() => setMenuDispositivoMovel(!menuDispositivoMovel)}
                 >
@@ -134,14 +142,6 @@ const Cabecalho = () => {
                             COLLAGES
                         </Link>                            
                     </li>
-                    <li>
-                        <Ancora 
-                            to="/sobre" 
-                            className="info"                             
-                        >
-                            INFO 
-                        </Ancora>                            
-                    </li>
                 </ul>
             </nav>
         </Container>
@@ -149,4 +149,4 @@ const Cabecalho = () => {
     </>);
 };
 
-export default Cabecalho;
+export default Header;

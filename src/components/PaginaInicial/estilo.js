@@ -1,37 +1,9 @@
 import styled from 'styled-components';
 
-export const EmailDispositivoMovel = styled.section`
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-
-    z-index: 2;
-
-    font-size: min(6vw, 25px);
-    color: var(--azul);
-    font-weight: bold;
-
-    > div {
-        display: flex;
-        justify-content: space-between;
-
-        border: 2px solid var(--vermelho);
-        border-radius: 20px;
-        background: var(--branco);
-
-        padding: 5px;
-    }
-
-    @media only screen and (min-width: 768px) {
-        display: none;
-    }
-`;
-
 export const Main = styled.main`
     padding-top: 10%;
     
     figure {
-        border: 1px solid blue;
         width: min(100%, 500px);
     }            
 
@@ -42,18 +14,49 @@ export const Main = styled.main`
 `;
 
 export const Titulo = styled.h1`
-
+    font-size: min(14vw, 6rem);
+    text-align: center;
 `;
 
 export const Flex = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    border: 2px solid red;
 `;
 
 export const Ilustracao = styled.img`
     width: min(100%, 500px);
+`;
+
+export const DivEmail = styled.div`
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+
+    z-index: 2;
+
+    font-size: min(6vw, 25px);
+    color: var(--azul);
+    font-weight: bold;
+
+    background: var(--branco);
+    border: 2px solid var(--vermelho);
+    padding: 5px;
+
+    /* > div {
+        display: flex;
+        justify-content: space-between;
+
+        border: 2px solid var(--vermelho);
+        border-radius: 20px;
+        background: var(--branco);
+
+        padding: 5px;
+    } */
+
+    @media only screen and (min-width: 768px) {
+        display: none;
+    }
 `;
 
 // export const DivisorDeSecao = styled.div`

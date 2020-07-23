@@ -6,13 +6,11 @@ import {
     PictogramaSVG 
 } from '../../styles/Icones';
 
-export const Menu = styled.h1`
-    position: absolute;
-    right: 2%;
+export const Menu = styled.span`
+    text-align: right;
     top: 0;
 
     font-size: min(10vw, 40px);
-
     color: var(--preto);
 `;
 
@@ -29,11 +27,10 @@ export const Container = styled.div`
         text-align: center;
         font-size: min(10vw, 50px);
         font-weight: bold;
-        
-    z-index: 10;
+        z-index: 10;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 1024px) {
         display: none;
     }
 `;
@@ -51,7 +48,7 @@ const rotacao = keyframes`
 export const Logo = styled(LogoSVG)`
     display: none;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 1024px) {
         position: fixed;
         display: initial;
 
@@ -70,8 +67,8 @@ export const Logo = styled(LogoSVG)`
 `;
 
 export const Pictograma = styled(PictogramaSVG)`
-    width: min(10%, 40px);
-    margin: min(2%, 5px);
+    width: min(12%, 40px);
+    top: 0;
 
     fill: #000;
 `;
@@ -90,12 +87,22 @@ export const Superior = styled.header`
     }
 
     & .dispositivo-movel {
+        display: flex;
+        justify-content: space-between;
         position: fixed;
         z-index: 2;
         width: 100%;
+
+        a {
+            top: 0;
+            font-size: min(10vw, 40px);
+
+            color: var(--preto);            
+        }
     }
 
-    @media only screen and (min-width: 768px) {
+
+    @media only screen and (min-width: 1024px) {
         & .dispositivo-movel {
             display: none;
         }
