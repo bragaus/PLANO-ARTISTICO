@@ -81,7 +81,7 @@ const TelaEmail = ({ setTelaDeEmail }) => {
     const EsquemaDeValidacao = Yup.object().shape({
         email: Yup.string().email().required('enter email'),
         corpo: Yup.string().max(500, "Too Long!").required('enter any message'),
-        arquivo: Yup.mixed().test('fileFormat', 'Unsupported Format', arquivo => 
+        arquivo: Yup.mixed().notRequired().test('fileFormat', 'Unsupported Format', arquivo => 
             arquivo && formatosSuportados.includes(arquivo.type)
         )
     })      

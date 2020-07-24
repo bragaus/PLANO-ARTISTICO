@@ -14,7 +14,7 @@ export const Main = styled.main`
 `;
 
 export const Titulo = styled.h1`
-    font-size: min(14vw, 6rem);
+    font-size: min(14vw, 6.5rem);
     text-align: center;
 `;
 
@@ -42,17 +42,6 @@ export const DivEmail = styled.div`
     background: var(--branco);
     border: 2px solid var(--vermelho);
     padding: 5px;
-
-    /* > div {
-        display: flex;
-        justify-content: space-between;
-
-        border: 2px solid var(--vermelho);
-        border-radius: 20px;
-        background: var(--branco);
-
-        padding: 5px;
-    } */
 
     @media only screen and (min-width: 768px) {
         display: none;
