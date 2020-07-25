@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { EstrelaSVG, InfoSVG, ArameNormalSVG, ArameLargoSVG } from '../../styles/Icones';
+import { EstrelaSVG, InfoSVG, ArameNormalSVG, ArameLargoSVG, HaveNiceDaySVG } from '../../styles/Icones';
 
 export const Container = styled.div`
     background: var(--cinza);
@@ -153,18 +153,13 @@ export const Principal = styled.main`
 `;
 
 export const ParteDeBaixo = styled.footer`
+    
     > h3 {
         font-size: 5vw;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        margin-top: 0.1%;
+        padding-bottom: 1rem;
         text-align: center;
     }
-   
-    @media only screen and (min-width: 425px) {
-        > h3 {
-            font-size: 3vw;            
-        }
-    }   
 
     @media only screen and (min-width: 768px) {
         > h3 {
@@ -189,9 +184,9 @@ export const IconesDeCima = styled(InfoSVG)`
 export const ArameComputadorDeMesa = styled(ArameLargoSVG)`
     display: none;
 
-    @media only screen and (min-width: 769px) {
+    @media only screen and (min-width: 500px) {
         display: initial;
-        padding-top: 10px;
+        margin-top: 2%;
         width: 100%;
         fill: #000;
     }
@@ -200,7 +195,7 @@ export const ArameComputadorDeMesa = styled(ArameLargoSVG)`
 export const ArameDispositivoMovel = styled(ArameNormalSVG)`
     display: none;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 500px) {
         display: initial;
         padding-top: 10px;
         width: 100%;
@@ -211,5 +206,16 @@ export const ArameDispositivoMovel = styled(ArameNormalSVG)`
 export const Estrela = styled(EstrelaSVG)`
     width: 20%;
     margin: 20% 39%;
-    fill: var(--vermelho)
+    fill: #1eff00;
+`;
+
+export const HaveNiceDay = styled(HaveNiceDaySVG)`
+    width: 90%;
+    margin-left: 4.5%;
+    fill: var(--azul);
+
+    @media only screen and (min-width: 1024px) {
+        width: 55%;
+        margin-left: 22.5%;        
+    }
 `;

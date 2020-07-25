@@ -8,7 +8,8 @@ import {
     ParteDeBaixo,
     IconesDeCima,
     ArameComputadorDeMesa,
-    ArameDispositivoMovel
+    ArameDispositivoMovel,
+    HaveNiceDay
 } from './estilo';
 
 const Sobre = () => {
@@ -80,10 +81,11 @@ const Sobre = () => {
 
                 <Estrela />
 
-                <p className="haveANiceDay">
+                <HaveNiceDay />
+                {/* <p className="haveANiceDay">
                     HAVE A NICE DAY! <br />
                     SOMEWHERE ELSE
-                </p>
+                </p> */}
 
             </Principal>
 

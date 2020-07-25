@@ -13,7 +13,7 @@ export default createGlobalStyle`
         overflow-x: hidden;        
     }
 
-    h1, a {
+    h1, h2, h3, a {
         padding: 0;
         margin: 0;
     }

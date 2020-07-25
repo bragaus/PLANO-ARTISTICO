@@ -72,7 +72,7 @@ const PaginaInicial = () => {
                                 src={ilustracao.url || ilustracao.urlPreview }
                                 alt={ilustracao.titulo}
                             />
-                            <figcaption>{ilustracao.titulo}</figcaption>
+                            <figcaption>{ilustracao.titulo} <br /> {ilustracao.desc}</figcaption>
                         </figure>
                     ))}
 

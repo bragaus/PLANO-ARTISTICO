@@ -7,7 +7,7 @@ const Footer = () => {
             <ArameDispositivoMovel />
             <ArameComputadorDeMesa />
             <h3>PLANO ARTÍSTICO. A WORLDWIDE OPERATION.&trade; 2020</h3>
-        </Rodape>   
+        </Rodape>
     );
 };
 
