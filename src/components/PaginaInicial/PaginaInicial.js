@@ -5,7 +5,7 @@ import api from '../../services/api';
 import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
 
 import Header from '../Header';
-import Rodape from '../Rodape/Rodape';
+import Footer from '../Footer';
 
 import { 
     // DivisorDeSecao, 
@@ -23,7 +23,8 @@ import {
     Titulo,
     Flex,
     Ilustracao,
-    DivEmail
+    DivEmail,
+    Portateis
 } from './estilo';
 
 const PaginaInicial = () => {
@@ -79,13 +80,14 @@ const PaginaInicial = () => {
             </section>
         </Main>
 
-        <section>
+        {/* Section para dispositivos portateis */}
+        <Portateis>
             <DivEmail>
                 <span>NEW EMAIL...</span>
             </DivEmail>
-        </section>
+        </Portateis>
 
-        <Rodape />
+        <Footer />
     </>
     );        
 

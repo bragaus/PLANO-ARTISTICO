@@ -42,7 +42,7 @@ const rotacao = keyframes`
 
   to {
     transform: rotate(360deg);
-  }
+  } 
 `;
 
 export const Logo = styled(LogoSVG)`
@@ -92,9 +92,9 @@ export const Superior = styled.header`
         position: fixed;
         z-index: 2;
         width: 100%;
-
+        top: 0;
+        
         a {
-            top: 0;
             font-size: min(10vw, 40px);
 
             color: var(--preto);            

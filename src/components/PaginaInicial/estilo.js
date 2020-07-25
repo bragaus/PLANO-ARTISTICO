@@ -1,31 +1,44 @@
 import styled from 'styled-components';
 
 export const Main = styled.main`
-    padding-top: 10%;
-    
-    figure {
-        width: min(100%, 500px);
-    }            
-
+    margin-top: min(10%, 40px);         
 
     @media only screen and (min-width: 768px) {
-        padding-top: 20%;
-    }
+        margin-top: 5%;
+    } 
 `;
 
 export const Titulo = styled.h1`
-    font-size: min(14vw, 6.5rem);
+    font-size: 14vw;
     text-align: center;
-`;
+`; 
 
 export const Flex = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+
+    figure {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    @media only screen and (min-width: 768px) {
+        figure {
+            width: 45%;
+            margin: 1%;
+        }
+    }    
 `;
 
 export const Ilustracao = styled.img`
-    width: min(100%, 500px);
+    width: 100%;
+`;
+
+export const Portateis = styled.section`
+    @media only screen and (min-width: 1024px) {
+        display: none;
+    }
 `;
 
 export const DivEmail = styled.div`
@@ -42,10 +55,6 @@ export const DivEmail = styled.div`
     background: var(--branco);
     border: 2px solid var(--vermelho);
     padding: 5px;
-
-    @media only screen and (min-width: 768px) {
-        display: none;
-    }
 `;
 
 // export const DivisorDeSecao = styled.div`

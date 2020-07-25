@@ -153,14 +153,10 @@ export const Principal = styled.main`
 `;
 
 export const ParteDeBaixo = styled.footer`
-    > hr {
-        border-top: 2px dashed var(--preto);
-    }
-
     > h3 {
         font-size: 5vw;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
         text-align: center;
     }
    
@@ -177,10 +173,6 @@ export const ParteDeBaixo = styled.footer`
     } 
     
     @media only screen and (min-width: 1024px) {
-        > hr {
-            border-top: 5px dashed var(--preto);
-        }
-
         > h3 {
             font-size: 1.5vw;                     
         }        
