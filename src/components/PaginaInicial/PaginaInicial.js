@@ -73,11 +73,11 @@ const PaginaInicial = () => {
                 <Flex>
 
                     {ilustracoes.map(ilustracao => (
-                        // <figure>
+                        <figure>
 
-                        //     <figcaption>
-                        //         <h5>{ilustracao.titulo} - {ilustracao.descricao}</h5>
-                        //     </figcaption>
+                            <figcaption>
+                                <h5>{ilustracao.titulo} - {ilustracao.descricao}</h5>
+                            </figcaption>
 
                             <Link to={{pathname: `/visualizarArte/${ilustracao.ID}`, id: ilustracao.ID}}>
                                 <Ilustracao 
@@ -86,7 +86,7 @@ const PaginaInicial = () => {
                                 />
                             </Link>
 
-                        // {/* </figure> */}
+                        </figure>
                     ))}
 
                 </Flex>
