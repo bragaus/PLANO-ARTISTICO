@@ -12,7 +12,7 @@ export const Titulo = styled.h1`
     margin-top: 2%;
     margin-left: -2%;
 
-    font-size: 14vw;
+    font-size: 15vw;
     text-align: center;
     white-space: nowrap;
 
@@ -23,7 +23,7 @@ export const Titulo = styled.h1`
     }
 
     &#colagens {
-        font-size: 19vw;
+        font-size: 20vw;
     }
 `; 
 
