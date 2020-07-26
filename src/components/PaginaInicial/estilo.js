@@ -10,7 +10,7 @@ export const Main = styled.main`
 
 export const Titulo = styled.h1`
     margin-top: 2%;
-    font-size: 14vw;
+    font-size: 15vw;
     margin-left: -2%;
 
     white-space: nowrap;
@@ -22,7 +22,7 @@ export const Titulo = styled.h1`
     }
 
     &#colagens {
-        font-size: 19vw;
+        font-size: 20vw;
     }
 `; 
 
