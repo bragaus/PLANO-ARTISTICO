@@ -14,11 +14,11 @@ export const Titulo = styled.h1`
     text-align: center;
     white-space: nowrap;
 
-    &#ilustracoes {
+    &#ilustrações {
         font-size: 13.5vw;
     }
 
-    &#collages {
+    &#colagens {
         font-size: 18vw;
     }
 `; 
@@ -29,8 +29,15 @@ export const Flex = styled.div`
     flex-wrap: wrap;
 
     figure {
+        margin-top: -2%;
         width: 100%;
         overflow: hidden;
+
+        > figcaption {
+            position: absolute;
+            text-transform: uppercase;            
+            margin-top: 2%;
+        }
     }
 
     @media only screen and (min-width: 768px) {

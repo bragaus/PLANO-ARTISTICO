@@ -4,7 +4,7 @@ import { Link as Ancora } from 'react-router-dom';
 
 import { Superior, Logo, Seta, Pictograma, Menu, Container } from './estilo';
 
-import TelaEmail from '../TelaEmail/TelaEmail';
+import TelaEmail from '../TelaEmail';
 
 const Header = () => {
 

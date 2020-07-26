@@ -6,6 +6,7 @@ import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
 
 import Header from '../Header';
 import Footer from '../Footer';
+import TelaEmail from '../TelaEmail';
 
 import { 
     // DivisorDeSecao, 
@@ -36,6 +37,8 @@ const PaginaInicial = () => {
     const [artesDeCapa, setArtesDeCapa] = useState([]);
     const [colagens, setColagens] = useState([]);
 
+    const [telaDeEmail, setTelaDeEmail] = useState(false);
+
     useEffect(() => {
 
         // Requisições das artes
@@ -59,6 +62,7 @@ const PaginaInicial = () => {
         <Header />
 
         <Main>
+
             <section>
                 <header>
                     <Titulo id="ilustrações">ILLUSTRATION</Titulo>
@@ -68,11 +72,15 @@ const PaginaInicial = () => {
 
                     {ilustracoes.map(ilustracao => (
                         <figure>
+
+                            <figcaption>
+                                <h5>{ilustracao.titulo} - {ilustracao.descricao}</h5>
+                            </figcaption>
+                                                
                             <Ilustracao 
                                 src={ilustracao.url || ilustracao.urlPreview }
                                 alt={ilustracao.titulo}
                             />
-                            <figcaption>{ilustracao.titulo} <br /> {ilustracao.desc}</figcaption>
                         </figure>
                     ))}
 
@@ -81,7 +89,7 @@ const PaginaInicial = () => {
 
             <section>
                 <header>
-                    <Titulo id="ilustracoes">ALBUM COVER</Titulo>
+                    <Titulo id="artesDeCapa">ALBUM COVER</Titulo>
                 </header>
 
                 <Flex>
@@ -92,7 +100,10 @@ const PaginaInicial = () => {
                                 src={arteDeCapa.url || arteDeCapa.urlPreview }
                                 alt={arteDeCapa.titulo}
                             />
-                            <figcaption>{arteDeCapa.titulo} <br /> {arteDeCapa.desc}</figcaption>
+                            <figcaption>
+                                <h5>{arteDeCapa.titulo}</h5>
+                                <h6>{arteDeCapa.descricao}</h6>
+                            </figcaption>                        
                         </figure>
                     ))}
 
@@ -101,7 +112,7 @@ const PaginaInicial = () => {
 
             <section>
                 <header>
-                    <Titulo id="collages">COLLAGES</Titulo>
+                    <Titulo id="colagens">COLLAGES</Titulo>
                 </header>
 
                 <Flex>
@@ -112,7 +123,10 @@ const PaginaInicial = () => {
                                 src={colagem.url || colagem.urlPreview }
                                 alt={colagem.titulo}
                             />
-                            <figcaption>{colagem.titulo} <br /> {colagem.desc}</figcaption>
+                            <figcaption>
+                                <h5>{colagem.titulo}</h5>
+                                <h6>{colagem.descricao}</h6>
+                            </figcaption>
                         </figure>
                     ))}
 
@@ -122,11 +136,16 @@ const PaginaInicial = () => {
         </Main>
 
         {/* Section para dispositivos portateis */}
+        {!telaDeEmail && (
         <Portateis>
-            <DivEmail>
+            <DivEmail
+                onClick={() => {setTelaDeEmail(true)}}
+            >
                 <span>NEW EMAIL...</span>
             </DivEmail>
-        </Portateis>
+        </Portateis> )}
+
+        {telaDeEmail && <TelaEmail setTelaDeEmail={setTelaDeEmail}/>}
 
         <Footer />
     </>

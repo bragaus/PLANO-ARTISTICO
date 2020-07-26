@@ -92,7 +92,7 @@ const TelaEmail = ({ setTelaDeEmail }) => {
             // Ativar o arrastavel apenas no id
             handle="#arrastavel"
             // Defini zona limite para arrastar
-            bounds="parent" 
+            // bounds="parent" 
             // Controlador de posição
             onDrag={quandoArrastar}
             // Zerando a posição se a tela for maximizada
