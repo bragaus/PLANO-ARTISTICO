@@ -78,6 +78,47 @@ const PaginaInicial = () => {
 
                 </Flex>
             </section>
+
+            <section>
+                <header>
+                    <Titulo id="ilustracoes">ALBUM COVER</Titulo>
+                </header>
+
+                <Flex>
+
+                    {artesDeCapa.map(arteDeCapa => (
+                        <figure>
+                            <Ilustracao 
+                                src={arteDeCapa.url || arteDeCapa.urlPreview }
+                                alt={arteDeCapa.titulo}
+                            />
+                            <figcaption>{arteDeCapa.titulo} <br /> {arteDeCapa.desc}</figcaption>
+                        </figure>
+                    ))}
+
+                </Flex>
+            </section>
+
+            <section>
+                <header>
+                    <Titulo id="collages">COLLAGES</Titulo>
+                </header>
+
+                <Flex>
+
+                    {colagens.map(colagem => (
+                        <figure>
+                            <Ilustracao 
+                                src={colagem.url || colagem.urlPreview }
+                                alt={colagem.titulo}
+                            />
+                            <figcaption>{colagem.titulo} <br /> {colagem.desc}</figcaption>
+                        </figure>
+                    ))}
+
+                </Flex>
+            </section>            
+ 
         </Main>
 
         {/* Section para dispositivos portateis */}

@@ -9,8 +9,18 @@ export const Main = styled.main`
 `;
 
 export const Titulo = styled.h1`
+    margin-top: 2%;
     font-size: 14vw;
     text-align: center;
+    white-space: nowrap;
+
+    &#ilustracoes {
+        font-size: 13.5vw;
+    }
+
+    &#collages {
+        font-size: 18vw;
+    }
 `; 
 
 export const Flex = styled.div`
