@@ -11,15 +11,18 @@ export const Main = styled.main`
 export const Titulo = styled.h1`
     margin-top: 2%;
     font-size: 14vw;
-    text-align: center;
+    margin-left: -2%;
+
     white-space: nowrap;
 
-    &#ilustrações {
-        font-size: 13.5vw;
+    &#ilustracoes {
+        @media only screen and (min-width: 1024px) {
+            padding-top: 12%;
+        }
     }
 
     &#colagens {
-        font-size: 18vw;
+        font-size: 19vw;
     }
 `; 
 
@@ -29,14 +32,16 @@ export const Flex = styled.div`
     flex-wrap: wrap;
 
     figure {
-        margin-top: -2%;
         width: 100%;
+        margin-top: -1rem;
         overflow: hidden;
 
         > figcaption {
-            position: absolute;
-            text-transform: uppercase;            
+            position: absolute;       
             margin-top: 2%;
+
+            text-transform: uppercase;
+            font-size: min(7vw, 2rem);
         }
     }
 
@@ -49,6 +54,14 @@ export const Flex = styled.div`
 `;
 
 export const Ilustracao = styled.img`
+    width: 100%;
+`;
+
+export const ArteDeCapa = styled.img`
+    width: 100%;
+`;
+
+export const Colagem = styled.img`
     width: 100%;
 `;
 

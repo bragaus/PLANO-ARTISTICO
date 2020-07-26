@@ -103,6 +103,7 @@ export const Superior = styled.header`
 
 
     @media only screen and (min-width: 1024px) {
+
         & .dispositivo-movel {
             display: none;
         }
@@ -114,8 +115,8 @@ export const Superior = styled.header`
         & .info {
             position: fixed;
             z-index: 2;
+            top: 0;
             width: 14%;
-
 
             &:hover {
                 color: #ff0000;
@@ -129,8 +130,10 @@ export const Superior = styled.header`
         ul {
             position: fixed;
             right: 0;
+            top: 0;
             text-align: right;
             z-index: 2;
+
             li {
                 a {
                     &:hover {

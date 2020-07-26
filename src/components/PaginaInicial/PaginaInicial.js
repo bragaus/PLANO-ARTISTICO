@@ -24,6 +24,8 @@ import {
     Titulo,
     Flex,
     Ilustracao,
+    ArteDeCapa,
+    Colagem,
     DivEmail,
     Portateis
 } from './estilo';
@@ -65,7 +67,7 @@ const PaginaInicial = () => {
 
             <section>
                 <header>
-                    <Titulo id="ilustrações">ILLUSTRATION</Titulo>
+                    <Titulo id="ilustracoes">ILLUSTRATION</Titulo>
                 </header>
 
                 <Flex>
@@ -76,11 +78,14 @@ const PaginaInicial = () => {
                             <figcaption>
                                 <h5>{ilustracao.titulo} - {ilustracao.descricao}</h5>
                             </figcaption>
-                                                
-                            <Ilustracao 
-                                src={ilustracao.url || ilustracao.urlPreview }
-                                alt={ilustracao.titulo}
-                            />
+
+                            <Link to={{pathname: `/visualizarArte/${ilustracao.ID}`, id: ilustracao.ID}}>
+                                <Ilustracao 
+                                    src={ilustracao.url || ilustracao.urlPreview }
+                                    alt={ilustracao.titulo}
+                                />
+                            </Link>
+
                         </figure>
                     ))}
 
@@ -92,18 +97,22 @@ const PaginaInicial = () => {
                     <Titulo id="artesDeCapa">ALBUM COVER</Titulo>
                 </header>
 
-                <Flex>
+                <Flex> 
 
                     {artesDeCapa.map(arteDeCapa => (
                         <figure>
-                            <Ilustracao 
-                                src={arteDeCapa.url || arteDeCapa.urlPreview }
-                                alt={arteDeCapa.titulo}
-                            />
+
                             <figcaption>
-                                <h5>{arteDeCapa.titulo}</h5>
-                                <h6>{arteDeCapa.descricao}</h6>
-                            </figcaption>                        
+                                <h5>{arteDeCapa.titulo} - {arteDeCapa.descricao}</h5>
+                            </figcaption>     
+
+                            <Link to={{pathname: `/visualizarArte/${arteDeCapa.ID}`, id: arteDeCapa.ID}}>
+                                <ArteDeCapa 
+                                    src={arteDeCapa.url || arteDeCapa.urlPreview }
+                                    alt={arteDeCapa.titulo}
+                                />
+                            </Link>
+
                         </figure>
                     ))}
 
@@ -119,14 +128,18 @@ const PaginaInicial = () => {
 
                     {colagens.map(colagem => (
                         <figure>
-                            <Ilustracao 
-                                src={colagem.url || colagem.urlPreview }
-                                alt={colagem.titulo}
-                            />
+
                             <figcaption>
-                                <h5>{colagem.titulo}</h5>
-                                <h6>{colagem.descricao}</h6>
-                            </figcaption>
+                                <h5>{colagem.titulo} - {colagem.descricao}</h5>
+                            </figcaption>  
+
+                            <Link to={{pathname: `/visualizarArte/${colagem.ID}`, id: colagem.ID}}>
+                                <Colagem 
+                                    src={colagem.url || colagem.urlPreview }
+                                    alt={colagem.titulo}
+                                />
+                            </Link>
+                            
                         </figure>
                     ))}
 
