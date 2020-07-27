@@ -12,7 +12,7 @@ export const Titulo = styled.h1`
     margin-top: 2%;
     margin-left: -2%;
 
-    font-size: 15.5vw;
+    font-size: 15.2vw;
     text-align: center;
     white-space: nowrap;
 
