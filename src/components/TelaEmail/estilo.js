@@ -9,7 +9,7 @@ import {
 } from '../../styles/Icones';
 
 const minimizar = css`
-    @media (max-width: 768px) {
+    @media (max-width: 500px) {
         height: 12vw !important;
     }
 
@@ -22,7 +22,7 @@ const minimizar = css`
 
 const maximizar = css`
 
-    @media (min-width: 768px) {
+    @media (min-width: 500px) {
         width: 95% !important;
         top: 2%;
         left: 2%;
@@ -79,7 +79,7 @@ const maximizar = css`
 `;
 
 export const Container = styled.div`
-    @media (max-width: 768px) {
+    @media (max-width: 500px) {
 
         width: 100%;
         top: 0;
@@ -172,7 +172,7 @@ export const Container = styled.div`
 `;
 
 export const ParteDeCima = styled.header`
-    @media (max-width: 768px) {
+    @media (max-width: 500px) {
         div {
             > h1 {
                 font-size: 7vw !important;
@@ -222,7 +222,7 @@ export const ParteDeCima = styled.header`
 `;
 
 export const Flex = styled.div`
-    @media (max-width: 768px) {
+    @media (max-width: 500px) {
         /* Botão de enviar */
         & #labelEnviar {
             width: 25vw !important;
@@ -287,7 +287,7 @@ export const Flex = styled.div`
 `;
 
 const iconCSS = css`
-    @media (max-width: 768px) {
+    @media (max-width: 500px) {
         width: 100%;
     }
 
@@ -318,7 +318,7 @@ export const Minimizar = styled(MinimizarSVG)`
 `;
 
 export const Maximizar = styled(MaximizarSVG)`
-    @media (max-width: 768px) {
+    @media (max-width: 500px) {
         display: none;
     }
 

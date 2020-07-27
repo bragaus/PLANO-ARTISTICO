@@ -6,10 +6,9 @@ import { Superior, Logo, Seta, Pictograma, Menu, Container } from './estilo';
 
 import TelaEmail from '../TelaEmail';
 
-const Header = () => {
+const Header = ({setMenuDispositivoMovel, menuDispositivoMovel}) => {
 
     const [telaDeEmail, setTelaDeEmail] = useState(false);
-    const [menuDispositivoMovel, setMenuDispositivoMovel] = useState(false);
 
     // Esconder e mostrar a barra de rolagem
     if (menuDispositivoMovel) {

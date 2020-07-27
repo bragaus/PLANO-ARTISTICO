@@ -41,6 +41,11 @@ const PaginaInicial = () => {
 
     const [telaDeEmail, setTelaDeEmail] = useState(false);
 
+    // Controla a visibilidade do menu, no componente Header,
+    // foi passado por aqui porque o "NEW MESSAGE..." precisa se esconder
+    // quando o menu estiver visivel
+    const [menuDispositivoMovel, setMenuDispositivoMovel] = useState(false);
+
     useEffect(() => {
 
         // Requisições das artes
@@ -59,9 +64,12 @@ const PaginaInicial = () => {
         carregarArtes();
     }, []);    
 
-    return (
-    <>
-        <Header />
+    return (<>
+    
+        <Header 
+            setMenuDispositivoMovel={setMenuDispositivoMovel}
+            menuDispositivoMovel={menuDispositivoMovel}
+        />
 
         <Main>
 
@@ -149,7 +157,7 @@ const PaginaInicial = () => {
         </Main>
 
         {/* Section para dispositivos portateis */}
-        {!telaDeEmail && (
+        {!telaDeEmail && !menuDispositivoMovel && (
         <Portateis>
             <DivEmail
                 onClick={() => {setTelaDeEmail(true)}}
@@ -161,8 +169,8 @@ const PaginaInicial = () => {
         {telaDeEmail && <TelaEmail setTelaDeEmail={setTelaDeEmail}/>}
 
         <Footer />
-    </>
-    );        
+
+    </>);        
 
 {/*
             
