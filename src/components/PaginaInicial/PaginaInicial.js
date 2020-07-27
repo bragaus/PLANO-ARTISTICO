@@ -27,7 +27,8 @@ import {
     ArteDeCapa,
     Colagem,
     DivEmail,
-    Portateis
+    Portateis,
+    Figure
 } from './estilo';
 
 const PaginaInicial = () => {
@@ -81,7 +82,10 @@ const PaginaInicial = () => {
                 <Flex>
 
                     {ilustracoes.map(ilustracao => (
-                        <figure>
+                        <Figure
+                            ilustracoes={ilustracoes}
+                            id_DaArte={ilustracao.ID}                        
+                        >
 
                             <figcaption>
                                 <h5>{ilustracao.titulo} - {ilustracao.descricao}</h5>
@@ -94,7 +98,7 @@ const PaginaInicial = () => {
                                 />
                             </Link>
 
-                        </figure>
+                        </Figure>
                     ))}
 
                 </Flex>

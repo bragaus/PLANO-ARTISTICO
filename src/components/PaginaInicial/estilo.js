@@ -16,6 +16,10 @@ export const Titulo = styled.h1`
     text-align: center;
     white-space: nowrap;
 
+    @media only screen and (min-width: 1024px) {
+        font-size: 14.010vw;
+    }
+
     &#ilustracoes {
         @media only screen and (min-width: 1024px) {
             padding-top: 12%;
@@ -24,38 +28,65 @@ export const Titulo = styled.h1`
 
     &#colagens {
         font-size: 21vw;
+
+        @media only screen and (min-width: 1024px) {
+            font-size: 19vw;
+        }        
     }
 `; 
 
 export const Flex = styled.div`
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap;  
+`;
 
-    figure {
-        width: 100%;
-        margin-top: -1rem;
-        overflow: hidden;
+export const Figure = styled.figure`
+    width: 100%;
+    margin-top: -1rem;
+    overflow: hidden;
 
-        > figcaption {
-            position: absolute;       
-            margin-top: 2%;
+    border: 1px solid black;
 
-            text-transform: uppercase;
-            font-size: min(7vw, 2rem);
-        }
+    > figcaption {
+        position: absolute;       
+        margin-top: 2%;
+
+        text-transform: uppercase;
+        font-size: min(7vw, 2rem);
+
+        @media only screen and (min-width: 1024px) {
+            position: initial;
+            font-size: 1.5rem;
+        }      
     }
 
     @media only screen and (min-width: 768px) {
-        figure {
-            width: 45%;
-            margin: 1%;
-        }
-    }    
+        width: 45%;
+        margin: 1%;
+    }
+
+    @media only screen and (min-width: 1024px) {
+
+        ${({ ilustracoes, id_DaArte }) => {
+        const [arte] = ilustracoes.filter(ilustracao => ilustracao.ID === id_DaArte)
+            return ({
+                position: 'relative',
+                width: `10%`,
+                left: `-10%`,
+                right: `50%`,
+                bottom: `50vw`,
+                top: `50vw`,          
+            })
+        }}
+
+    }
 `;
 
 export const Ilustracao = styled.img`
     width: 100%;
+
+
 `;
 
 export const ArteDeCapa = styled.img`
