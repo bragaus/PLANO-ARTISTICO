@@ -72,11 +72,11 @@ export const Figure = styled.figure`
         const [arte] = ilustracoes.filter(ilustracao => ilustracao.ID === id_DaArte)
             return ({
                 position: 'relative',
-                width: `10%`,
-                left: `-10%`,
-                right: `50%`,
-                bottom: `50vw`,
-                top: `50vw`,          
+                width: `${arte.largura}%`,
+                left: `${arte.esquerda}%`,
+                right: `${arte.direita}%`,
+                bottom: `${arte.cima}vw`,
+                top: `${arte.baixo}vw`,             
             })
         }}
 
@@ -85,8 +85,6 @@ export const Figure = styled.figure`
 
 export const Ilustracao = styled.img`
     width: 100%;
-
-
 `;
 
 export const ArteDeCapa = styled.img`
@@ -118,6 +116,17 @@ export const DivEmail = styled.div`
     border: 2px solid var(--vermelho);
     padding: 5px;
 `;
+
+export const Painel = styled.div`
+    display: flex;
+    justify-content: space-between; 
+    position: fixed;      
+    bottom: 0px;
+    width: 100%;
+    background: black;
+    color: pink;
+`;
+
 
 // export const DivisorDeSecao = styled.div`
 //     /* Define o elemento como um flex container, tornando os seus filhos flex-itens */

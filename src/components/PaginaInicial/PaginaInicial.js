@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
 import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
+import Controladores from '../Controladores/Controladores';
 
 import Header from '../Header';
 import Footer from '../Footer';
@@ -28,7 +29,8 @@ import {
     Colagem,
     DivEmail,
     Portateis,
-    Figure
+    Figure,
+    Painel
 } from './estilo';
 
 const PaginaInicial = () => {
@@ -41,6 +43,8 @@ const PaginaInicial = () => {
     const [colagens, setColagens] = useState([]);
 
     const [telaDeEmail, setTelaDeEmail] = useState(false);
+
+    const [auxiliar, setAuxiliar] = useState(0);
 
     // Controla a visibilidade do menu, no componente Header,
     // foi passado por aqui porque o "NEW MESSAGE..." precisa se esconder
@@ -63,7 +67,20 @@ const PaginaInicial = () => {
         }
 
         carregarArtes();
-    }, []);    
+    }, []);
+    
+    function salvar() {
+        api.post('/controlesDaArte', ilustracoes).then((e) => {
+            console.log(e)
+        })
+        // api.post('/controlesDaArte', artesDeCapa).then((e) => {
+        //     console.log(e)
+        // })
+        // api.post('/controlesDaArte', colagens).then((e) => {
+        //     console.log(e)
+        // })
+    }    
+    
 
     return (<>
     
@@ -97,6 +114,16 @@ const PaginaInicial = () => {
                                     alt={ilustracao.titulo}
                                 />
                             </Link>
+
+
+                            <Controladores
+                                id_daArte={ilustracao.ID} 
+                                tipo={'Ilustracao'} 
+                                arte={ilustracoes}
+                                setArte={setIlustracoes}
+                                auxiliar={auxiliar}
+                                setAuxiliar={setAuxiliar}
+                            />                            
 
                         </Figure>
                     ))}
@@ -171,6 +198,12 @@ const PaginaInicial = () => {
         </Portateis> )}
 
         {telaDeEmail && <TelaEmail setTelaDeEmail={setTelaDeEmail}/>}
+
+        <Painel>
+            <Link to="/postar_arte">upload</Link>
+            <Link to="/">Index</Link>
+            <button onClick={salvar}>salvar</button>
+        </Painel>       
 
         <Footer />
 
