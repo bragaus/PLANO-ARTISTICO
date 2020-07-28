@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import api from '../../services/api';
-import { Controlador } from './estilo';
+import { Section, Lista } from './estilo';
+import DeletarArte from './DeletarArte';
 
 const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }) => {
 
@@ -155,21 +156,28 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
         } else if (tipo === 'Colagem') {
             setArte(arte.filter(artes => artes.ID !== ID_daArte))            
         }
-    };    
+    };
+
+    const [ confirmacaoParaDeletar, setConfirmacaoParaDeletar ] = useState(false);
 
     // Botões responsaveis por receber o id e o tipo e chamar as funções a cima
-    return(
-        <>
-            <Controlador onClick={() => deletarArte(id_daArte, tipo)}>Deletar Arte</Controlador>
-            <Controlador onClick={() => moverArteParaDireita(id_daArte, tipo)}>&larr;</Controlador>                        
-            <Controlador onClick={() => moverArteParaEsquerda(id_daArte, tipo)}>&rarr;</Controlador>
-            <Controlador onClick={() => moverArteParaBaixo(id_daArte, tipo)}>&darr;</Controlador>
-            <Controlador onClick={() => moverArteParaCima(id_daArte, tipo)}>&uarr;</Controlador>
-            <Controlador onClick={() => aumentar(id_daArte, tipo)}>zin</Controlador> 
-            <Controlador onClick={() => diminuir(id_daArte, tipo)}>zout</Controlador> 
-        </>            
-    )
+    return(<>
+        <Section>
+            <Lista>
+                <li onClick={() => setConfirmacaoParaDeletar(true)}>&#128465;</li>
+                <li onClick={() => moverArteParaDireita(id_daArte, tipo)}>&larr;</li>
+                <li onClick={() => moverArteParaEsquerda(id_daArte, tipo)}>&rarr;</li>
+                <li onClick={() => moverArteParaBaixo(id_daArte, tipo)}>&darr;</li>
+                <li onClick={() => moverArteParaCima(id_daArte, tipo)}>&uarr;</li>
+                <li onClick={() => aumentar(id_daArte, tipo)}>&#x1F50D;</li>
+                <li onClick={() => diminuir(id_daArte, tipo)}>&#x1F50D;</li>
+            </Lista>
+        </Section>
 
+        {confirmacaoParaDeletar && <DeletarArte />}
+
+    </>)
+// onClick={() => deletarArte(id_daArte, tipo)}
 }
 
 export default Controladores;

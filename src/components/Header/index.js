@@ -87,10 +87,12 @@ const Header = ({setMenuDispositivoMovel, menuDispositivoMovel}) => {
                                 COLLAGES
                             </Link>
                         </li>    
-                        <li 
-                            onClick={() => setTelaDeEmail(!telaDeEmail)}
-                        >
-                            <span>CONTACT</span>
+                        <li>
+                            <span
+                                onClick={() => setTelaDeEmail(!telaDeEmail)}
+                            >
+                                CONTACT
+                            </span>
                         </li>
                     </ul>   
                 </nav> 

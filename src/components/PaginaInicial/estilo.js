@@ -46,14 +46,25 @@ export const Figure = styled.figure`
     margin-top: -1rem;
     overflow: hidden;
 
-    border: 1px solid black;
-
     > figcaption {
         position: absolute;       
         margin-top: 2%;
 
         text-transform: uppercase;
         font-size: min(7vw, 2rem);
+
+        > h5 {
+
+            @media only screen and (min-width: 1024px) {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+
+                &:hover{
+                    white-space: normal;
+                }
+            }
+        }     
 
         @media only screen and (min-width: 1024px) {
             position: initial;
@@ -68,6 +79,8 @@ export const Figure = styled.figure`
 
     @media only screen and (min-width: 1024px) {
 
+        height: 100%;
+
         ${({ ilustracoes, id_DaArte }) => {
         const [arte] = ilustracoes.filter(ilustracao => ilustracao.ID === id_DaArte)
             return ({
@@ -76,15 +89,15 @@ export const Figure = styled.figure`
                 left: `${arte.esquerda}%`,
                 right: `${arte.direita}%`,
                 bottom: `${arte.cima}vw`,
-                top: `${arte.baixo}vw`,             
+                top: `${arte.baixo}vw`,      
             })
         }}
-
     }
 `;
 
 export const Ilustracao = styled.img`
     width: 100%;
+    margin-bottom: -2%;
 `;
 
 export const ArteDeCapa = styled.img`

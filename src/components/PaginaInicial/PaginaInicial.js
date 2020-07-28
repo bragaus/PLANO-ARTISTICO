@@ -108,14 +108,6 @@ const PaginaInicial = () => {
                                 <h5>{ilustracao.titulo} - {ilustracao.descricao}</h5>
                             </figcaption>
 
-                            <Link to={{pathname: `/visualizarArte/${ilustracao.ID}`, id: ilustracao.ID}}>
-                                <Ilustracao 
-                                    src={ilustracao.url || ilustracao.urlPreview }
-                                    alt={ilustracao.titulo}
-                                />
-                            </Link>
-
-
                             <Controladores
                                 id_daArte={ilustracao.ID} 
                                 tipo={'Ilustracao'} 
@@ -125,13 +117,20 @@ const PaginaInicial = () => {
                                 setAuxiliar={setAuxiliar}
                             />                            
 
+                            <Link to={{pathname: `/visualizarArte/${ilustracao.ID}`, id: ilustracao.ID}}>
+                                <Ilustracao 
+                                    src={ilustracao.url || ilustracao.urlPreview }
+                                    alt={ilustracao.titulo}
+                                />
+                            </Link>                            
+
                         </Figure>
                     ))}
 
                 </Flex>
             </section>
 
-            <section>
+            {/* <section>
                 <header>
                     <Titulo id="artesDeCapa">ALBUM COVER</Titulo>
                 </header>
@@ -183,7 +182,7 @@ const PaginaInicial = () => {
                     ))}
 
                 </Flex>
-            </section>            
+            </section>             */}
  
         </Main>
 
