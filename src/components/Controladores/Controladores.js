@@ -142,20 +142,6 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
             });            
         }
         setAuxiliar(auxiliar + 1);        
-    };     
-
-    // Função que chama api de deleção da arte do banco de dados e da amazon
-    async function deletarArte(ID_daArte, tipo) {
-        await api.delete(`/deletarArte/${ID_daArte}`);
-
-        // Retirar arte exluida da pagina em tempo de execução
-        if (tipo === 'Ilustracao') {
-            setArte(arte.filter(artes => artes.ID !== ID_daArte))
-        } else if (tipo === 'ArteDeCapa') {
-            setArte(arte.filter(artes => artes.ID !== ID_daArte))            
-        } else if (tipo === 'Colagem') {
-            setArte(arte.filter(artes => artes.ID !== ID_daArte))            
-        }
     };
 
     const [ confirmacaoParaDeletar, setConfirmacaoParaDeletar ] = useState(false);
@@ -174,7 +160,15 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
             </Lista>
         </Section>
 
-        {confirmacaoParaDeletar && <DeletarArte />}
+        {confirmacaoParaDeletar && (
+            <DeletarArte 
+                id={id_daArte} 
+                tipo={tipo}
+                setArte={setArte}
+                arte={arte}
+                setConfirmacaoParaDeletar={setConfirmacaoParaDeletar}
+            />
+        )} 
 
     </>)
 // onClick={() => deletarArte(id_daArte, tipo)}
