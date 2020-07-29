@@ -36,9 +36,12 @@ export const Titulo = styled.h1`
 `; 
 
 export const Flex = styled.div`
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    flex-wrap: wrap;  
+    flex-wrap: wrap;   */
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    border: 2px solid black;
 `;
 
 export const Figure = styled.figure`

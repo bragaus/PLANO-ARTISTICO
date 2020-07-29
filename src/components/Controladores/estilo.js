@@ -11,9 +11,12 @@ import {
 } from '../../styles/Icones';
 
 export const Section = styled.section`
-    overflow: auto;
+
     position: absolute;
     bottom: 0;
+
+    overflow: auto;
+    
     z-index: 10;
     
     @media only screen and (max-width: 1024px) {
