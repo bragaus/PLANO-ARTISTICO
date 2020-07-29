@@ -1,13 +1,23 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import {
+    LupaAumentarSVG,
+    LupaDiminuirSVG,
+    SetaEsquerdaSVG,
+    SetaDireitaSVG,
+    SetaBaixoSVG,
+    SetaCimaSVG, 
+    LixeiraSVG 
+} from '../../styles/Icones';
 
 export const Section = styled.section`
-    display: none;
-
-    @media only screen and (min-width: 1024px) {
-        display: initial;
-        position: absolute;
-        bottom: 0;
-        z-index: 10;
+    overflow: auto;
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    
+    @media only screen and (max-width: 1024px) {
+        display: none;
     }
 `;
 
@@ -23,7 +33,7 @@ export const Lista = styled.ul`
 
 export const Container = styled.div`
 
-    position: absolute;
+    position: relative;
     padding: 2%;
 
     border: 1px solid var(--preto);
@@ -50,3 +60,40 @@ export const Container = styled.div`
         }        
     }
 `;
+
+const EstiloCSS = css`
+    width: 100%;
+    height: 100%;
+
+    min-width: 20px;
+
+    fill: var(--preto);
+`;
+
+export const LupaAumentar = styled(LupaAumentarSVG)`
+    ${EstiloCSS}
+`;
+
+export const LupaDiminuir = styled(LupaDiminuirSVG)`
+    ${EstiloCSS}
+`;
+
+export const SetaEsquerda = styled(SetaEsquerdaSVG)`
+    ${EstiloCSS}
+`;
+
+export const SetaDireita = styled(SetaDireitaSVG)`
+    ${EstiloCSS}
+`;
+
+export const SetaBaixo = styled(SetaBaixoSVG)`
+    ${EstiloCSS}
+`;
+
+export const SetaCima = styled(SetaCimaSVG)`
+    ${EstiloCSS}
+`; 
+
+export const Lixeira = styled(LixeiraSVG)`
+    ${EstiloCSS}
+`; 

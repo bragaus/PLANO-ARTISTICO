@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
-import api from '../../services/api';
-import { Section, Lista } from './estilo';
 import DeletarArte from './DeletarArte';
+
+import { 
+    Section, 
+    Lista,
+    LupaAumentar,
+    LupaDiminuir,
+    SetaEsquerda,
+    SetaDireita,
+    SetaBaixo,
+    SetaCima,
+    Lixeira   
+} from './estilo';
 
 const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }) => {
 
     // Funções para movimentação das artes
-    function moverArteParaEsquerda(id_daArte, tipo) {
+    
+    function moverArteParaDireita(id_daArte, tipo) {
         if (tipo === 'Ilustracao') {
             arte.forEach(ilustracao => {
                 if (ilustracao.ID === id_daArte) {
@@ -29,7 +40,7 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
         setAuxiliar(auxiliar + 1);        
     };
 
-    function moverArteParaDireita(id_daArte, tipo) {
+    function moverArteParaEsquerda(id_daArte, tipo) {
         if (tipo === 'Ilustracao') {        
             arte.forEach(ilustracao => {
                 if (ilustracao.ID === id_daArte) {
@@ -150,13 +161,33 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
     return(<>
         <Section>
             <Lista>
-                <li onClick={() => setConfirmacaoParaDeletar(true)}>&#128465;</li>
-                <li onClick={() => moverArteParaDireita(id_daArte, tipo)}>&larr;</li>
-                <li onClick={() => moverArteParaEsquerda(id_daArte, tipo)}>&rarr;</li>
-                <li onClick={() => moverArteParaBaixo(id_daArte, tipo)}>&darr;</li>
-                <li onClick={() => moverArteParaCima(id_daArte, tipo)}>&uarr;</li>
-                <li onClick={() => aumentar(id_daArte, tipo)}>&#x1F50D;</li>
-                <li onClick={() => diminuir(id_daArte, tipo)}>&#x1F50D;</li>
+                <li onClick={() => setConfirmacaoParaDeletar(true)}>
+                    <Lixeira />
+                </li>
+
+                <li onClick={() => moverArteParaEsquerda(id_daArte, tipo)}>
+                    <SetaEsquerda />
+                </li>                
+
+                <li onClick={() => moverArteParaDireita(id_daArte, tipo)}>
+                    <SetaDireita />
+                </li>
+
+                <li onClick={() => moverArteParaBaixo(id_daArte, tipo)}>
+                    <SetaBaixo />
+                </li>
+
+                <li onClick={() => moverArteParaCima(id_daArte, tipo)}>
+                    <SetaCima />
+                </li>
+
+                <li onClick={() => aumentar(id_daArte, tipo)}>
+                    <LupaAumentar/>
+                </li>
+
+                <li onClick={() => diminuir(id_daArte, tipo)}>
+                    <LupaDiminuir />
+                </li>
             </Lista>
         </Section>
 

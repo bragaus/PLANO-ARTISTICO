@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
+import history from '../../history';
 
 import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
 import Controladores from '../Controladores/Controladores';
@@ -30,7 +31,8 @@ import {
     DivEmail,
     Portateis,
     Figure,
-    Painel
+    Painel,
+    Lista,
 } from './estilo';
 
 const PaginaInicial = () => {
@@ -50,6 +52,8 @@ const PaginaInicial = () => {
     // foi passado por aqui porque o "NEW MESSAGE..." precisa se esconder
     // quando o menu estiver visivel
     const [menuDispositivoMovel, setMenuDispositivoMovel] = useState(false);
+
+    const [painel, setPainel] = useState(false);
 
     useEffect(() => {
 
@@ -189,9 +193,7 @@ const PaginaInicial = () => {
         {/* Section para dispositivos portateis */}
         {!telaDeEmail && !menuDispositivoMovel && (
         <Portateis>
-            <DivEmail
-                onClick={() => {setTelaDeEmail(true)}}
-            >
+            <DivEmail onClick={() => {setTelaDeEmail(true)}}>
                 <span>NEW EMAIL...</span>
             </DivEmail>
         </Portateis> )}
@@ -199,10 +201,18 @@ const PaginaInicial = () => {
         {telaDeEmail && <TelaEmail setTelaDeEmail={setTelaDeEmail}/>}
 
         <Painel>
-            <Link to="/postar_arte">upload</Link>
-            <Link to="/">Index</Link>
-            <button onClick={salvar}>salvar</button>
-        </Painel>       
+            <Lista>
+
+                {painel && (<>
+                    <li onClick={() => history.push('/')}>INDEX</li>
+                    <li onClick={salvar}>SAVE</li>
+                    <li onClick={() => history.push('/postar_arte')}>UPLOAD</li>
+                </>)}
+
+                <li onClick={() => setPainel(!painel)}>DASHBOARD</li>
+            </Lista>
+
+        </Painel>
 
         <Footer />
 

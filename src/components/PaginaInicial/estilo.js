@@ -45,6 +45,7 @@ export const Figure = styled.figure`
     width: 100%;
     margin-top: -1rem;
     overflow: hidden;
+    border: 1px solid red;
 
     > figcaption {
         position: absolute;       
@@ -130,15 +131,23 @@ export const DivEmail = styled.div`
     padding: 5px;
 `;
 
-export const Painel = styled.div`
-    display: flex;
-    justify-content: space-between; 
-    position: fixed;      
-    bottom: 0px;
-    width: 100%;
-    background: black;
-    color: pink;
+export const Painel = styled.section`
+    position: fixed;
+    bottom: 4%;
+    width: 15%;
 `;
+
+export const Lista = styled.ul`
+    > li {
+        border: 1px solid var(--preto);
+        background: var(--amarelo);
+        padding: 2%;
+
+        font-size: 2rem;
+        text-align: center;     
+    }
+`;
+
 
 
 // export const DivisorDeSecao = styled.div`
