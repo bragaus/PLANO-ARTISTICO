@@ -63,6 +63,7 @@ export default createGlobalStyle`
         --tamanho: 2vw;
         --borda: 0.2vw;
         --cinza: #686868;
+        --amarelo: #fff600;
     }
 `;
 
