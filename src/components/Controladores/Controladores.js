@@ -13,6 +13,29 @@ import {
     Lixeira   
 } from './estilo';
 
+export function zIndex(id_daArte, tipo, arte, setAuxiliar, auxiliar) {
+    if (tipo === 'Ilustracao') {        
+        arte.forEach(ilustracao => {
+            if (ilustracao.ID === id_daArte) {
+                ilustracao.zIndex = ilustracao.zIndex + 1
+            }
+        });
+    } else if (tipo === 'ArteDeCapa') {
+        arte.forEach(arteDeCapa => {
+            if (arteDeCapa.ID === id_daArte) {
+                arteDeCapa.zIndex = arteDeCapa.zIndex + 1
+            }
+        });            
+    } else if (tipo === 'Colagem') {
+        arte.forEach(colagem => {
+            if (colagem.ID === id_daArte) {
+                colagem.zIndex = colagem.zIndex + 1
+            }
+        });            
+    }
+    setAuxiliar(auxiliar + 1);        
+};
+
 const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }) => {
 
     // Funções para movimentação das artes
@@ -153,7 +176,7 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
             });            
         }
         setAuxiliar(auxiliar + 1);        
-    };
+    }; 
 
     const [ confirmacaoParaDeletar, setConfirmacaoParaDeletar ] = useState(false);
 
@@ -202,7 +225,6 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
         )} 
 
     </>)
-// onClick={() => deletarArte(id_daArte, tipo)}
 }
 
 export default Controladores;

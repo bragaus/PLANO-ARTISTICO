@@ -4,7 +4,7 @@ import api from '../../services/api';
 import history from '../../history';
 
 import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
-import Controladores from '../Controladores/Controladores';
+import Controladores, { zIndex } from '../Controladores/Controladores';
 
 import Header from '../Header';
 import Footer from '../Footer';
@@ -54,6 +54,7 @@ const PaginaInicial = () => {
     const [menuDispositivoMovel, setMenuDispositivoMovel] = useState(false);
 
     const [painel, setPainel] = useState(false);
+
 
     useEffect(() => {
 
@@ -107,7 +108,7 @@ const PaginaInicial = () => {
                     {ilustracoes.map(ilustracao => (
                         <Figure
                             ilustracoes={ilustracoes}
-                            id_DaArte={ilustracao.ID}                        
+                            id_DaArte={ilustracao.ID}                
                         >
 
                             <figcaption>
@@ -125,12 +126,28 @@ const PaginaInicial = () => {
                                 />  
                             )}                          
 
-                            <Link to={{pathname: `/visualizarArte/${ilustracao.ID}`, id: ilustracao.ID}}>
-                                <Ilustracao 
+                            {autenticado && (
+                                <Ilustracao
+                                    onClick={() => zIndex(
+                                        ilustracao.ID, 
+                                        'Ilustracao',
+                                        ilustracoes,
+                                        setAuxiliar,
+                                        auxiliar
+                                    )}
                                     src={ilustracao.url || ilustracao.urlPreview }
                                     alt={ilustracao.titulo}
                                 />
-                            </Link>                            
+                            )}
+
+                            {!autenticado && (
+                                <Link to={{pathname: `/visualizarArte/${ilustracao.ID}`, id: ilustracao.ID}}>
+                                    <Ilustracao 
+                                        src={ilustracao.url || ilustracao.urlPreview }
+                                        alt={ilustracao.titulo}
+                                    />
+                                </Link>
+                            )}                                                 
 
                         </Figure>
                     ))}
