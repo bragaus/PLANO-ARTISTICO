@@ -26,7 +26,7 @@ const Header = ({setMenuDispositivoMovel, menuDispositivoMovel}) => {
 
             <section className="dispositivo-movel">
 
-                    <Pictograma />
+                    <Pictograma onClick={animateScroll.scrollToTop}/>
                     <Ancora 
                         to="/sobre" 
                         className="info"                             

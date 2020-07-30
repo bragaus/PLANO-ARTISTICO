@@ -53,37 +53,30 @@ export const Figure = styled.figure`
     overflow: hidden;
 
     > figcaption {
-        position: absolute;       
+        position: absolute;
         margin-top: 2%;
 
         text-transform: uppercase;
         font-size: min(7vw, 2rem);
 
         > h5 {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
 
+        @media only screen and (min-width: 768px) {
+            position: initial;
+            font-size: 1.5rem;
             @media only screen and (min-width: 1024px) {
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                overflow: hidden;
-
                 &:hover{
                     white-space: normal;
                 }
-            }
+            }            
         }     
-
-        @media only screen and (min-width: 1024px) {
-            position: initial;
-            font-size: 1.5rem;
-        }      
     }
 
     @media only screen and (min-width: 768px) {
-        width: 45%;
-        margin: 1%;
-    }
-
-    @media only screen and (min-width: 1024px) {
 
         height: 100%;
 
@@ -141,6 +134,10 @@ export const Painel = styled.section`
     bottom: 4%;
     width: 15%;
     z-index: 10000;
+
+    @media only screen and (max-width: 1024px) {
+        display: none;
+    }
 `;
 
 export const Lista = styled.ul`
