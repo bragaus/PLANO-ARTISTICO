@@ -17,8 +17,6 @@ export const Section = styled.section`
 
     overflow: auto;
     
-    z-index: 10;
-    
     @media only screen and (max-width: 1024px) {
         display: none;
     }

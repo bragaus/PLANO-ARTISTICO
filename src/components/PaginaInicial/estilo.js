@@ -4,7 +4,7 @@ export const Main = styled.main`
     margin-top: min(10%, 40px);         
 
     @media only screen and (min-width: 768px) {
-        margin-top: 5%;
+        ${({ autenticado }) => autenticado ? {marginTop: '0'} : {marginTop: '5%'}}
     } 
 `;
 
@@ -22,7 +22,7 @@ export const Titulo = styled.h1`
 
     &#ilustracoes {
         @media only screen and (min-width: 1024px) {
-            padding-top: 12%;
+            ${({ autenticado }) => autenticado ? {marginTop: '0'} : {marginTop: '17%'}}
         }
     }
 
@@ -40,15 +40,17 @@ export const Flex = styled.div`
     justify-content: center;
     flex-wrap: wrap;   */
     /* display: grid;
-    grid-template-columns: 1fr 1fr; */
-    border: 2px solid black;
+    grid-template-columns: 1fr 1fr;
+    border: 2px solid black; */
+
+    align-content: start;
+    justify-content: start;
 `;
 
 export const Figure = styled.figure`
     width: 100%;
     margin-top: -1rem;
     overflow: hidden;
-    border: 1px solid red;
 
     > figcaption {
         position: absolute;       
@@ -138,6 +140,7 @@ export const Painel = styled.section`
     position: fixed;
     bottom: 4%;
     width: 15%;
+    z-index: 10000;
 `;
 
 export const Lista = styled.ul`

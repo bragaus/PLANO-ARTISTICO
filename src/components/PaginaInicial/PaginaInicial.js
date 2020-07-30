@@ -88,16 +88,18 @@ const PaginaInicial = () => {
 
     return (<>
     
-        <Header 
-            setMenuDispositivoMovel={setMenuDispositivoMovel}
-            menuDispositivoMovel={menuDispositivoMovel}
-        />
+        {!autenticado && (
+            <Header 
+                setMenuDispositivoMovel={setMenuDispositivoMovel}
+                menuDispositivoMovel={menuDispositivoMovel}
+            />
+        )}
 
-        <Main>
+        <Main autenticado={autenticado}>
 
             <section>
                 <header>
-                    <Titulo id="ilustracoes">ILLUSTRATION</Titulo>
+                    <Titulo id="ilustracoes" autenticado={autenticado}>ILLUSTRATION</Titulo>
                 </header>
 
                 <Flex>
@@ -112,14 +114,16 @@ const PaginaInicial = () => {
                                 <h5>{ilustracao.titulo} - {ilustracao.descricao}</h5>
                             </figcaption>
 
-                            <Controladores
-                                id_daArte={ilustracao.ID} 
-                                tipo={'Ilustracao'} 
-                                arte={ilustracoes}
-                                setArte={setIlustracoes}
-                                auxiliar={auxiliar}
-                                setAuxiliar={setAuxiliar}
-                            />                            
+                            {autenticado && (
+                                <Controladores
+                                    id_daArte={ilustracao.ID} 
+                                    tipo={'Ilustracao'} 
+                                    arte={ilustracoes}
+                                    setArte={setIlustracoes}
+                                    auxiliar={auxiliar}
+                                    setAuxiliar={setAuxiliar}
+                                />  
+                            )}                          
 
                             <Link to={{pathname: `/visualizarArte/${ilustracao.ID}`, id: ilustracao.ID}}>
                                 <Ilustracao 
@@ -200,19 +204,21 @@ const PaginaInicial = () => {
 
         {telaDeEmail && <TelaEmail setTelaDeEmail={setTelaDeEmail}/>}
 
-        <Painel>
-            <Lista>
+        {autenticado && (
+            <Painel>
+                <Lista>
 
-                {painel && (<>
-                    <li onClick={() => history.push('/')}>INDEX</li>
-                    <li onClick={salvar}>SAVE</li>
-                    <li onClick={() => history.push('/postar_arte')}>UPLOAD</li>
-                </>)}
+                    {painel && (<>
+                        <li onClick={() => history.push('/')}>INDEX</li>
+                        <li onClick={salvar}>SAVE</li>
+                        <li onClick={() => history.push('/postar_arte')}>UPLOAD</li>
+                    </>)}
 
-                <li onClick={() => setPainel(!painel)}>DASHBOARD</li>
-            </Lista>
+                    <li onClick={() => setPainel(!painel)}>DASHBOARD</li>
 
-        </Painel>
+                </Lista>
+            </Painel>
+        )}
 
         <Footer />
 
