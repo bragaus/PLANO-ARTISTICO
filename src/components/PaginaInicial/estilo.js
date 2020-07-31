@@ -15,6 +15,7 @@ export const Titulo = styled.h1`
     font-size: 15.2vw;
     text-align: center;
     white-space: nowrap;
+    color: #e6e6e6;
 
     @media only screen and (min-width: 1024px) {
         font-size: 14.010vw;
@@ -88,7 +89,8 @@ export const Figure = styled.figure`
                 left: `${arte.esquerda}%`,
                 right: `${arte.direita}%`,
                 bottom: `${arte.cima}vw`,
-                top: `${arte.baixo}vw`,      
+                top: `${arte.baixo}vw`,
+                zIndex: `${arte.zIndex}` 
             })
         }}
     }
@@ -131,7 +133,7 @@ export const DivEmail = styled.div`
 
 export const Painel = styled.section`
     position: fixed;
-    bottom: 4%;
+    bottom: 0;
     width: 15%;
     z-index: 10000;
 

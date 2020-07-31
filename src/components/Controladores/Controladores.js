@@ -25,13 +25,13 @@ export function zIndex(id_daArte, tipo, arte, setAuxiliar, auxiliar) {
             if (arteDeCapa.ID === id_daArte) {
                 arteDeCapa.zIndex = arteDeCapa.zIndex + 1
             }
-        });            
+        });   
     } else if (tipo === 'Colagem') {
         arte.forEach(colagem => {
             if (colagem.ID === id_daArte) {
                 colagem.zIndex = colagem.zIndex + 1
             }
-        });            
+        });      
     }
     setAuxiliar(auxiliar + 1);        
 };

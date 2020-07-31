@@ -11,17 +11,6 @@ import Footer from '../Footer';
 import TelaEmail from '../TelaEmail';
 
 import { 
-    // DivisorDeSecao, 
-    // DivisorDeArte,
-    // Titulo,
-    // IlustracaoDescricao, 
-    // Ilustracao,
-    // ArteDeCapa,
-    // CapaDescricao,
-    // ColagemDescricao,
-    // Colagem,
-    // Painel,
-
     Main,
     Titulo,
     Flex,
@@ -54,6 +43,7 @@ const PaginaInicial = () => {
     const [menuDispositivoMovel, setMenuDispositivoMovel] = useState(false);
 
     const [painel, setPainel] = useState(false);
+    const [visualizarComoUsuario, setVisualizarComoUsuario] = useState(false);
 
 
     useEffect(() => {
@@ -115,7 +105,7 @@ const PaginaInicial = () => {
                                 <h5>{ilustracao.titulo} - {ilustracao.descricao}</h5>
                             </figcaption>
 
-                            {autenticado && (
+                            {autenticado && !visualizarComoUsuario && (
                                 <Controladores
                                     id_daArte={ilustracao.ID} 
                                     tipo={'Ilustracao'} 
@@ -226,7 +216,7 @@ const PaginaInicial = () => {
                 <Lista>
 
                     {painel && (<>
-                        <li onClick={() => history.push('/')}>INDEX</li>
+                        <li onClick={() => setVisualizarComoUsuario(!visualizarComoUsuario)}>USER VIEW</li>
                         <li onClick={salvar}>SAVE</li>
                         <li onClick={() => history.push('/postar_arte')}>UPLOAD</li>
                     </>)}
