@@ -80,16 +80,25 @@ export const Figure = styled.figure`
 
         height: 100%;
 
-        ${({ ilustracoes, id_DaArte }) => {
-        const [arte] = ilustracoes.filter(ilustracao => ilustracao.ID === id_DaArte)
+        ${({ arte, id_DaArte }) => {
+
+            const [{ 
+                largura, 
+                esquerda, 
+                direita, 
+                cima, 
+                baixo, 
+                zIndex 
+            }] = arte.filter(({ ID }) => ID === id_DaArte)
+            
             return ({
                 position: 'relative',
-                width: `${arte.largura}%`,
-                left: `${arte.esquerda}%`,
-                right: `${arte.direita}%`,
-                bottom: `${arte.cima}vw`,
-                top: `${arte.baixo}vw`,
-                zIndex: `${arte.zIndex}` 
+                width: `${largura}%`,
+                left: `${esquerda}%`,
+                right: `${direita}%`,
+                bottom: `${cima}vw`,
+                top: `${baixo}vw`,
+                zIndex: `${zIndex}` 
             })
         }}
     }

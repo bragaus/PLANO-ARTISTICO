@@ -14,13 +14,13 @@ import {
 } from './estilo';
 
 export function zIndex(id_daArte, tipo, arte, setAuxiliar, auxiliar) {
-    if (tipo === 'Ilustracao') {        
+    if (tipo === 'ILLUSTRATION') {        
         arte.forEach(ilustracao => {
             if (ilustracao.ID === id_daArte) {
                 ilustracao.zIndex = ilustracao.zIndex + 1
             }
         });
-    } else if (tipo === 'ArteDeCapa') {
+    } else if (tipo === 'ALBUM COVER') {
         arte.forEach(arteDeCapa => {
             if (arteDeCapa.ID === id_daArte) {
                 arteDeCapa.zIndex = arteDeCapa.zIndex + 1
@@ -41,13 +41,13 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
     // Funções para movimentação das artes
     
     function moverArteParaDireita(id_daArte, tipo) {
-        if (tipo === 'Ilustracao') {
+        if (tipo === 'ILLUSTRATION') {
             arte.forEach(ilustracao => {
                 if (ilustracao.ID === id_daArte) {
                     ilustracao.esquerda = ilustracao.esquerda + 5
                 }
             });
-        } else if (tipo === 'ArteDeCapa') {
+        } else if (tipo === 'ALBUM COVER') {
             arte.forEach(arteDeCapa => {
                 if (arteDeCapa.ID === id_daArte) {
                     arteDeCapa.esquerda = arteDeCapa.esquerda + 5
@@ -64,13 +64,13 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
     };
 
     function moverArteParaEsquerda(id_daArte, tipo) {
-        if (tipo === 'Ilustracao') {        
+        if (tipo === 'ILLUSTRATION') {        
             arte.forEach(ilustracao => {
                 if (ilustracao.ID === id_daArte) {
                     ilustracao.esquerda = ilustracao.esquerda - 5
                 }
             });
-        } else if (tipo === 'ArteDeCapa') {
+        } else if (tipo === 'ALBUM COVER') {
             arte.forEach(arteDeCapa => {
                 if (arteDeCapa.ID === id_daArte) {
                     arteDeCapa.esquerda = arteDeCapa.esquerda - 5
@@ -87,13 +87,13 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
     };
     
     function moverArteParaBaixo(id_daArte, tipo) {
-        if (tipo === 'Ilustracao') {        
+        if (tipo === 'ILLUSTRATION') {        
             arte.forEach(ilustracao => {
                 if (ilustracao.ID === id_daArte) {
                     ilustracao.baixo = ilustracao.baixo + 5
                 }
             });
-        } else if (tipo === 'ArteDeCapa') {
+        } else if (tipo === 'ALBUM COVER') {
             arte.forEach(arteDeCapa => {
                 if (arteDeCapa.ID === id_daArte) {
                     arteDeCapa.baixo = arteDeCapa.baixo + 5
@@ -110,13 +110,13 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
     };
 
     function moverArteParaCima(id_daArte, tipo) {
-        if (tipo === 'Ilustracao') {    
+        if (tipo === 'ILLUSTRATION') {    
             arte.forEach(ilustracao => {
                 if (ilustracao.ID === id_daArte) {
                     ilustracao.baixo = ilustracao.baixo - 5
                 }
             });
-        } else if (tipo === 'ArteDeCapa') {
+        } else if (tipo === 'ALBUM COVER') {
             arte.forEach(arteDeCapa => {
                 if (arteDeCapa.ID === id_daArte) {
                     arteDeCapa.baixo = arteDeCapa.baixo - 5
@@ -133,13 +133,13 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
     };
 
     function aumentar(id_daArte, tipo) {
-        if (tipo === 'Ilustracao') {        
+        if (tipo === 'ILLUSTRATION') {        
             arte.forEach(ilustracao => {
                 if (ilustracao.ID === id_daArte) {
                     ilustracao.largura = ilustracao.largura + 5
                 }
             });
-        } else if (tipo === 'ArteDeCapa') {
+        } else if (tipo === 'ALBUM COVER') {
             arte.forEach(arteDeCapa => {
                 if (arteDeCapa.ID === id_daArte) {
                     arteDeCapa.largura = arteDeCapa.largura + 5
@@ -156,13 +156,13 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
     };
     
     function diminuir(id_daArte, tipo) {
-        if (tipo === 'Ilustracao') {        
+        if (tipo === 'ILLUSTRATION') {        
             arte.forEach(ilustracao => {
                 if (ilustracao.ID === id_daArte) {
                     ilustracao.largura = ilustracao.largura - 5
                 }
             });
-        } else if (tipo === 'ArteDeCapa') {
+        } else if (tipo === 'ALBUM COVER') {
             arte.forEach(arteDeCapa => {
                 if (arteDeCapa.ID === id_daArte) {
                     arteDeCapa.largura = arteDeCapa.largura - 5

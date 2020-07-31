@@ -9,6 +9,7 @@ import Controladores, { zIndex } from '../Controladores/Controladores';
 import Header from '../Header';
 import Footer from '../Footer';
 import TelaEmail from '../TelaEmail';
+import Figura from './Figura';
 
 import { 
     Main,
@@ -68,12 +69,12 @@ const PaginaInicial = () => {
         api.post('/controlesDaArte', ilustracoes).then((e) => {
             console.log(e)
         })
-        // api.post('/controlesDaArte', artesDeCapa).then((e) => {
-        //     console.log(e)
-        // })
-        // api.post('/controlesDaArte', colagens).then((e) => {
-        //     console.log(e)
-        // })
+        api.post('/controlesDaArte', artesDeCapa).then((e) => {
+            console.log(e)
+        })
+        api.post('/controlesDaArte', colagens).then((e) => {
+            console.log(e)
+        })
     }    
     
 
@@ -93,7 +94,27 @@ const PaginaInicial = () => {
 
         <Main autenticado={autenticado} visualizarComoUsuario={visualizarComoUsuario}> 
 
-            <section>
+            <Figura 
+                autenticado={autenticado}
+                visualizarComoUsuario={visualizarComoUsuario}
+                artes={ilustracoes}
+                setArtes={setIlustracoes}
+                auxiliar={auxiliar}
+                setAuxiliar={setAuxiliar}
+                tipo="ILLUSTRATION"
+            />
+
+            <Figura 
+                autenticado={autenticado}
+                visualizarComoUsuario={visualizarComoUsuario}
+                artes={artesDeCapa}
+                setArtes={setArtesDeCapa}
+                auxiliar={auxiliar}
+                setAuxiliar={setAuxiliar}
+                tipo="ALBUM COVER"
+            />            
+
+            {/* <section>
                 <header>
                     <Titulo 
                         id="ilustracoes" 
@@ -104,19 +125,19 @@ const PaginaInicial = () => {
                     </Titulo>
                 </header>
 
-                {ilustracoes.map(ilustracao => (
+                {ilustracoes.map(arte => (
                     <Figure
-                        ilustracoes={ilustracoes}
-                        id_DaArte={ilustracao.ID}                
+                        arte={ilustracoes}
+                        id_DaArte={arte.ID}                
                     >
 
                         <figcaption>
-                            <h5>{ilustracao.titulo} - {ilustracao.descricao}</h5>
+                            <h5>{arte.titulo} - {arte.descricao}</h5>
                         </figcaption>
 
                         {autenticado && !visualizarComoUsuario && (
                             <Controladores
-                                id_daArte={ilustracao.ID} 
+                                id_daArte={arte.ID} 
                                 tipo={'Ilustracao'} 
                                 arte={ilustracoes}
                                 setArte={setIlustracoes}
@@ -128,20 +149,20 @@ const PaginaInicial = () => {
                         {autenticado && !visualizarComoUsuario ? (
                             <Ilustracao
                                 onClick={() => zIndex(
-                                    ilustracao.ID, 
+                                    arte.ID, 
                                     'Ilustracao',
                                     ilustracoes,
                                     setAuxiliar,
                                     auxiliar
                                 )}
-                                src={ilustracao.url || ilustracao.urlPreview }
-                                alt={ilustracao.titulo}
+                                src={arte.url || arte.urlPreview }
+                                alt={arte.titulo}
                             />
                         ) : (
-                            <Link to={{pathname: `/visualizarArte/${ilustracao.ID}`, id: ilustracao.ID}}>
+                            <Link to={{pathname: `/visualizarArte/${arte.ID}`, id: arte.ID}}>
                                 <Ilustracao 
-                                    src={ilustracao.url || ilustracao.urlPreview }
-                                    alt={ilustracao.titulo}
+                                    src={arte.url || arte.urlPreview }
+                                    alt={arte.titulo}
                                 />
                             </Link>
                         )}                                               
@@ -149,6 +170,63 @@ const PaginaInicial = () => {
                     </Figure>
                 ))}
             </section>
+
+            <section>
+                <header>
+                    <Titulo 
+                        id="artesDeCapa" 
+                        autenticado={autenticado} 
+                        visualizarComoUsuario={visualizarComoUsuario}
+                    >
+                        ALBUM COVER
+                    </Titulo>
+                </header>
+
+                {artesDeCapa.map(arte => (
+                    <Figure
+                        arte={artesDeCapa}
+                        id_DaArte={arte.ID}                
+                    >
+
+                        <figcaption>
+                            <h5>{arte.titulo} - {arte.descricao}</h5>
+                        </figcaption>
+
+                        {autenticado && !visualizarComoUsuario && (
+                            <Controladores
+                                id_daArte={arte.ID} 
+                                tipo={'ArteDeCapa'} 
+                                arte={artesDeCapa}
+                                setArte={setIlustracoes}
+                                auxiliar={auxiliar}
+                                setAuxiliar={setAuxiliar}
+                            />  
+                        )}                          
+
+                        {autenticado && !visualizarComoUsuario ? (
+                            <Ilustracao
+                                onClick={() => zIndex(
+                                    arte.ID, 
+                                    'ArteDeCapa',
+                                    artesDeCapa,
+                                    setAuxiliar,
+                                    auxiliar
+                                )}
+                                src={arte.url || arte.urlPreview }
+                                alt={arte.titulo}
+                            />
+                        ) : (
+                            <Link to={{pathname: `/visualizarArte/${arte.ID}`, id: arte.ID}}>
+                                <Ilustracao 
+                                    src={arte.url || arte.urlPreview }
+                                    alt={arte.titulo}
+                                />
+                            </Link>
+                        )}                                               
+
+                    </Figure>
+                ))}
+            </section>             */}
  
         </Main>
 

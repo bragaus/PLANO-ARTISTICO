@@ -53,7 +53,7 @@ const Header = ({setMenuDispositivoMovel, menuDispositivoMovel}) => {
                         <li>
                             <Link
                                 activeClass="active"
-                                to="ilustracoes"
+                                to="ILLUSTRATION"
                                 spy={true}
                                 smooth={true}
                                 offset={-70}
@@ -65,7 +65,7 @@ const Header = ({setMenuDispositivoMovel, menuDispositivoMovel}) => {
                         <li>
                             <Link
                                 activeClass="active"
-                                to="artesDeCapa"
+                                to="ALBUM COVER"
                                 spy={true}
                                 smooth={true}
                                 offset={-70}
