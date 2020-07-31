@@ -79,6 +79,7 @@ const maximizar = css`
 `;
 
 export const Container = styled.div`
+
     @media (max-width: 500px) {
 
         width: 100%;
@@ -113,7 +114,8 @@ export const Container = styled.div`
     top: 15%;
     left: 25%;
 
-    z-index: 2;
+
+    z-index: 900000000000000000000000000;
 
     ${props => props.minimizador ? minimizar : null}
     ${props => props.maximizador ? maximizar : null}

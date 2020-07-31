@@ -4,8 +4,14 @@ export const Main = styled.main`
     margin-top: min(10%, 40px);         
 
     @media only screen and (min-width: 768px) {
-        ${({ autenticado }) => autenticado ? {marginTop: '0'} : {marginTop: '5%'}}
-    } 
+        ${({ autenticado, visualizarComoUsuario }) => {
+            if (autenticado && !visualizarComoUsuario) {
+                return {marginTop: '0'}
+            } else if (autenticado && visualizarComoUsuario || !autenticado) {
+                return {marginTop: '5%'}
+            }
+        }}
+    }
 `;
 
 export const Titulo = styled.h1`
@@ -23,7 +29,13 @@ export const Titulo = styled.h1`
 
     &#ilustracoes {
         @media only screen and (min-width: 1024px) {
-            ${({ autenticado }) => autenticado ? {marginTop: '0'} : {marginTop: '17%'}}
+            ${({ autenticado, visualizarComoUsuario }) => {
+                if (autenticado && !visualizarComoUsuario) {
+                    return {marginTop: '0'}
+                } else if (autenticado && visualizarComoUsuario || !autenticado) {
+                    return {marginTop: '17%'}
+                }
+            }}
         }
     }
 
@@ -34,18 +46,6 @@ export const Titulo = styled.h1`
             font-size: 19vw;
         }        
     }
-`; 
-
-export const Flex = styled.div`
-    /* display: flex;
-    justify-content: center;
-    flex-wrap: wrap;   */
-    /* display: grid;
-    grid-template-columns: 1fr 1fr;
-    border: 2px solid black; */
-
-    align-content: start;
-    justify-content: start;
 `;
 
 export const Figure = styled.figure`
@@ -58,22 +58,21 @@ export const Figure = styled.figure`
         margin-top: 2%;
 
         text-transform: uppercase;
-        font-size: min(7vw, 2rem);
+
 
         > h5 {
+            font-size: max(1vw, 0.5rem);
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
+            &:hover {
+                white-space: normal;
+            }            
         }
 
         @media only screen and (min-width: 768px) {
             position: initial;
-            font-size: 1.5rem;
-            @media only screen and (min-width: 1024px) {
-                &:hover{
-                    white-space: normal;
-                }
-            }            
+            font-size: 1.5rem;         
         }     
     }
 
@@ -120,7 +119,8 @@ export const DivEmail = styled.div`
     width: 100%;
     bottom: 0;
 
-    z-index: 2;
+    z-index: 1000000000;
+
 
     font-size: min(6vw, 25px);
     color: var(--azul);
@@ -137,7 +137,7 @@ export const Painel = styled.section`
     width: 15%;
     z-index: 10000;
 
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 1023px) {
         display: none;
     }
 `;
@@ -148,7 +148,7 @@ export const Lista = styled.ul`
         background: var(--amarelo);
         padding: 2%;
 
-        font-size: 2rem;
+        font-size: max(1.5vw, 2rem);
         text-align: center;     
     }
 `;

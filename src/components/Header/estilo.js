@@ -57,7 +57,7 @@ export const Logo = styled(LogoSVG)`
         left: 20%;
         top: 1%;
 
-        z-index: 2;
+        z-index: 1000000000000000000;
 
         width: 15%;
         -webkit-animation:${rotacao} 8s linear infinite;
@@ -80,7 +80,7 @@ export const Seta = styled(SetaSVG)`
 
 export const Superior = styled.header`
     font-weight: bold;
-    font-size: 4vw;
+    font-size: 4vw; 
 
     & .desktop {
         display: none;
@@ -90,13 +90,12 @@ export const Superior = styled.header`
         display: flex;
         justify-content: space-between;
         position: fixed;
-        z-index: 2;
+        z-index: 10000000000000;
         width: 100%;
         top: 0;
         
         a {
             font-size: min(10vw, 40px);
-
             color: var(--preto);            
         }
     }
@@ -114,7 +113,7 @@ export const Superior = styled.header`
 
         & .info {
             position: fixed;
-            z-index: 2;
+            z-index: 100000000000000;
             top: 0;
             width: 14%;
 
@@ -132,7 +131,7 @@ export const Superior = styled.header`
             right: 0;
             top: 0;
             text-align: right;
-            z-index: 2;
+            z-index: 1000000000000000;
 
             li {
                 a {

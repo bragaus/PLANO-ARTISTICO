@@ -25,7 +25,6 @@ const Header = ({setMenuDispositivoMovel, menuDispositivoMovel}) => {
         <Superior>
 
             <section className="dispositivo-movel">
-
                     <Pictograma onClick={animateScroll.scrollToTop}/>
                     <Ancora 
                         to="/sobre" 
@@ -54,7 +53,7 @@ const Header = ({setMenuDispositivoMovel, menuDispositivoMovel}) => {
                         <li>
                             <Link
                                 activeClass="active"
-                                to="ilustrações"
+                                to="ilustracoes"
                                 spy={true}
                                 smooth={true}
                                 offset={-70}
