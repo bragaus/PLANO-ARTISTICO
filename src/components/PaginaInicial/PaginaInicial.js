@@ -112,7 +112,17 @@ const PaginaInicial = () => {
                 auxiliar={auxiliar}
                 setAuxiliar={setAuxiliar}
                 tipo="ALBUM COVER"
-            />            
+            />  
+
+            <Figura 
+                autenticado={autenticado}
+                visualizarComoUsuario={visualizarComoUsuario}
+                artes={colagens}
+                setArtes={setColagens}
+                auxiliar={auxiliar}
+                setAuxiliar={setAuxiliar}
+                tipo="COLLAGE"
+            />                        
 
             {/* <section>
                 <header>
