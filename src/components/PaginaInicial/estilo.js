@@ -27,7 +27,7 @@ export const Titulo = styled.h1`
         font-size: 14.010vw;
     }
 
-    &#ilustracoes {
+    &#ILLUSTRATION {
         @media only screen and (min-width: 1024px) {
             ${({ autenticado, visualizarComoUsuario }) => {
                 if (autenticado && !visualizarComoUsuario) {
@@ -39,11 +39,11 @@ export const Titulo = styled.h1`
         }
     }
 
-    &#colagens {
+    &#COLLAGE {
         font-size: 21vw;
 
         @media only screen and (min-width: 1024px) {
-            font-size: 19vw;
+            font-size: 20.8vw;
         }        
     }
 `;

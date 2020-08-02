@@ -11,11 +11,11 @@ export const DeletarArte = ({ id, tipo, setArte, arte, setConfirmacaoParaDeletar
         await api.delete(`/deletarArte/${id}`);
 
         // Retirar arte exluida da pagina em tempo de execução
-        if (tipo === 'Ilustracao') {
+        if (tipo === 'ILLUSTRATION') {
             setArte(arte.filter(artes => artes.ID !== id))
-        } else if (tipo === 'ArteDeCapa') {
+        } else if (tipo === 'ALBUM COVER') {
             setArte(arte.filter(artes => artes.ID !== id))            
-        } else if (tipo === 'Colagem') {
+        } else if (tipo === 'COLLAGE') {
             setArte(arte.filter(artes => artes.ID !== id))            
         }
     };    
