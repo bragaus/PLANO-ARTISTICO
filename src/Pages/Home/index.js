@@ -1,31 +1,25 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
+
+import Header from '../../components/Header';
+import Email from '../../components/Email';
+import Figure from '../../components/Artwork';
+
 import api from '../../services/api';
 import history from '../../history';
 
-import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
-import Controladores, { zIndex } from '../Controladores/Controladores';
-
-import Header from '../Header';
-import Footer from '../Footer';
-import Email from '../Email';
-import Figura from './Figura';
-
 import { 
     Main,
-    Titulo,
-    Flex,
-    Ilustracao,
-    ArteDeCapa,
-    Colagem,
+    Portateis,    
     DivEmail,
-    Portateis,
-    Figure,
-    Painel,
+    Painel,     
     Lista,
-} from './estilo';
+    Rodape, 
+    ArameComputadorDeMesa, 
+    ArameDispositivoMovel,
+} from './styles';
 
-const PaginaInicial = () => {
+const Home = () => {
 
     const { autenticado } = useContext(Contexto);
 
@@ -94,7 +88,7 @@ const PaginaInicial = () => {
 
         <Main autenticado={autenticado} visualizarComoUsuario={visualizarComoUsuario}> 
 
-            <Figura 
+            <Figure 
                 autenticado={autenticado}
                 visualizarComoUsuario={visualizarComoUsuario}
                 artes={ilustracoes}
@@ -104,7 +98,7 @@ const PaginaInicial = () => {
                 tipo="ILLUSTRATION"
             />
 
-            <Figura 
+            <Figure 
                 autenticado={autenticado}
                 visualizarComoUsuario={visualizarComoUsuario}
                 artes={artesDeCapa}
@@ -114,7 +108,7 @@ const PaginaInicial = () => {
                 tipo="ALBUM COVER"
             />
 
-            <Figura 
+            <Figure 
                 autenticado={autenticado}
                 visualizarComoUsuario={visualizarComoUsuario}
                 artes={colagens}
@@ -152,7 +146,7 @@ const PaginaInicial = () => {
                             {visualizarComoUsuario ? 'ADM VIEW' : 'USER VIEW' }
                         </li>
                         <li onClick={salvar}>SAVE</li>
-                        <li onClick={() => history.push('/postar_arte')}>UPLOAD</li>
+                        <li onClick={() => history.push('/upload')}>UPLOAD</li>
                     </>)}
 
                     <li onClick={() => setPainel(!painel)}>DASHBOARD</li>
@@ -161,9 +155,13 @@ const PaginaInicial = () => {
             </Painel>
         )}
 
-        <Footer />
+        <Rodape>
+            <ArameDispositivoMovel />
+            <ArameComputadorDeMesa />
+            <h3>PLANO ARTÍSTICO. A WORLDWIDE OPERATION.&trade; 2020</h3>
+        </Rodape>
 
     </>);       
 };
 
-export default PaginaInicial;
+export default Home;

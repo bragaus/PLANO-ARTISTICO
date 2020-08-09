@@ -57,11 +57,12 @@ const PainelDeControle = () => {
 
     // enviar arte para a rota que faz upload no CDN e inserção dos registros no banco de dados
     const enviarArteParaBackend = (post, { resetForm }) => {
-
+        console.log(post)
         var formulario = new FormData();
 
         // inserir cada arte upada no formulário
         conjuntoArtes.forEach((arquivo) => {
+            console.log(arquivo)
             formulario.append('file', arquivo);
         });          
         
@@ -69,6 +70,8 @@ const PainelDeControle = () => {
         formulario.append('titulo', post.titulo);
         formulario.append('desc', post.desc);
         formulario.append('tipo', post.tipo);
+
+        console.log(formulario)
 
         if (frenteVerso) {
             // Para mostrar carregando enquanto faz o upload

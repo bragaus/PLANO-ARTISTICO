@@ -7,18 +7,9 @@ import EstiloGlobal, { Mira } from './styles/estiloGlobal';
 
 function App() {
 
-	// function quandoCursorMover(e) {
-	// 	const cursor = document.querySelector(".cursor")
-	// 	cursor.style.left = `${e.pageX}px`
-	// 	cursor.style.top = `${e.pageY}px`
-	// }
-
-	// window.addEventListener("mousemove", quandoCursorMover)
-
 	return (<>
 		<ProvedorDeAutorizacao>
 			<Router history={history}>
-				{/* <Mira className="cursor"/> */}
 				<Rotas />
 			</Router>
 		</ProvedorDeAutorizacao>

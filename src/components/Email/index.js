@@ -14,7 +14,7 @@ import {
     Enviar,
     Anexo,
     Flex 
-} from './estilo';
+} from './styles';
 
 
 const TelaEmail = ({ setTelaDeEmail }) => {

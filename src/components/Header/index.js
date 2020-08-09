@@ -4,7 +4,7 @@ import { Link as Ancora } from 'react-router-dom';
 
 import { Superior, Logo, Seta, Pictograma, Menu, Container } from './estilo';
 
-import TelaEmail from '../TelaEmail';
+import Email from '../Email';
 
 const Header = ({setMenuDispositivoMovel, menuDispositivoMovel}) => {
 
@@ -100,7 +100,7 @@ const Header = ({setMenuDispositivoMovel, menuDispositivoMovel}) => {
         </Superior>
 
         {/* estou passando setTelaDeEmail para escutar quando for clicado no fechar email */}
-        {telaDeEmail && <TelaEmail setTelaDeEmail={setTelaDeEmail}/>}
+        {telaDeEmail && <Email setTelaDeEmail={setTelaDeEmail}/>}
 
         {menuDispositivoMovel && (<>
         <Container>

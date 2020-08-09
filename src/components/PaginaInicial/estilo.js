@@ -156,6 +156,7 @@ export const Lista = styled.ul`
         border: 1px solid var(--preto);
         background: var(--amarelo);
         padding: 2%;
+        cursor: pointer;
 
         font-size: max(1.5vw, 2rem);
         text-align: center;     
