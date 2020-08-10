@@ -23,7 +23,7 @@ const Campo = ({ label, ...props }) => {
     );  
 };
 
-const Checkbox = ({label, children, ...props}) => {
+const Checkbox = ({label, tipo, ...props}) => {
 
     const [checked, setChecked] = useState(false);
     const [field, meta] = useField(props);
@@ -38,7 +38,7 @@ const Checkbox = ({label, children, ...props}) => {
                     {...props}
                     onClick={() => setChecked(!checked)}
                 />
-                {children}
+                {tipo}
             </label>
 
             {meta.touched && meta.error && (
@@ -64,6 +64,9 @@ const Upload = () => {
             <Formik
                 initialValues={{ titulo: '', arquivo: [], desc: '', local: '' }}
                 validationSchema={validacao}
+                onSubmit={(values) => {
+                    console.log(values)
+                }}
             >
 
             {({ setFieldValue }) => (    
@@ -106,18 +109,15 @@ const Upload = () => {
                     <Fieldset>
                         <legend>ARTWORK LOCATION</legend>
                         <div>
-                            <Checkbox name="local">
-                                ILLUSTRATION
-                            </Checkbox>                                
-                            <Checkbox name="local">
-                                COVER ART
-                            </Checkbox>                                
-                            <Checkbox name="local">
-                                COLLAGE
-                            </Checkbox>
+                            <Checkbox name="local" tipo="ILLUSTRATION" onChange={() => {
+                                setFieldValue('local', 'ILLUSTRATION')
+                            }}/>                            
+                            <Checkbox name="local" tipo="COVER ART" />                             
+                            <Checkbox name="local" tipo="COLLAGE" />
                         </div>                  
                     </Fieldset>
-                              
+
+                    <button type="submit">Submit</button>          
                 </Form>
             )}
 
