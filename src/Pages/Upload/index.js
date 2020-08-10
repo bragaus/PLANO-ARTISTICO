@@ -3,18 +3,50 @@ import { Formik, Field, Form, ErrorMessage, useField } from 'formik';
 import * as Yup from 'yup';
 
 import Dropzone from '../../components/Dropzone';
-import { Input, Label, Container, Div } from './styles';
+import { Container, Div, Section, Fieldset } from './styles';
+import { useState } from 'react';
 
 
 const Campo = ({ label, ...props }) => {
     const [field, meta] = useField(props);
-    return (<>
-        <Label htmlFor={props.name}>{label}</Label>
-        <Input className="text-input" {...field} {...props} />
-        {meta.touched && meta.error ? (
-            <div className="error">{meta.error}</div>
-        ) : null}
-    </>);
+    return (
+        <Section>
+
+            <label htmlFor={props.name}>{label}</label>
+            <Field {...field} {...props}/>
+
+            {meta.touched && meta.error && (
+                <div>{meta.error}</div>
+            )}
+
+        </Section>
+    );  
+};
+
+const Checkbox = ({label, children, ...props}) => {
+
+    const [checked, setChecked] = useState(false);
+    const [field, meta] = useField(props);
+
+    return (
+        <Section className="checkbox" checked={checked}>
+
+            <label className="checkbox" >
+                <input 
+                    type="checkbox" 
+                    {...field} 
+                    {...props}
+                    onClick={() => setChecked(!checked)}
+                />
+                {children}
+            </label>
+
+            {meta.touched && meta.error && (
+                <div className="error">{meta.error}</div>
+            )}
+
+        </Section>        
+    );
 };
 
 const Upload = () => {
@@ -44,22 +76,48 @@ const Upload = () => {
                         placeholder="What is your artwork title?"                    
                     />
 
-                    <Div>
-                        <Dropzone 
-                            setFieldValue={setFieldValue}                            
-                            mensagem="Front Image"                    
-                        />
-                        <Dropzone 
-                            setFieldValue={setFieldValue}                            
-                            mensagem="Back Image"                    
-                        />
-                        <Dropzone 
-                            setFieldValue={setFieldValue}                            
-                            mensagem="Preview Image"                    
-                        />
-                    </Div>
+                    <Fieldset>
+                        <legend>UPLOAD</legend>
+                        <div>
+                            <Dropzone 
+                                setFieldValue={setFieldValue}                            
+                                mensagem="Front Image"                    
+                            />
+                            <Dropzone 
+                                setFieldValue={setFieldValue}                            
+                                mensagem="Back Image"                    
+                            />
+                            <Dropzone 
+                                setFieldValue={setFieldValue}                            
+                                mensagem="Preview Image"                    
+                            />
+                        </div>
+                    </Fieldset>
 
-                    
+                    <Campo 
+                        label="DESCRIPTION"
+                        name="desc"
+                        type="text"
+                        as="textarea"
+                        placeholder="What is your artwork description?"
+                        rows="4"                 
+                    />
+
+                    <Fieldset>
+                        <legend>ARTWORK LOCATION</legend>
+                        <div>
+                            <Checkbox name="local">
+                                ILLUSTRATION
+                            </Checkbox>                                
+                            <Checkbox name="local">
+                                COVER ART
+                            </Checkbox>                                
+                            <Checkbox name="local">
+                                COLLAGE
+                            </Checkbox>
+                        </div>                  
+                    </Fieldset>
+                              
                 </Form>
             )}
 

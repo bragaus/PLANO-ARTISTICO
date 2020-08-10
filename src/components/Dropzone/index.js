@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { Container } from './styles';
+import { Container, Figure } from './styles';
 
 const ZonaDeDrop = ({ quandoInserirArte, mensagem, setFieldValue }) => {
+
+    const [files, setFiles] = useState ([]);
+
+    useEffect(() => () => {
+        files.forEach(file => URL.revokeObjectURL(file.preview));
+      }, [files]);    
 
     const { 
         acceptedFiles, 
@@ -16,28 +22,32 @@ const ZonaDeDrop = ({ quandoInserirArte, mensagem, setFieldValue }) => {
         accept: "image/jpeg, image/png",
         onDropAccepted: quandoInserirArte,
         onDrop: (acceptedFiles) => {
-            setFieldValue("artes", acceptedFiles);
+            setFieldValue("arquivo", acceptedFiles);
+            setFiles(acceptedFiles.map(file => Object.assign(file, {
+                preview: URL.createObjectURL(file)
+            })));
         },
         multiple: false,
 
     });
 
-    const files = acceptedFiles.map(file => (
+    const thumbs = files.map(({ name, preview }) => (
+        <Figure key={name}>
+            <img src={preview} alt={name} />
+        </Figure>
+    ));    
 
-        <li key={file.path}>
-          {file.path} - {file.size} bytes
-        </li>
-
-    ));  
 
     return (
         <>
             <Container {...getRootProps({isDragActive, isDragAccept, isDragReject})}>
                 <input {...getInputProps()} />
-                <aside>
-                    <ul>{files}</ul>
-                </aside>                
-                <p>{mensagem}</p>
+
+                {files.length === 0 && (
+                    <p>{mensagem}</p>
+                )}           
+
+                {thumbs}
             </Container>
         </>
     );   

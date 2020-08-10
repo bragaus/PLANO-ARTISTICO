@@ -14,17 +14,40 @@ const getColor = (props) => {
 }
 
 export const Container = styled.div`
-    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
 
-    padding: 5%;
+    position: relative;
+
+    width: 400px;
+    height: 200px;
+
     border: 3px solid ${props => getColor(props)};
 
     background-color: #fafafa;
-    color: #bdbdbd;
+
+    color: var(--preto);
+    font: bold 1.5rem Arial;
+
     outline: none;
     transition: border .24s ease-in-out;
 
     > p {
         text-align: center;
+    }
+
+    > input {
+        display: none;
+    }
+`;
+
+export const Figure = styled.figure`
+
+    height: 100%;
+
+    > img {
+        height: 100%;
     }
 `;

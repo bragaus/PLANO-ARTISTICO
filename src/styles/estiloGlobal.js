@@ -64,6 +64,7 @@ export default createGlobalStyle`
         --borda: 0.2vw;
         --cinza: #686868;
         --amarelo: #fff600;
+        --verde: #008000;
     }
 `;
 
