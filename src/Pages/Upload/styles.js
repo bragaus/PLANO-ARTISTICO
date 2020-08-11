@@ -59,3 +59,19 @@ export const Fieldset = styled.fieldset`
     }
 
 `;
+
+export const Button = styled.button`
+    background: var(--preto);
+    width: 20%;
+    padding: 2%;
+    color: #fff;
+    font: bold 2.4rem Arial;
+    cursor: pointer;
+`;
+
+export const Flex = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5%;
+`;

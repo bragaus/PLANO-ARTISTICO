@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Container, Figure } from './styles';
 
-const ZonaDeDrop = ({ quandoInserirArte, mensagem, setFieldValue }) => {
+const Dropzone = ({ quandoinserirarte, mensagem, setfieldvalue }) => {
 
-    const [files, setFiles] = useState ([]);
+    const [arquivos, setArquivos] = useState([]);
+    const [preview, setPreview] = useState([]);
 
     useEffect(() => () => {
-        files.forEach(file => URL.revokeObjectURL(file.preview));
-      }, [files]);    
+        preview.forEach(file => URL.revokeObjectURL(file.preview));
+    }, [preview]);
 
     const { 
         acceptedFiles, 
@@ -20,10 +21,15 @@ const ZonaDeDrop = ({ quandoInserirArte, mensagem, setFieldValue }) => {
     } = useDropzone({
 
         accept: "image/jpeg, image/png",
-        onDropAccepted: quandoInserirArte,
+        onDropAccepted: (artes) => {
+            artes.forEach(arte => {
+                setArquivos([...arquivos, arte]);
+                setfieldvalue("arquivo", arquivos);
+            })
+        },
         onDrop: (acceptedFiles) => {
-            setFieldValue("arquivo", acceptedFiles);
-            setFiles(acceptedFiles.map(file => Object.assign(file, {
+
+            setPreview(acceptedFiles.map(file => Object.assign(file, {
                 preview: URL.createObjectURL(file)
             })));
         },
@@ -31,19 +37,18 @@ const ZonaDeDrop = ({ quandoInserirArte, mensagem, setFieldValue }) => {
 
     });
 
-    const thumbs = files.map(({ name, preview }) => (
+    const thumbs = preview.map(({ name, preview }) => (
         <Figure key={name}>
             <img src={preview} alt={name} />
         </Figure>
-    ));    
-
+    ));
 
     return (
         <>
             <Container {...getRootProps({isDragActive, isDragAccept, isDragReject})}>
                 <input {...getInputProps()} />
 
-                {files.length === 0 && (
+                {preview.length === 0 && (
                     <p>{mensagem}</p>
                 )}           
 
@@ -53,4 +58,4 @@ const ZonaDeDrop = ({ quandoInserirArte, mensagem, setFieldValue }) => {
     );   
 }
 
-export default ZonaDeDrop
+export default Dropzone

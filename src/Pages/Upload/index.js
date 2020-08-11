@@ -3,7 +3,7 @@ import { Formik, Field, Form, ErrorMessage, useField } from 'formik';
 import * as Yup from 'yup';
 
 import Dropzone from '../../components/Dropzone';
-import { Container, Div, Section, Fieldset } from './styles';
+import { Container, Section, Fieldset, Button, Flex } from './styles';
 
 
 
@@ -57,11 +57,27 @@ function Checkbox({ name, tipo }) {
 
 const Upload = () => {
 
+    const [arquivos, setArquivos] = useState([]);
+
+    // inserir as artes no estado conjutoArtes
+    function lidarComArteInseridaNoDropzone(artes) {
+        artes.forEach(arte => {
+
+            setArquivos([...arquivos, arte]);
+
+        });
+    }    
+
+    const enviarArquivoParaBackend = (valores, { reset }) => {
+        console.log(valores);
+        console.log(arquivos);
+    }
+
     const validacao = Yup.object({
-        titulo: Yup.string().max(30, "Too Long!").required('Required'),
-        arquivo: Yup.array().required('Arte').min(1).max(1),
-        desc: Yup.string().max(500, "Too Long!").required('descrição obrigatoria'),
-        local: Yup.string().required('Required')
+        titulo: Yup.string().max(30, "Too Long!").required('Enter title'),
+        // arquivo: Yup.array().required('Enter artwork').min(1).max(1),
+        desc: Yup.string().max(500, "Too Long!").required('Enter description'),
+        local: Yup.string().required('Enter local')
     }) 
 
     return (
@@ -70,37 +86,39 @@ const Upload = () => {
             <Formik
                 initialValues={{ titulo: '', arquivo: [], desc: '', local: '' }}
                 validationSchema={validacao}
-                onSubmit={(values) => {
-                    console.log(values)
-                }}
+                onSubmit={enviarArquivoParaBackend}
             >
 
             {({ setFieldValue }) => (    
 
                 <Form>
                     <Campo 
-                        label="ARTWORK TITLE"
+                        label="TITLE"
                         name="titulo"
                         type="text"
                         placeholder="What is your artwork title?"                    
                     />
 
                     <Fieldset>
-                        <legend>UPLOAD</legend>
+                        <legend>ARTWORK</legend>
                         <div>
-                            <Dropzone 
-                                setFieldValue={setFieldValue}                            
+                            <Dropzone
+                                quandoinserirarte={lidarComArteInseridaNoDropzone}
+                                setfieldvalue={setFieldValue}                            
                                 mensagem="Front Image"                    
                             />
-                            <Dropzone 
-                                setFieldValue={setFieldValue}                            
+                            <Dropzone
+                                quandoinserirarte={lidarComArteInseridaNoDropzone}
+                                setfieldvalue={setFieldValue}                            
                                 mensagem="Back Image"                    
                             />
-                            <Dropzone 
-                                setFieldValue={setFieldValue}                            
+                            <Dropzone
+                                quandoinserirarte={lidarComArteInseridaNoDropzone}
+                                setfieldvalue={setFieldValue}                            
                                 mensagem="Preview Image"                    
                             />
                         </div>
+                        <ErrorMessage name="arquivo"/>
                     </Fieldset>
 
                     <Campo 
@@ -113,15 +131,18 @@ const Upload = () => {
                     />
 
                     <Fieldset>
-                        <legend>ARTWORK LOCATION</legend>
+                        <legend>LOCATION</legend>
                         <div>
                             <Checkbox name="local" tipo="ILLUSTRATION"/>                            
                             <Checkbox name="local" tipo="COVER ART"/>                             
                             <Checkbox name="local" tipo="COLLAGE"/>
-                        </div>                  
+                        </div>
+                        <ErrorMessage name="local"/>               
                     </Fieldset>
 
-                    <button type="submit">Submit</button>          
+                    <Flex>
+                        <Button type="submit">PUBLISH</Button>
+                    </Flex>     
                 </Form>
             )}
 
