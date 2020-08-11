@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Field, Form, ErrorMessage, useField } from 'formik';
 import * as Yup from 'yup';
 
 import Dropzone from '../../components/Dropzone';
 import { Container, Div, Section, Fieldset } from './styles';
-import { useState } from 'react';
+
 
 
 const Campo = ({ label, ...props }) => {
@@ -23,29 +23,35 @@ const Campo = ({ label, ...props }) => {
     );  
 };
 
-const Checkbox = ({label, tipo, ...props}) => {
+function Checkbox({ name, tipo }) {
 
     const [checked, setChecked] = useState(false);
-    const [field, meta] = useField(props);
 
     return (
         <Section className="checkbox" checked={checked}>
+            <Field name={name}>
+                {({ field, form }) => (
 
-            <label className="checkbox" >
-                <input 
-                    type="checkbox" 
-                    {...field} 
-                    {...props}
-                    onClick={() => setChecked(!checked)}
-                />
-                {tipo}
-            </label>
+                    <label>
+                        <input
+                            type="radio"
+                            checked={field.value.includes(tipo)}
+                            onChange={() => {
 
-            {meta.touched && meta.error && (
-                <div className="error">{meta.error}</div>
-            )}
+                                const tipoSelecionado = tipo;
+                                form.setFieldValue('local', tipoSelecionado);
 
-        </Section>        
+                            }}     
+                            onClick={() => setChecked(!checked)}                                          
+                        />
+                        
+                        {tipo}
+
+                    </label>
+
+                )}
+            </Field>
+        </Section> 
     );
 };
 
@@ -109,11 +115,9 @@ const Upload = () => {
                     <Fieldset>
                         <legend>ARTWORK LOCATION</legend>
                         <div>
-                            <Checkbox name="local" tipo="ILLUSTRATION" onChange={() => {
-                                setFieldValue('local', 'ILLUSTRATION')
-                            }}/>                            
-                            <Checkbox name="local" tipo="COVER ART" />                             
-                            <Checkbox name="local" tipo="COLLAGE" />
+                            <Checkbox name="local" tipo="ILLUSTRATION"/>                            
+                            <Checkbox name="local" tipo="COVER ART"/>                             
+                            <Checkbox name="local" tipo="COLLAGE"/>
                         </div>                  
                     </Fieldset>
 

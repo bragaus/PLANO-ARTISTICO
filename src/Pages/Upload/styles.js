@@ -38,9 +38,8 @@ export const Section = styled.section`
         width: 20%;
         text-align: center;
 
-        ${({ checked }) => {
-            if (checked) return {backgroundColor: 'red'}
-        }}    
+        background-color: ${({ checked }) => checked ? 'var(--vermelho)' : null}
+
     }
 
 `;
