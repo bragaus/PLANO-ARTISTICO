@@ -73,5 +73,11 @@ export const Flex = styled.div`
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    align-items: flex-end;
     margin-top: 5%;
+
+    > span {
+        margin-right: 1%;
+        font: bold 2rem Arial;
+    }
 `;

@@ -45,7 +45,7 @@ const Checkbox = ({ name, tipo }) => {
 const Upload = () => {
 
     const [arquivos, setArquivos] = useState([]);
-    const [resposta, setResposta] = useState([]);
+    const [resposta, setResposta] = useState('');
 
     // inserir as artes no estado conjutoArtes
     function lidarComArteInseridaNoDropzone(artes) {
@@ -57,7 +57,9 @@ const Upload = () => {
     }    
 
     const enviarArquivoParaBackend = (post, { resetForm }) => {
-        console.log(post)
+
+        setResposta('sending...');
+
         var formulario = new FormData();
 
         // inserir cada arte upada no formulário
@@ -70,15 +72,13 @@ const Upload = () => {
         formulario.append('desc', post.desc);
         formulario.append('tipo', post.tipo);
 
-        console.log(formulario)
-
         if (arquivos.length > 1) {
 
             // Enviando a arte e quando receber a resposta, vai parar de mostrar
             // carregando e vai guardar o status do upload
             api.post('/postarArteFrenteVerso', formulario)
-            .then((resposta) => {
-                console.log(resposta)
+            .then(({ status }) => {
+                status === 200 ? setResposta('OK') : setResposta('Oh fuck! try again.');
             })
             .catch((erro) => {
                 console.log(erro)
@@ -88,8 +88,8 @@ const Upload = () => {
 
             // Enviando a arte, fazendo o percentual de upload e recebendo o status do upload
             api.post('/postarArte', formulario)
-            .then((resposta) => {
-                console.log(resposta)
+            .then(({ status }) => {
+                status === 200 ? setResposta('OK') : setResposta('Oh fuck! try again.');
             })
             .catch((erro) => {
                 console.log(erro)
@@ -169,6 +169,7 @@ const Upload = () => {
                     </Fieldset>
 
                     <Flex>
+                        {resposta && ( <span>{resposta}</span> )}
                         <Button type="submit">PUBLISH</Button>
                     </Flex>     
                 </Form>
