@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Formik, Field, Form, ErrorMessage, useField } from 'formik';
 import * as Yup from 'yup';
+import api from '../../services/api';
 
 import Dropzone from '../../components/Dropzone';
 import { Container, Section, Fieldset, Button, Flex } from './styles';
-
-
 
 const Campo = ({ label, ...props }) => {
     const [field, meta] = useField(props);
@@ -39,7 +38,7 @@ function Checkbox({ name, tipo }) {
                             onChange={() => {
 
                                 const tipoSelecionado = tipo;
-                                form.setFieldValue('local', tipoSelecionado);
+                                form.setFieldValue('tipo', tipoSelecionado);
 
                             }}     
                             onClick={() => setChecked(!checked)}                                          
@@ -58,6 +57,7 @@ function Checkbox({ name, tipo }) {
 const Upload = () => {
 
     const [arquivos, setArquivos] = useState([]);
+    const [resposta, setResposta] = useState([]);
 
     // inserir as artes no estado conjutoArtes
     function lidarComArteInseridaNoDropzone(artes) {
@@ -68,23 +68,63 @@ const Upload = () => {
         });
     }    
 
-    const enviarArquivoParaBackend = (valores, { reset }) => {
-        console.log(valores);
-        console.log(arquivos);
+    const enviarArquivoParaBackend = (post, { resetForm }) => {
+        console.log(post)
+        var formulario = new FormData();
+
+        // inserir cada arte upada no formulário
+        arquivos.forEach((arquivo) => {
+            formulario.append('file', arquivo);
+        });          
+        
+        // inserir as informações da arte no formulário 
+        formulario.append('titulo', post.titulo);
+        formulario.append('desc', post.desc);
+        formulario.append('tipo', post.tipo);
+
+        console.log(formulario)
+
+        if (arquivos.length > 1) {
+
+            // Enviando a arte e quando receber a resposta, vai parar de mostrar
+            // carregando e vai guardar o status do upload
+            api.post('/postarArteFrenteVerso', formulario)
+            .then((resposta) => {
+                console.log(resposta)
+            })
+            .catch((erro) => {
+                console.log(erro)
+            });
+
+        } else {         
+
+            // Enviando a arte, fazendo o percentual de upload e recebendo o status do upload
+            api.post('/postarArte', formulario)
+            .then((resposta) => {
+                console.log(resposta)
+            })
+            .catch((erro) => {
+                console.log(erro)
+            });
+
+        }
+
+        resetForm({})
+        setArquivos([])
     }
 
     const validacao = Yup.object({
         titulo: Yup.string().max(30, "Too Long!").required('Enter title'),
-        // arquivo: Yup.array().required('Enter artwork').min(1).max(1),
-        desc: Yup.string().max(500, "Too Long!").required('Enter description'),
-        local: Yup.string().required('Enter local')
+        arquivo: Yup.array().required('Enter artwork').min(1).max(1),
+        desc: Yup.string().max(500, "Too Long!"),
+        tipo: Yup.string().required('Enter local')
     }) 
-
+    
     return (
 
         <Container>
             <Formik
-                initialValues={{ titulo: '', arquivo: [], desc: '', local: '' }}
+                initialValues={{ titulo: '', arquivo: [], desc: '', tipo: '' }}
                 validationSchema={validacao}
                 onSubmit={enviarArquivoParaBackend}
             >
@@ -127,17 +167,17 @@ const Upload = () => {
                         type="text"
                         as="textarea"
                         placeholder="What is your artwork description?"
-                        rows="4"                 
+                        rows="4"        
                     />
 
                     <Fieldset>
                         <legend>LOCATION</legend>
                         <div>
-                            <Checkbox name="local" tipo="ILLUSTRATION"/>                            
-                            <Checkbox name="local" tipo="COVER ART"/>                             
-                            <Checkbox name="local" tipo="COLLAGE"/>
+                            <Checkbox name="tipo" tipo="ILLUSTRATION"/>                            
+                            <Checkbox name="tipo" tipo="COVER ART"/>                             
+                            <Checkbox name="tipo" tipo="COLLAGE"/>
                         </div>
-                        <ErrorMessage name="local"/>               
+                        <ErrorMessage name="tipo"/>               
                     </Fieldset>
 
                     <Flex>

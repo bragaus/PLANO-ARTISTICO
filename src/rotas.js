@@ -6,6 +6,8 @@ import { Contexto } from './Contexto/ContextoDeAutorizacao';
 import PainelDeControle from './components/PaginaDeControle/PainelDeControle';
 import Home from './Pages/Home';
 import Upload from './Pages/Upload';
+import UploadOlder from './components/PaginaDeUpoad/PaginaDeUpload';
+
 import VisualizarArte from './components/VisualizarArte/VisualizarArte';
 import Login from './components/PaginaDeLogin/Login';
 import Sobre from './components/Sobre/Sobre';

@@ -4,7 +4,6 @@ import { Container, Figure } from './styles';
 
 const Dropzone = ({ quandoinserirarte, mensagem, setfieldvalue }) => {
 
-    const [arquivos, setArquivos] = useState([]);
     const [preview, setPreview] = useState([]);
 
     useEffect(() => () => {
@@ -21,18 +20,18 @@ const Dropzone = ({ quandoinserirarte, mensagem, setfieldvalue }) => {
     } = useDropzone({
 
         accept: "image/jpeg, image/png",
-        onDropAccepted: (artes) => {
-            artes.forEach(arte => {
-                setArquivos([...arquivos, arte]);
-                setfieldvalue("arquivo", arquivos);
-            })
-        },
-        onDrop: (acceptedFiles) => {
+        onDropAccepted: (acceptedFiles) => {
 
+            quandoinserirarte(acceptedFiles);
+            setfieldvalue("arquivo", acceptedFiles);
+            
             setPreview(acceptedFiles.map(file => Object.assign(file, {
                 preview: URL.createObjectURL(file)
             })));
+
         },
+
+
         multiple: false,
 
     });
