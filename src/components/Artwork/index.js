@@ -32,7 +32,7 @@ const Artwork = ({
                 <Figure arte={artes} id_DaArte={arte.ID}>
 
                     <figcaption>
-                        <h5>{arte.titulo} - {arte.descricao}</h5>
+                        <h5>{arte.titulo} {arte.descricao && (- arte.descricao)}</h5>
                     </figcaption>
 
                     {autenticado && !visualizarComoUsuario && (

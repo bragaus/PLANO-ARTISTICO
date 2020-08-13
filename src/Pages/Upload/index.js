@@ -10,45 +10,33 @@ const Campo = ({ label, ...props }) => {
     const [field, meta] = useField(props);
     return (
         <Section>
-
             <label htmlFor={props.name}>{label}</label>
             <Field {...field} {...props}/>
 
             {meta.touched && meta.error && (
                 <div>{meta.error}</div>
             )}
-
         </Section>
     );  
 };
 
-function Checkbox({ name, tipo }) {
-
+const Checkbox = ({ name, tipo }) => {
     const [checked, setChecked] = useState(false);
-
     return (
         <Section className="checkbox" checked={checked}>
             <Field name={name}>
-                {({ field, form }) => (
-
-                    <label>
-                        <input
-                            type="radio"
-                            checked={field.value.includes(tipo)}
-                            onChange={() => {
-
-                                const tipoSelecionado = tipo;
-                                form.setFieldValue('tipo', tipoSelecionado);
-
-                            }}     
-                            onClick={() => setChecked(!checked)}                                          
-                        />
-                        
-                        {tipo}
-
-                    </label>
-
-                )}
+                {({ field, form }) => (<label>
+                    <input
+                        type="radio"
+                        checked={field.value.includes(tipo)}
+                        onChange={() => {
+                            const tipoSelecionado = tipo;
+                            form.setFieldValue('tipo', tipoSelecionado);
+                        }}     
+                        onClick={() => setChecked(!checked)}                                          
+                    />
+                    {tipo}
+                </label>)}
             </Field>
         </Section> 
     );
