@@ -10,27 +10,46 @@ export const Container = styled.div`
 `;
 
 export const Section = styled.section`
-
+    margin-top: 5%;
 `;
 
 export const Fieldset = styled.fieldset`
     border: 3px solid var(--preto);
-    padding: 10%;
+    padding: 0 10% 0 10%;
 
-    width: 30vw;
-    height: 50vh;
+    width: 350px;
+    height: 400px;
 
-    legend {
-        font: 1000 2rem Arial;
+    h1 {
+        text-align: center;
+        padding: 10%;
+        font: 1000 4rem Arial;
     }
 
     input {
         border-bottom: 2px solid var(--preto);
         width: 100%;
+        padding: 5% 0 5% 0;
     }
 
     label {
-        font: bold 2rem Arial;  
+        font: bold 1.5rem Arial;  
     }
+`;
 
+export const Button = styled.button`
+    width: 100%;
+    background: var(--preto);
+    border-radius: 25px;
+    color: #fff;
+    padding: 3%;
+`;
+
+export const Flex = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 60%;
+    width: 100%;
 `;

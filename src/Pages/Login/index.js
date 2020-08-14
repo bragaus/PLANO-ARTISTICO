@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage, useField } from 'formik';
-import { Container, Section, Fieldset } from './styles';
+import { Container, Section, Fieldset, Button, Flex } from './styles';
 
 const Campo = ({ label, ...props }) => {
     const [field, meta] = useField(props);
@@ -24,22 +24,26 @@ const Login = () => {
                 <Form>
 
                     <Fieldset>
-                        <legend>LOGIN</legend>
+                        <h1>LOGIN</h1>
 
-                        <Campo
-                            label="USERNAME"
-                            name="usuario"
-                            placeholder="Type your username" 
-                            type="text"                  
-                        />
-                        <Campo
-                            label="PASSWORD"
-                            name="senha"
-                            placeholder="Type your password" 
-                            type="password"                  
-                        />
+                        <Flex>
+                            <div>
+                                <Campo
+                                    label="USERNAME"
+                                    name="usuario"
+                                    placeholder="Type your username" 
+                                    type="text"                  
+                                />
+                                <Campo
+                                    label="PASSWORD"
+                                    name="senha"
+                                    placeholder="Type your password" 
+                                    type="password"                  
+                                />
+                            </div>
 
-                        <button type="submit">SIGN IN</button>
+                            <Button type="submit">SIGN IN</Button>
+                        </Flex>
                     </Fieldset>
 
                 </Form>
