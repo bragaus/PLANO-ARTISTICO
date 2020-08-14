@@ -4,16 +4,14 @@ import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
 import Header from '../../components/Header';
 import Email from '../../components/Email';
 import Figure from '../../components/Artwork';
+import Painel from '../../components/Painel';
 
 import api from '../../services/api';
-import history from '../../history';
 
 import { 
     Main,
     Portateis,    
     DivEmail,
-    Painel,     
-    Lista,
     Rodape, 
     ArameComputadorDeMesa, 
     ArameDispositivoMovel,
@@ -37,7 +35,6 @@ const Home = () => {
     // quando o menu estiver visivel
     const [menuDispositivoMovel, setMenuDispositivoMovel] = useState(false);
 
-    const [painel, setPainel] = useState(false);
     const [visualizarComoUsuario, setVisualizarComoUsuario] = useState(true);
 
 
@@ -131,28 +128,12 @@ const Home = () => {
         {/* tela de email para desktop. */}
         {telaDeEmail && <Email setTelaDeEmail={setTelaDeEmail}/>}
 
-        {/* painel de controle para usuário autenticado. */}
         {autenticado && (
-            <Painel>
-                <Lista>
-
-                    {painel && (<>
-                        <li 
-                            onClick={() => {
-                                setVisualizarComoUsuario(!visualizarComoUsuario)
-                                setPainel(!painel)
-                            }}
-                        >
-                            {visualizarComoUsuario ? 'ADM VIEW' : 'USER VIEW' }
-                        </li>
-                        <li onClick={salvar}>SAVE</li>
-                        <li onClick={() => history.push('/upload')}>UPLOAD</li>
-                    </>)}
-
-                    <li onClick={() => setPainel(!painel)}>DASHBOARD</li>
-
-                </Lista>
-            </Painel>
+            <Painel 
+                visualizarComoUsuario={visualizarComoUsuario}
+                setVisualizarComoUsuario={setVisualizarComoUsuario}
+                salvar={salvar}
+            />
         )}
 
         <Rodape>

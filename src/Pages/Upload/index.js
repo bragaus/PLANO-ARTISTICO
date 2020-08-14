@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Formik, Field, Form, ErrorMessage, useField } from 'formik';
 import * as Yup from 'yup';
 import api from '../../services/api';
+import history from '../../history';
 
 import Dropzone from '../../components/Dropzone';
-import { Container, Section, Fieldset, Button, Flex } from './styles';
+import { Container, Section, Fieldset, Button, Flex, Voltar } from './styles';
 
 const Campo = ({ label, ...props }) => {
     const [field, meta] = useField(props);
@@ -97,8 +98,8 @@ const Upload = () => {
 
         }
 
-        resetForm({})
-        setArquivos([])
+        resetForm({});
+        setArquivos([]);
     }
 
     const validacao = Yup.object({
@@ -133,17 +134,17 @@ const Upload = () => {
                             <Dropzone
                                 quandoinserirarte={lidarComArteInseridaNoDropzone}
                                 setfieldvalue={setFieldValue}                            
-                                mensagem="Front Image"                    
+                                mensagem="Front Image"               
                             />
                             <Dropzone
                                 quandoinserirarte={lidarComArteInseridaNoDropzone}
                                 setfieldvalue={setFieldValue}                            
-                                mensagem="Back Image"                    
+                                mensagem="Back Image"                 
                             />
                             <Dropzone
                                 quandoinserirarte={lidarComArteInseridaNoDropzone}
                                 setfieldvalue={setFieldValue}                            
-                                mensagem="Preview Image"                    
+                                mensagem="Preview Image"                     
                             />
                         </div>
                         <ErrorMessage name="arquivo"/>
@@ -176,6 +177,10 @@ const Upload = () => {
             )}
 
             </Formik>
+
+            <Voltar onClick={() => history.push('/')}>
+                Voltar
+            </Voltar>
         </Container>
 
     );

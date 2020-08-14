@@ -31,7 +31,6 @@ const Dropzone = ({ quandoinserirarte, mensagem, setfieldvalue }) => {
 
         },
 
-
         multiple: false,
 
     });
