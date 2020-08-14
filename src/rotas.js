@@ -2,16 +2,12 @@ import React, { useContext } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { Contexto } from './Contexto/ContextoDeAutorizacao';
 
-
-import PainelDeControle from './components/PaginaDeControle/PainelDeControle';
 import Home from './Pages/Home';
 import Upload from './Pages/Upload';
-import UploadOlder from './components/PaginaDeUpoad/PaginaDeUpload';
+import Login from './Pages/Login';
 
 import VisualizarArte from './components/VisualizarArte/VisualizarArte';
-import Login from './components/PaginaDeLogin/Login';
 import Sobre from './components/Sobre/Sobre';
-import Temporario from './components/PaginaInicial/temporario';
 
 
 function Rota({ rotaPrivada, ...rest }) {
