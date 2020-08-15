@@ -4,6 +4,8 @@ import * as Yup from 'yup';
 import api from '../../services/api';
 import history from '../../history';
 
+import './styles.css';
+
 import Dropzone from '../../components/Dropzone';
 import { Container, Section, Fieldset, Button, Flex, Voltar } from './styles';
 
@@ -19,28 +21,6 @@ const Campo = ({ label, ...props }) => {
             )}
         </Section>
     );  
-};
-
-const Checkbox = ({ name, tipo }) => {
-    const [checked, setChecked] = useState(false);
-    return (
-        <Section className="checkbox" checked={checked}>
-            <Field name={name}>
-                {({ field, form }) => (<label>
-                    <input
-                        type="radio"
-                        checked={field.value.includes(tipo)}
-                        onChange={() => {
-                            const tipoSelecionado = tipo;
-                            form.setFieldValue('tipo', tipoSelecionado);
-                        }}     
-                        onClick={() => setChecked(!checked)}                                          
-                    />
-                    {tipo}
-                </label>)}
-            </Field>
-        </Section> 
-    );
 };
 
 const Upload = () => {
@@ -161,11 +141,20 @@ const Upload = () => {
 
                     <Fieldset>
                         <legend>LOCATION</legend>
+
                         <div>
-                            <Checkbox name="tipo" tipo="ILLUSTRATION"/>                            
-                            <Checkbox name="tipo" tipo="COVER ART"/>                             
-                            <Checkbox name="tipo" tipo="COLLAGE"/>
+
+                            <Field type="radio" name="tipo" value="ILLUSTRATION" id="ILLUSTRATION"/>
+                            <label htmlFor="ILLUSTRATION">ILLUSTRATION</label>
+
+                            <Field type="radio" name="tipo" value="COVER ART" id="COVER ART"/>
+                            <label htmlFor="COVER ART">COVER ART</label>
+
+                            <Field type="radio" name="tipo" value="COLLAGE" id="COLLAGE"/>
+                            <label htmlFor="COLLAGE">COLLAGE</label>
+
                         </div>
+
                         <ErrorMessage name="tipo"/>               
                     </Fieldset>
 

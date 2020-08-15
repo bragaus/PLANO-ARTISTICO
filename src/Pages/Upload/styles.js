@@ -58,6 +58,27 @@ export const Fieldset = styled.fieldset`
         align-items: center;
     }
 
+    input {
+        display: none;
+    }
+
+    label {
+        font: bold 2.4rem Arial;
+        border: 3px solid var(--preto);
+        width: 20%;
+        text-align: center;
+        padding: 1% 0 1% 0;
+    }
+
+    label:hover {
+        background: var(--vermelho);
+        cursor: pointer;
+    }
+
+    input:checked + label {
+        background: var(--vermelho);
+    }
+
 `;
 
 export const Button = styled.button`
@@ -95,5 +116,9 @@ export const Voltar = styled.div`
     cursor: pointer;
 
     font-size: max(1.5vw, 2rem);
-    text-align: center;      
+    text-align: center;
+    
+    &:hover {
+        background: var(--amareloEscuro);
+    }
 `;
