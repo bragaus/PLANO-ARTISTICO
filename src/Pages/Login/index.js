@@ -1,5 +1,8 @@
-import React from 'react';
+import React,{ useContext } from 'react';
 import { Formik, Field, Form, ErrorMessage, useField } from 'formik';
+import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
+import * as Yup from 'yup';
+
 import { Container, Section, Fieldset, Button, Flex } from './styles';
 
 const Campo = ({ label, ...props }) => {
@@ -18,10 +21,25 @@ const Campo = ({ label, ...props }) => {
 
 const Login = () => {
 
+    const { lidarComLogin } = useContext(Contexto);    
+
+    const validacao = Yup.object({
+        nome: Yup.string().required('Enter username'),
+        senha: Yup.string().required('Enter password')
+    });
+
+    
+
     return (
         <Container>
-            <Formik>
-                <Form>
+            <Formik
+                initialValues={{nome: '', senha: ''}}
+                validationSchema={validacao}
+                onSubmit={lidarComLogin}
+            >
+
+            {({ handleSubmit }) => (                
+                <Form onSubmit={handleSubmit}>
 
                     <Fieldset>
                         <h1>LOGIN</h1>
@@ -30,10 +48,11 @@ const Login = () => {
                             <div>
                                 <Campo
                                     label="USERNAME"
-                                    name="usuario"
+                                    name="nome"
                                     placeholder="Type your username" 
                                     type="text"                  
                                 />
+
                                 <Campo
                                     label="PASSWORD"
                                     name="senha"
@@ -47,6 +66,8 @@ const Login = () => {
                     </Fieldset>
 
                 </Form>
+            )}
+
             </Formik>
         </Container>
     );

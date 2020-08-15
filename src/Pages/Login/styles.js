@@ -22,8 +22,8 @@ export const Fieldset = styled.fieldset`
 
     h1 {
         text-align: center;
-        padding: 10%;
-        font: 1000 4rem Arial;
+        padding: 15%;
+        font: 1000 2.5rem Arial;
     }
 
     input {
@@ -43,6 +43,8 @@ export const Button = styled.button`
     border-radius: 25px;
     color: #fff;
     padding: 3%;
+
+    cursor: pointer;
 `;
 
 export const Flex = styled.div`

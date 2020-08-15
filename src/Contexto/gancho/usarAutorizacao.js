@@ -43,7 +43,10 @@ export default function useAuth() {
     async function lidarComLogin(post) {
 
         // Desestruturando a resposta do login na constante token e status
-        const { data: { token }, status } = await api.post('/login', post, { withCredentials: true })
+        const { 
+            data: { token },
+            status 
+        } = await api.post('/login', post, { withCredentials: true })
         
         // Se o login for bem sucedido
         if (status === 200) {
@@ -55,7 +58,7 @@ export default function useAuth() {
             setAutenticado(true);
             history.push('/postar_arte');
         } else {
-            return console.log('usuário ou senha incorretos')
+            console.log('teste')
         };
     };
 

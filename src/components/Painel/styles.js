@@ -21,4 +21,8 @@ export const Lista = styled.ul`
         font-size: max(1.5vw, 2rem);
         text-align: center;     
     }
+
+    > li:hover {
+        background: var(--amareloEscuro);
+    }
 `;
