@@ -4,8 +4,6 @@ import * as Yup from 'yup';
 import api from '../../services/api';
 import history from '../../history';
 
-import './styles.css';
-
 import Dropzone from '../../components/Dropzone';
 import { Container, Section, Fieldset, Button, Flex, Voltar } from './styles';
 
@@ -46,12 +44,13 @@ const Upload = () => {
         // inserir cada arte upada no formulário
         arquivos.forEach((arquivo) => {
             formulario.append('file', arquivo);
-        });          
+        });                       
         
         // inserir as informações da arte no formulário 
         formulario.append('titulo', post.titulo);
         formulario.append('desc', post.desc);
         formulario.append('tipo', post.tipo);
+
 
         if (arquivos.length > 1) {
 
@@ -74,9 +73,11 @@ const Upload = () => {
             })
             .catch((erro) => {
                 console.log(erro)
+                setResposta('Oh fuck! try again.')
             });
 
         }
+
 
         resetForm({});
         setArquivos([]);

@@ -3,7 +3,7 @@ import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
 
 import Header from '../../components/Header';
 import Email from '../../components/Email';
-import Figure from '../../components/Artwork';
+import Artwork from '../../components/Artwork';
 import Painel from '../../components/Painel';
 
 import api from '../../services/api';
@@ -25,6 +25,7 @@ const Home = () => {
     const [ilustracoes, setIlustracoes] = useState([]);
     const [artesDeCapa, setArtesDeCapa] = useState([]);
     const [colagens, setColagens] = useState([]);
+    const [blobs, setBlobs] = useState([]);
 
     const [telaDeEmail, setTelaDeEmail] = useState(false);
 
@@ -43,13 +44,24 @@ const Home = () => {
         // Requisições das artes
         async function carregarArtes() {
 
-            const requisicaoIlustracao = await api.get('/ilustracao');
-            const requisicaoArteDeCapa = await api.get('/arteDeCapa');
-            const requisicaoColagem = await api.get('/colagem');
+            // const requisicaoIlustracao = await api.get('/ilustracao');
+            // const requisicaoArteDeCapa = await api.get('/arteDeCapa');
+            // const requisicaoColagem = await api.get('/colagem');
+            // const requisicaoBlobs = await api.get('/blobs');
+
             
-            setIlustracoes(requisicaoIlustracao.data);
-            setArtesDeCapa(requisicaoArteDeCapa.data);
-            setColagens(requisicaoColagem.data);
+            // setBlobs(requisicaoBlobs.data);
+            // setIlustracoes(requisicaoIlustracao.data);
+            // setArtesDeCapa(requisicaoArteDeCapa.data);
+            // setColagens(requisicaoColagem.data);
+
+            const { data } = await api.get('/artworks');
+
+            data.map((e) => {
+                console.log(e)
+            })
+
+
 
         }
 
@@ -85,7 +97,7 @@ const Home = () => {
 
         <Main autenticado={autenticado} visualizarComoUsuario={visualizarComoUsuario}> 
 
-            <Figure 
+            <Artwork 
                 autenticado={autenticado}
                 visualizarComoUsuario={visualizarComoUsuario}
                 artes={ilustracoes}
@@ -93,9 +105,10 @@ const Home = () => {
                 auxiliar={auxiliar}
                 setAuxiliar={setAuxiliar}
                 tipo="ILLUSTRATION"
+                blobs={blobs}
             />
 
-            <Figure 
+            <Artwork 
                 autenticado={autenticado}
                 visualizarComoUsuario={visualizarComoUsuario}
                 artes={artesDeCapa}
@@ -103,9 +116,10 @@ const Home = () => {
                 auxiliar={auxiliar}
                 setAuxiliar={setAuxiliar}
                 tipo="ALBUM COVER"
+                blobs={blobs}
             />
 
-            <Figure 
+            <Artwork 
                 autenticado={autenticado}
                 visualizarComoUsuario={visualizarComoUsuario}
                 artes={colagens}
@@ -113,6 +127,7 @@ const Home = () => {
                 auxiliar={auxiliar}
                 setAuxiliar={setAuxiliar}
                 tipo="COLLAGE"
+                blobs={blobs}
             />
  
         </Main>

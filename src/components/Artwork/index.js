@@ -13,7 +13,8 @@ const Artwork = ({
     setArtes, 
     auxiliar, 
     setAuxiliar, 
-    tipo 
+    tipo,
+    blobs
 }) => {
     
     return (
