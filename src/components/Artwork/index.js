@@ -14,9 +14,8 @@ const Artwork = ({
     auxiliar, 
     setAuxiliar, 
     tipo,
-    blobs
 }) => {
-    
+
     return (
         <section>
             <header>
@@ -30,10 +29,10 @@ const Artwork = ({
             </header>
 
             {artes.map(arte => (
-                <Figure arte={artes} id_DaArte={arte.ID}>
+                <Figure arte={artes} id_DaArte={arte.ID} key={arte.ID}>
 
                     <figcaption>
-                        <h5>{arte.titulo} {arte.descricao && (- arte.descricao)}</h5>
+                        <h5>{arte.titulo} {arte.descricao && ('- ' + arte.descricao)}</h5>
                     </figcaption>
 
                     {autenticado && !visualizarComoUsuario && (
@@ -56,13 +55,13 @@ const Artwork = ({
                                 setAuxiliar,
                                 auxiliar
                             )}
-                            src={arte.url || arte.urlPreview }
+                            src={`data:image/png;base64,${arte.arquivoBlob}`}
                             alt={arte.titulo}
                         />
                     ) : (
                         <Link to={{pathname: `/visualizarArte/${arte.ID}`, id: arte.ID}}>
-                            <img 
-                                src={arte.url || arte.urlPreview }
+                            <img
+                                src={`data:image/png;base64,${arte.arquivoBlob}`}
                                 alt={arte.titulo}
                             />
                         </Link>

@@ -25,7 +25,6 @@ const Home = () => {
     const [ilustracoes, setIlustracoes] = useState([]);
     const [artesDeCapa, setArtesDeCapa] = useState([]);
     const [colagens, setColagens] = useState([]);
-    const [blobs, setBlobs] = useState([]);
 
     const [telaDeEmail, setTelaDeEmail] = useState(false);
 
@@ -38,37 +37,23 @@ const Home = () => {
 
     const [visualizarComoUsuario, setVisualizarComoUsuario] = useState(true);
 
-
     useEffect(() => {
 
         // Requisições das artes
-        async function carregarArtes() {
-
-            // const requisicaoIlustracao = await api.get('/ilustracao');
-            // const requisicaoArteDeCapa = await api.get('/arteDeCapa');
-            // const requisicaoColagem = await api.get('/colagem');
-            // const requisicaoBlobs = await api.get('/blobs');
-
-            
-            // setBlobs(requisicaoBlobs.data);
-            // setIlustracoes(requisicaoIlustracao.data);
-            // setArtesDeCapa(requisicaoArteDeCapa.data);
-            // setColagens(requisicaoColagem.data);
+        (async function carregarArtes() {
 
             const { data } = await api.get('/artworks');
 
-            data.map((e) => {
-                console.log(e)
-            })
+            setIlustracoes(data.filter(file => file.tipo === "ILLUSTRATION"));
+            setArtesDeCapa(data.filter(file => file.tipo === "COVER ART"));
+            setColagens(data.filter(file => file.tipo === "COLLAGE"));
 
+        })();
 
-
-        }
-
-        carregarArtes();
     }, []);
     
     function salvar() {
+
         api.post('/controlesDaArte', ilustracoes).then((e) => {
             console.log(e)
         })
@@ -78,8 +63,8 @@ const Home = () => {
         api.post('/controlesDaArte', colagens).then((e) => {
             console.log(e)
         })
-    }    
-    
+
+    }  
 
     return (<>
     
@@ -97,7 +82,7 @@ const Home = () => {
 
         <Main autenticado={autenticado} visualizarComoUsuario={visualizarComoUsuario}> 
 
-            <Artwork 
+            <Artwork
                 autenticado={autenticado}
                 visualizarComoUsuario={visualizarComoUsuario}
                 artes={ilustracoes}
@@ -105,7 +90,6 @@ const Home = () => {
                 auxiliar={auxiliar}
                 setAuxiliar={setAuxiliar}
                 tipo="ILLUSTRATION"
-                blobs={blobs}
             />
 
             <Artwork 
@@ -116,7 +100,6 @@ const Home = () => {
                 auxiliar={auxiliar}
                 setAuxiliar={setAuxiliar}
                 tipo="ALBUM COVER"
-                blobs={blobs}
             />
 
             <Artwork 
@@ -127,7 +110,6 @@ const Home = () => {
                 auxiliar={auxiliar}
                 setAuxiliar={setAuxiliar}
                 tipo="COLLAGE"
-                blobs={blobs}
             />
  
         </Main>

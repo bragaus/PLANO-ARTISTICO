@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, animateScroll } from "react-scroll";
 import { Link as Ancora } from 'react-router-dom';
 
-import { Superior, Logo, Seta, Pictograma, Menu, Container } from './estilo';
+import { Superior, Logo, Seta, Pictograma, Menu, Container } from './styles';
 
 import Email from '../Email';
 
@@ -27,7 +27,7 @@ const Header = ({setMenuDispositivoMovel, menuDispositivoMovel}) => {
             <section className="dispositivo-movel">
                     <Pictograma onClick={animateScroll.scrollToTop}/>
                     <Ancora 
-                        to="/sobre" 
+                        to="/about" 
                         className="info"                             
                     >
                         ?
@@ -41,7 +41,7 @@ const Header = ({setMenuDispositivoMovel, menuDispositivoMovel}) => {
             </section>
 
             <section className="desktop">
-                <Ancora to="/sobre" className="info">
+                <Ancora to="/about" className="info">
                     INFO
                     <Seta />   
                 </Ancora>
@@ -77,7 +77,7 @@ const Header = ({setMenuDispositivoMovel, menuDispositivoMovel}) => {
                         <li>
                             <Link
                                 activeClass="active"
-                                to="colagens"
+                                to="COLLAGE"
                                 spy={true}
                                 smooth={true}
                                 offset={-70}

@@ -1,10 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import history from '../../history';
 
-import { 
-    Section,     
-    Lista,
-} from './styles';
+import { Section, Lista } from './styles';
 
 const Painel = ({ visualizarComoUsuario, setVisualizarComoUsuario, salvar }) => {
 

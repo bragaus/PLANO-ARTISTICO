@@ -42,15 +42,25 @@ const TelaEmail = ({ setTelaDeEmail }) => {
 
     // Função que recebe os dados do formulario e envia para rota que faz o envio do email
     function enviarDadosParaRotaDeEmail(dados, { resetForm }) {
-        setStatusDoEnvio('Sending...')
+        setStatusDoEnvio('Sending...');
 
-        var formulario = new FormData();
-        formulario.append('file', dados.arquivo);
-        formulario.append('email', dados.email);
-        formulario.append('corpo', dados.corpo);    
+        rota = '';
+        dadosDoEmail = {};
 
-        // Rota que faz o envio do email
-        api.post('/email', formulario)
+        // Se tiver arquivo
+        if(dados.arquivo){
+            var formulario = new FormData();
+            formulario.append('file', dados.arquivo);
+            formulario.append('email', dados.email);
+            formulario.append('corpo', dados.corpo);    
+            rota = '/emailanexo';
+            dadosDoEmail = formulario;
+        } else {
+            var rota = '/email';
+            var dadosDoEmail = dados;            
+        }
+
+        api.post(rota, dadosDoEmail)
 
         // Resposta do status do envio
         .then((res) => { 
@@ -84,8 +94,8 @@ const TelaEmail = ({ setTelaDeEmail }) => {
         arquivo: Yup.mixed().test('fileFormat', 'Unsupported Format', arquivo => {
             if (!arquivo) { 
                 return true;
-            }            
-            arquivo && formatosSuportados.includes(arquivo.type)
+            } 
+            return arquivo && formatosSuportados.includes(arquivo.type);
         })        
     })      
 

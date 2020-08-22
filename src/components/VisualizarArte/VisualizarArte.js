@@ -27,6 +27,7 @@ const VisualizarArte = (props) => {
             // Chamando a api que busca arte de acordo com o id passado na url
             const arte = await api.get(`/visualizarArte/${props.match.params.id}`);
             setArte(arte.data)
+            console.log(arte);
 
             // Fase de teste do carregamento da pagina
             setCarregando(false);
@@ -51,7 +52,7 @@ const VisualizarArte = (props) => {
         return <h1>carregando</h1>
     } else {
         // Desestruturando a arte carregada no estado
-        var [{ url, urlFrente: arteFrenteVerso, urlVerso }] = arte
+        var [{ url, urlFrente: arteFrenteVerso, urlVerso, urlPreview }] = arte
 
         return (
             <>
@@ -81,7 +82,7 @@ const VisualizarArte = (props) => {
 
                 {/* Arte com frente e verso */}
                 {arteFrenteVerso && <CaixaDaImagem zoom={zoom}>
-                    <ImagemFrente 
+                    <ImagemFrente
                         src={arteFrenteVerso}
                         mostrar={mostrar}
                         // alternado o estado entre true e false quando clicado

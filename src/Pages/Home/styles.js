@@ -8,7 +8,7 @@ export const Main = styled.main`
         ${({ autenticado, visualizarComoUsuario }) => {
             if (autenticado && !visualizarComoUsuario) {
                 return {marginTop: '0'}
-            } else if (autenticado && visualizarComoUsuario || !autenticado) {
+            } else if ((autenticado && visualizarComoUsuario) || !autenticado) {
                 return {marginTop: '5%'}
             }
         }}

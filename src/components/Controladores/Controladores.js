@@ -53,7 +53,7 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
                     arteDeCapa.esquerda = arteDeCapa.esquerda + 5
                 }
             });            
-        } else if (tipo === 'Colagem') {
+        } else if (tipo === 'COLLAGE') {
             arte.forEach(colagem => {
                 if (colagem.ID === id_daArte) {
                     colagem.esquerda = colagem.esquerda + 5
@@ -76,7 +76,7 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
                     arteDeCapa.esquerda = arteDeCapa.esquerda - 5
                 }
             });            
-        } else if (tipo === 'Colagem') {
+        } else if (tipo === 'COLLAGE') {
             arte.forEach(colagem => {
                 if (colagem.ID === id_daArte) {
                     colagem.esquerda = colagem.esquerda - 5
@@ -99,7 +99,7 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
                     arteDeCapa.baixo = arteDeCapa.baixo + 5
                 }
             });            
-        } else if (tipo === 'Colagem') {
+        } else if (tipo === 'COLLAGE') {
             arte.forEach(colagem => {
                 if (colagem.ID === id_daArte) {
                     colagem.baixo = colagem.baixo + 5
@@ -122,7 +122,7 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
                     arteDeCapa.baixo = arteDeCapa.baixo - 5
                 }
             });            
-        } else if (tipo === 'Colagem') {
+        } else if (tipo === 'COLLAGE') {
             arte.forEach(colagem => {
                 if (colagem.ID === id_daArte) {
                     colagem.baixo = colagem.baixo - 5
@@ -145,7 +145,7 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
                     arteDeCapa.largura = arteDeCapa.largura + 5
                 }
             });            
-        } else if (tipo === 'Colagem') {
+        } else if (tipo === 'COLLAGE') {
             arte.forEach(colagem => {
                 if (colagem.ID === id_daArte) {
                     colagem.largura = colagem.largura + 5
@@ -168,7 +168,7 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
                     arteDeCapa.largura = arteDeCapa.largura - 5
                 }
             });            
-        } else if (tipo === 'Colagem') {
+        } else if (tipo === 'COLLAGE') {
             arte.forEach(colagem => {
                 if (colagem.ID === id_daArte) {
                     colagem.largura = colagem.largura - 5

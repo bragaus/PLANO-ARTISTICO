@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
+
 import { Container, Figure } from './styles';
 
 const Dropzone = ({ quandoinserirarte, mensagem, setfieldvalue }) => {
 
     const [preview, setPreview] = useState([]);
 
-    useEffect(() => () => {
-        preview.forEach(file => URL.revokeObjectURL(file.preview));
-    }, [preview]);
-
-    const { 
-        acceptedFiles, 
-        getRootProps, 
+    const {
+        getRootProps,
         getInputProps, 
         isDragActive, 
         isDragAccept, 
@@ -20,6 +16,7 @@ const Dropzone = ({ quandoinserirarte, mensagem, setfieldvalue }) => {
     } = useDropzone({
 
         accept: "image/jpeg, image/png",
+
         onDropAccepted: (acceptedFiles) => {
 
             quandoinserirarte(acceptedFiles);
