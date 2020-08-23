@@ -45,14 +45,14 @@ const VisualizarArte = (props) => {
             document.body.style.overflowX = 'hidden'
         };
 
-    }, [])  
+    }, [props.match.params.id])  
 
     // Estratégia para fazer o loading da página
     if (carregando) {
         return <h1>carregando</h1>
     } else {
         // Desestruturando a arte carregada no estado
-        var [{ url, urlFrente: arteFrenteVerso, urlVerso, urlPreview }] = arte
+        var [{ url, urlFrente: arteFrenteVerso, urlVerso }] = arte
 
         return (
             <>

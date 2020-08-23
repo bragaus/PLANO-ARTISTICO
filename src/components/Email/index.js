@@ -44,8 +44,8 @@ const TelaEmail = ({ setTelaDeEmail }) => {
     function enviarDadosParaRotaDeEmail(dados, { resetForm }) {
         setStatusDoEnvio('Sending...');
 
-        rota = '';
-        dadosDoEmail = {};
+        var rota = ''
+        var dadosDoEmail = ''
 
         // Se tiver arquivo
         if(dados.arquivo){
@@ -56,8 +56,8 @@ const TelaEmail = ({ setTelaDeEmail }) => {
             rota = '/emailanexo';
             dadosDoEmail = formulario;
         } else {
-            var rota = '/email';
-            var dadosDoEmail = dados;            
+            rota = '/email';
+            dadosDoEmail = dados;            
         }
 
         api.post(rota, dadosDoEmail)

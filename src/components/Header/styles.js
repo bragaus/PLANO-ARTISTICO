@@ -62,7 +62,9 @@ export const Logo = styled(LogoSVG)`
         width: 15%;
         -webkit-animation:${rotacao} 8s linear infinite;
         -moz-animation:${rotacao} 8s linear infinite;
-        animation:${rotacao} 8s linear infinite;        
+        animation:${rotacao} 8s linear infinite;
+
+        cursor: pointer;      
     }
 `;
 
@@ -138,12 +140,14 @@ export const Superior = styled.header`
                     &:hover {
                         background: var(--vermelho);
                         color: var(--vermelho);
+                        cursor: pointer;
                     }
                 }
                 span {
                     &:hover {
                         background: var(--vermelho);
                         color: var(--vermelho);
+                        cursor: pointer;
                     }
                 }
             }

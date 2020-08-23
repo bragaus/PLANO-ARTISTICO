@@ -93,7 +93,7 @@ export const Container = styled.div`
             }
 
             > input, textarea {
-                font-size: 4.5vw !important;
+                font-size: 4.5vw !important;               
             }
 
             & .arquivosUpados {
@@ -101,7 +101,7 @@ export const Container = styled.div`
                     font-size: 4.5vw !important;
                 }
                 > button {
-                    font-size: 7vw !important;
+                    font-size: 7vw !important;                    
                 }
             }            
         }
@@ -154,6 +154,7 @@ export const Container = styled.div`
             :-ms-input-placeholder {
                 color: var(--vermelho);
             }
+            
         }
 
         & .arquivosUpados {
@@ -163,12 +164,13 @@ export const Container = styled.div`
             > span, button {
                 font-size: 1.5vw;
                 margin-bottom: 2%;
+                
             }
             > span {
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow: hidden;                
-            }     
+            }    
         }
     }
 `;
@@ -181,7 +183,10 @@ export const ParteDeCima = styled.header`
             }
 
             > label {
-                width: 10vw !important;            
+                width: 10vw !important;
+                :hover{
+                    cursor:pointer;
+                }                        
             }
 
             & #labelMaximizar {
@@ -209,6 +214,10 @@ export const ParteDeCima = styled.header`
             width: 3vw;
             margin-right: 4%;
             margin-top: 3%;
+
+            :hover{
+                cursor:pointer;
+            }
         }
 
         button {
@@ -336,6 +345,10 @@ export const Anexo = styled(AnexoSVG)`
     > path {
         fill: var(--azul) !important;
     }
+    
+    :hover{
+        cursor:pointer;
+    }       
 `;
 
 export const Enviar = styled(EnviarSVG)`
@@ -352,4 +365,8 @@ export const Enviar = styled(EnviarSVG)`
     > ellipse {
         fill: var(--azul);
     }
+
+    :hover{
+        cursor:pointer;
+    }     
 `;

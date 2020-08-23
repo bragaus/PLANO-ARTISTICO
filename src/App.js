@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Rotas from './rotas';
 import { Router } from 'react-router-dom';
 import history from './history';
 import { ProvedorDeAutorizacao } from './Contexto/ContextoDeAutorizacao';
-import EstiloGlobal, { Mira } from './styles/estiloGlobal';
+import EstiloGlobal from './styles/estiloGlobal';
 
 function App() {
 

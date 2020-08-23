@@ -1,5 +1,5 @@
 import React,{ useContext } from 'react';
-import { Formik, Field, Form, ErrorMessage, useField } from 'formik';
+import { Formik, Field, Form, useField } from 'formik';
 import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
 import * as Yup from 'yup';
 
@@ -27,8 +27,6 @@ const Login = () => {
         nome: Yup.string().required('Enter username'),
         senha: Yup.string().required('Enter password')
     });
-
-    
 
     return (
         <Container>

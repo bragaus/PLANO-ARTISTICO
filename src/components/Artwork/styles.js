@@ -18,7 +18,7 @@ color: #e6e6e6;
         ${({ autenticado, visualizarComoUsuario }) => {
             if (autenticado && !visualizarComoUsuario) {
                 return {marginTop: '0'}
-            } else if (autenticado && visualizarComoUsuario || !autenticado) {
+            } else if ((autenticado && visualizarComoUsuario) || !autenticado) {
                 return {marginTop: '17%'}
             }
         }}

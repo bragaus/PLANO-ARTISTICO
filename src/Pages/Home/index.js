@@ -68,17 +68,17 @@ const Home = () => {
 
     return (<>
     
-        {!autenticado && (
+        {(!autenticado && (
+            <Header 
+                setMenuDispositivoMovel={setMenuDispositivoMovel}
+                menuDispositivoMovel={menuDispositivoMovel}
+            />)
+        ) || (autenticado && visualizarComoUsuario && (
             <Header 
                 setMenuDispositivoMovel={setMenuDispositivoMovel}
                 menuDispositivoMovel={menuDispositivoMovel}
             />
-        ) || autenticado && visualizarComoUsuario && (
-            <Header 
-                setMenuDispositivoMovel={setMenuDispositivoMovel}
-                menuDispositivoMovel={menuDispositivoMovel}
-            />
-        )}
+        ))}
 
         <Main autenticado={autenticado} visualizarComoUsuario={visualizarComoUsuario}> 
 

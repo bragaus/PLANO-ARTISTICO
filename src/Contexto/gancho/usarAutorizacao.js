@@ -67,7 +67,7 @@ export default function useAuth() {
         localStorage.removeItem('token');
         api.defaults.headers.Authorization = undefined
         setAutenticado(false);        
-        history.push('/login');
+        history.push('/');
     };
 
     return { autenticado, carregando, lidarComLogin, lidarComLogout }
