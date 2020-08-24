@@ -38,6 +38,11 @@ const Upload = () => {
 
     const enviarArquivoParaBackend = (post, { resetForm }) => {
 
+        if (arquivos.length > 1 && arquivos.length < 3) {
+            setResposta('please enter all images');
+            return;
+        }
+
         setResposta('sending...');
 
         var formulario = new FormData();
@@ -52,7 +57,6 @@ const Upload = () => {
         formulario.append('desc', post.desc);
         formulario.append('tipo', post.tipo);
 
-
         if (arquivos.length > 1) {
 
             // Enviando a arte e quando receber a resposta, vai parar de mostrar
@@ -62,7 +66,8 @@ const Upload = () => {
                 status === 200 ? setResposta('OK') : setResposta('Oh fuck! try again.');
             })
             .catch((erro) => {
-                console.log(erro)
+                setResposta('Oh fuck! try again.');
+                console.log(erro);
             });
 
         } else {         
@@ -73,12 +78,11 @@ const Upload = () => {
                 status === 200 ? setResposta('OK') : setResposta('Oh fuck! try again.');
             })
             .catch((erro) => {
-                console.log(erro)
-                setResposta('Oh fuck! try again.')
+                setResposta('Oh fuck! try again.');
+                console.log(erro);
             });
 
         }
-
 
         resetForm({});
         setArquivos([]);
@@ -115,17 +119,20 @@ const Upload = () => {
                         <div>
                             <Dropzone
                                 quandoinserirarte={lidarComArteInseridaNoDropzone}
-                                setfieldvalue={setFieldValue}                            
+                                setfieldvalue={setFieldValue}
+                                resposta={resposta}                      
                                 mensagem="Front Image"               
                             />
                             <Dropzone
                                 quandoinserirarte={lidarComArteInseridaNoDropzone}
-                                setfieldvalue={setFieldValue}                            
+                                setfieldvalue={setFieldValue}
+                                resposta={resposta}                      
                                 mensagem="Back Image"                 
                             />
                             <Dropzone
                                 quandoinserirarte={lidarComArteInseridaNoDropzone}
-                                setfieldvalue={setFieldValue}                            
+                                setfieldvalue={setFieldValue}
+                                resposta={resposta}                          
                                 mensagem="Preview Image"                     
                             />
                         </div>

@@ -11,7 +11,9 @@ export default createGlobalStyle`
         -webkit-user-select: none;  
         -moz-user-select: none;     
         -ms-user-select: none;      
-        user-select: none;         
+        user-select: none;
+        
+        cursor: url(https://planoart.s3.amazonaws.com/cursor.cur), auto;      
     }
 
     body {

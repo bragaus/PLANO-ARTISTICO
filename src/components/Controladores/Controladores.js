@@ -42,11 +42,22 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
     
     function moverArteParaDireita(id_daArte, tipo) {
         if (tipo === 'ILLUSTRATION') {
-            arte.forEach(ilustracao => {
-                if (ilustracao.ID === id_daArte) {
-                    ilustracao.esquerda = ilustracao.esquerda + 5
+
+            const mudarArte = arte.map(arte => {
+                if(arte.ID === id_daArte) {
+                    arte.esquerda = arte.esquerda + 5
                 }
+                return arte;
             });
+
+            console.log(mudarArte);
+            setArte(mudarArte);
+
+            // arte.forEach(ilustracao => {
+            //     if (ilustracao.ID === id_daArte) {
+            //         ilustracao.esquerda = ilustracao.esquerda + 5
+            //     }
+            // });
         } else if (tipo === 'ALBUM COVER') {
             arte.forEach(arteDeCapa => {
                 if (arteDeCapa.ID === id_daArte) {
@@ -60,7 +71,7 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
                 }
             });            
         }
-        setAuxiliar(auxiliar + 1);        
+        // setAuxiliar(auxiliar + 1);       
     };
 
     function moverArteParaEsquerda(id_daArte, tipo) {

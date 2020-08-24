@@ -63,8 +63,8 @@ export const Logo = styled(LogoSVG)`
         -webkit-animation:${rotacao} 8s linear infinite;
         -moz-animation:${rotacao} 8s linear infinite;
         animation:${rotacao} 8s linear infinite;
-
-        cursor: pointer;      
+        
+        cursor: pointer;
     }
 `;
 

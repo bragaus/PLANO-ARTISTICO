@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 
 import { Container, Figure } from './styles';
 
-const Dropzone = ({ quandoinserirarte, mensagem, setfieldvalue }) => {
+const Dropzone = ({ quandoinserirarte, mensagem, setfieldvalue, resposta }) => {
 
     const [preview, setPreview] = useState([]);
+
+    useEffect(() => {
+        setPreview([]);
+    }, [resposta])
 
     const {
         getRootProps,
