@@ -14,6 +14,7 @@ import {
 
 const Sobre = () => {
     document.body.style.overflow = 'initial'
+    document.documentElement.scrollTop = 0;
 
     return (
 

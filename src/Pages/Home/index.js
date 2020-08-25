@@ -37,7 +37,7 @@ const Home = () => {
 
     const [artesModificadas, setArtesModificadas] = useState([]);
 
-    const [loading, setLoading] = useState(false);
+    const [resposta, setResposta] = useState('SAVE');
 
     useEffect(() => {
 
@@ -57,7 +57,7 @@ const Home = () => {
     function salvar() {
 
         if (artesModificadas.length > 0) {
-            setLoading(true);
+            setResposta('Saving...');
 
             const dados = artesModificadas.map(e => {
                 return {
@@ -73,11 +73,28 @@ const Home = () => {
                 }
             });
 
-            api.post('/controlesDaArte', dados).then((e) => {
-                setLoading(false);
+            api.post('/controlesDaArte', dados)
+            .then((resposta) => {
+
+                if (resposta.status === 200) {
+                    setResposta('SAVED SUCCESSFULLY!');
+                    setTimeout(() => {
+                        setResposta('SAVE')
+                    }, 3000);
+                } else {
+                    setResposta('UNEXPECTED ERROR');
+                }
+
+            })
+            .catch(() => {
+                setResposta('UNEXPECTED ERROR');
             });
+
         } else {
-            console.log('sem dados modificados')
+            setResposta('NO MODIFIED DATA')
+            setTimeout(() => {
+                setResposta('SAVE')
+            }, 2000);
         }
 
     }
@@ -148,6 +165,7 @@ const Home = () => {
                 visualizarComoUsuario={visualizarComoUsuario}
                 setVisualizarComoUsuario={setVisualizarComoUsuario}
                 salvar={salvar}
+                resposta={resposta}
             />
         )}
 
@@ -157,7 +175,7 @@ const Home = () => {
             <h3>PLANO ARTÍSTICO. A WORLDWIDE OPERATION.&trade; 2020</h3>
         </Rodape>
 
-    </>);       
+    </>);
 };
 
 export default Home;

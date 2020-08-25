@@ -23,6 +23,7 @@ const Campo = ({ label, ...props }) => {
 };
 
 const Upload = () => {
+    document.documentElement.scrollTop = 0;
 
     const [arquivos, setArquivos] = useState([]);
     const [resposta, setResposta] = useState('');

@@ -13,7 +13,7 @@ export default createGlobalStyle`
         -ms-user-select: none;      
         user-select: none;
         
-        cursor: url(https://planoart.s3.amazonaws.com/cursor.cur), auto;      
+        /* cursor: url(https://planoart.s3.amazonaws.com/cursor.cur), auto;       */
     }
 
     body {
