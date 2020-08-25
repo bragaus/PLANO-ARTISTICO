@@ -55,10 +55,9 @@ const Home = () => {
     }, []);
     
     function salvar() {
-        // console.log(artesModificadas)
 
-        // if (artesModificadas.length > 0) {
-        //     setLoading(true);
+        if (artesModificadas.length > 0) {
+            setLoading(true);
 
             const dados = artesModificadas.map(e => {
                 return {
@@ -74,15 +73,12 @@ const Home = () => {
                 }
             });
 
-            console.log(dados)
-        //     console.log(dados);
-
-        //     api.post('/controlesDaArte', dados).then((e) => {
-        //         setLoading(false);
-        //     });
-        // } else {
-        //     console.log('sem dados modificados')
-        // }
+            api.post('/controlesDaArte', dados).then((e) => {
+                setLoading(false);
+            });
+        } else {
+            console.log('sem dados modificados')
+        }
 
     }
     
