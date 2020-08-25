@@ -28,14 +28,16 @@ const Home = () => {
 
     const [telaDeEmail, setTelaDeEmail] = useState(false);
 
-    const [auxiliar, setAuxiliar] = useState(0);
-
     // Controla a visibilidade do menu, no componente Header,
     // foi passado por aqui porque o "NEW MESSAGE..." precisa se esconder
     // quando o menu estiver visivel
     const [menuDispositivoMovel, setMenuDispositivoMovel] = useState(false);
 
     const [visualizarComoUsuario, setVisualizarComoUsuario] = useState(true);
+
+    const [artesModificadas, setArtesModificadas] = useState([]);
+
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
 
@@ -53,18 +55,38 @@ const Home = () => {
     }, []);
     
     function salvar() {
+        // console.log(artesModificadas)
 
-        api.post('/controlesDaArte', ilustracoes).then((e) => {
-            console.log(e)
-        })
-        api.post('/controlesDaArte', artesDeCapa).then((e) => {
-            console.log(e)
-        })
-        api.post('/controlesDaArte', colagens).then((e) => {
-            console.log(e)
-        })
+        // if (artesModificadas.length > 0) {
+        //     setLoading(true);
 
-    }  
+            const dados = artesModificadas.map(e => {
+                return {
+                    ID: e.ID,
+                    baixo: e.baixo,
+                    cima: e.cima,
+                    descricao: e.descricao,
+                    direita: e.direita,
+                    esquerda: e.esquerda,
+                    largura: e.largura,
+                    titulo: e.titulo,
+                    zIndex: e.zIndex
+                }
+            });
+
+            console.log(dados)
+        //     console.log(dados);
+
+        //     api.post('/controlesDaArte', dados).then((e) => {
+        //         setLoading(false);
+        //     });
+        // } else {
+        //     console.log('sem dados modificados')
+        // }
+
+    }
+    
+    
 
     return (<>
     
@@ -87,9 +109,9 @@ const Home = () => {
                 visualizarComoUsuario={visualizarComoUsuario}
                 artes={ilustracoes}
                 setArtes={setIlustracoes}
-                auxiliar={auxiliar}
-                setAuxiliar={setAuxiliar}
                 tipo="ILLUSTRATION"
+                artesModificadas={artesModificadas}
+                setArtesModificadas={setArtesModificadas}
             />
 
             <Artwork 
@@ -97,9 +119,9 @@ const Home = () => {
                 visualizarComoUsuario={visualizarComoUsuario}
                 artes={artesDeCapa}
                 setArtes={setArtesDeCapa}
-                auxiliar={auxiliar}
-                setAuxiliar={setAuxiliar}
                 tipo="ALBUM COVER"
+                artesModificadas={artesModificadas}
+                setArtesModificadas={setArtesModificadas}
             />
 
             <Artwork 
@@ -107,9 +129,9 @@ const Home = () => {
                 visualizarComoUsuario={visualizarComoUsuario}
                 artes={colagens}
                 setArtes={setColagens}
-                auxiliar={auxiliar}
-                setAuxiliar={setAuxiliar}
                 tipo="COLLAGE"
+                artesModificadas={artesModificadas}
+                setArtesModificadas={setArtesModificadas}
             />
  
         </Main>

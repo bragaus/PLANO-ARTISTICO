@@ -10,10 +10,10 @@ const Artwork = ({
     autenticado, 
     visualizarComoUsuario, 
     artes, 
-    setArtes, 
-    auxiliar, 
-    setAuxiliar, 
+    setArtes,
     tipo,
+    artesModificadas,
+    setArtesModificadas
 }) => {
 
     return (
@@ -37,23 +37,22 @@ const Artwork = ({
 
                     {autenticado && !visualizarComoUsuario && (
                         <Controladores
-                            id_daArte={arte.ID} 
-                            tipo={tipo} 
+                            id_daArte={arte.ID}
                             arte={artes}
                             setArte={setArtes}
-                            auxiliar={auxiliar}
-                            setAuxiliar={setAuxiliar}
+                            artesModificadas={artesModificadas}
+                            setArtesModificadas={setArtesModificadas}
                         />  
                     )}                          
 
                     {autenticado && !visualizarComoUsuario ? (
                         <img
                             onClick={() => zIndex(
-                                arte.ID, 
-                                tipo,
+                                arte.ID,
                                 artes,
-                                setAuxiliar,
-                                auxiliar
+                                setArtes,
+                                artesModificadas,
+                                setArtesModificadas
                             )}
                             src={`data:image/png;base64,${arte.arquivoBlob}`}
                             alt={arte.titulo}

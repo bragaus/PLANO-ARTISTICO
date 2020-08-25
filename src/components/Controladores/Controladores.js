@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DeletarArte from './DeletarArte';
 
 import { 
@@ -13,31 +13,23 @@ import {
     Lixeira   
 } from './estilo';
 
-export function zIndex(id_daArte, tipo, arte, setAuxiliar, auxiliar) {
-    if (tipo === 'ILLUSTRATION') {        
-        arte.forEach(ilustracao => {
-            if (ilustracao.ID === id_daArte) {
-                ilustracao.zIndex = ilustracao.zIndex + 1
-            }
-        });
-    } else if (tipo === 'ALBUM COVER') {
-        arte.forEach(arteDeCapa => {
-            if (arteDeCapa.ID === id_daArte) {
-                arteDeCapa.zIndex = arteDeCapa.zIndex + 1
-            }
-        });   
-    } else if (tipo === 'Colagem') {
-        arte.forEach(colagem => {
-            if (colagem.ID === id_daArte) {
-                colagem.zIndex = colagem.zIndex + 1
-            }
-        });      
+export function zIndex(id_daArte, artes, setArtes, artesModificadas, setArtesModificadas) {
+
+    const moverArte = artes.map(arte => {
+        if(arte.ID === id_daArte) {
+            arte.zIndex = arte.zIndex + 1
+        }
+        return arte;
+    });
+
+    setArtes(moverArte);
+
+    if (artesModificadas.filter(e => e.ID === id_daArte).length < 1) {
+        setArtesModificadas([...artesModificadas, artes.filter(arte => arte.ID === id_daArte)[0]])
     }
-    setAuxiliar(auxiliar + 1);        
-};
+}
 
-
-const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }) => {
+const Controladores = ({ id_daArte, tipo, arte, setArte, artesModificadas, setArtesModificadas }) => {
 
     function moverArteParaEsquerda(id_daArte) {
 
@@ -49,6 +41,11 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
         });
 
         setArte(moverArte);
+
+        if (artesModificadas.filter(e => e.ID === id_daArte).length < 1) {
+            setArtesModificadas([...artesModificadas, arte.filter(arte => arte.ID === id_daArte)[0]])
+        }
+
     };    
 
     function moverArteParaDireita(id_daArte) {
@@ -61,6 +58,10 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
         });
 
         setArte(moverArte);
+
+        if (artesModificadas.filter(e => e.ID === id_daArte).length < 1) {
+            setArtesModificadas([...artesModificadas, arte.filter(arte => arte.ID === id_daArte)[0]])
+        }        
     };
 
     function moverArteParaBaixo(id_daArte) {
@@ -73,6 +74,10 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
         });
 
         setArte(moverArte);
+
+        if (artesModificadas.filter(e => e.ID === id_daArte).length < 1) {
+            setArtesModificadas([...artesModificadas, arte.filter(arte => arte.ID === id_daArte)[0]])
+        }        
     };
     
     function moverArteParaCima(id_daArte) {
@@ -85,6 +90,10 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
         });
 
         setArte(moverArte);
+
+        if (artesModificadas.filter(e => e.ID === id_daArte).length < 1) {
+            setArtesModificadas([...artesModificadas, arte.filter(arte => arte.ID === id_daArte)[0]])
+        }        
     };
     
     function aumentar(id_daArte) {
@@ -97,6 +106,10 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
         });
 
         setArte(moverArte);
+
+        if (artesModificadas.filter(e => e.ID === id_daArte).length < 1) {
+            setArtesModificadas([...artesModificadas, arte.filter(arte => arte.ID === id_daArte)[0]])
+        }        
     };
     
     function diminuir(id_daArte) {
@@ -108,9 +121,12 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
             return arte;
         });
 
-        setArte(moverArte);    
-    };     
+        setArte(moverArte);
 
+        if (artesModificadas.filter(e => e.ID === id_daArte).length < 1) {
+            setArtesModificadas([...artesModificadas, arte.filter(arte => arte.ID === id_daArte)[0]])
+        }        
+    };
 
     const [ confirmacaoParaDeletar, setConfirmacaoParaDeletar ] = useState(false);
 
@@ -144,7 +160,7 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
 
                 <li onClick={() => diminuir(id_daArte)}>
                     <LupaDiminuir />
-                </li>
+                </li>             
             </Lista>
         </Section>
 
@@ -158,7 +174,7 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, auxiliar, setAuxiliar }
             />
         )} 
 
-    </>)
+    </>);
 }
 
 export default Controladores;
