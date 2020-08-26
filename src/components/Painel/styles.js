@@ -27,13 +27,38 @@ export const Lista = styled.ul`
     }
 `;
 
-export const Absolute = styled.div`
+export const Div = styled.div`
     position: fixed;
-    width: 50%;
-    height: 100px;
+
     top: 40%;
-    left: 22%;
+    left: 35%;
     background-color: var(--amarelo);
     border: 1px solid var(--preto);
     z-index: 1000000;
+
+    h1, p {
+        text-align: center;
+    }
+
+    padding: 1%;
+`;
+
+export const Flex = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+
+    margin-top: 5%;
+
+    button {
+        cursor: pointer;
+        border: 1px solid black;
+        padding: 10px;
+        margin-left: 2%;
+
+        &:hover{
+            background-color: var(--amareloEscuro);
+        }
+    }
 `;

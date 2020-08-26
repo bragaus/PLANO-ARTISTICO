@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import history from '../../history';
 import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
 
-import { Section, Lista, Absolute } from './styles';
+import { Section, Lista, Div, Flex } from './styles';
 
 const Painel = ({ 
     visualizarComoUsuario, 
@@ -46,11 +46,22 @@ const Painel = ({
             </Lista>
         </Section>
         
-        {descartarMudanca && (
+        {/* {descartarMudanca && (
             <Absolute>
                 asdasdasd
             </Absolute>
-        )}
+        )} */}
+
+        
+            <Div>
+                <h1>DESCARTAR ALTERAÇÕES</h1>
+                <p>Tem certeza de que deseja descartar as alterações?</p>
+                <Flex>
+                    <button>CANCELAR</button> 
+                    <button>DESCARTAR</button> 
+                </Flex>
+            </Div>
+    
 
     </>);
 
