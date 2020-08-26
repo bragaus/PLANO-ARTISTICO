@@ -28,10 +28,14 @@ export const Lista = styled.ul`
 `;
 
 export const Div = styled.div`
+
+
+    @media only screen and (max-width: 1023px) {
+        display: none;
+    }
+
     position: fixed;
 
-    top: 40%;
-    left: 35%;
     background-color: var(--amarelo);
     border: 1px solid var(--preto);
     z-index: 1000000;
@@ -41,24 +45,42 @@ export const Div = styled.div`
     }
 
     padding: 1%;
+
+    .buttons {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+
+        margin-top: 5%;
+
+        button {
+            cursor: pointer;
+            border: 1px solid black;
+            padding: 10px;
+            margin-left: 2%;
+
+            &:hover{
+                background-color: var(--amareloEscuro);
+            }
+        }        
+    }
+
 `;
 
 export const Flex = styled.div`
+
+`;
+
+export const Container = styled.div`
+    position: absolute;
+
+    width: 100vw;
+    height: 100vh;
+
+    top:0;
+
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    width: 100%;
-
-    margin-top: 5%;
-
-    button {
-        cursor: pointer;
-        border: 1px solid black;
-        padding: 10px;
-        margin-left: 2%;
-
-        &:hover{
-            background-color: var(--amareloEscuro);
-        }
-    }
 `;

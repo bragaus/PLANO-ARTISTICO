@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import history from '../../history';
 import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
 
-import { Section, Lista, Div, Flex } from './styles';
+import { Section, Lista, Div, Flex, Container } from './styles';
 
 const Painel = ({ 
     visualizarComoUsuario, 
@@ -15,6 +15,7 @@ const Painel = ({
     const { lidarComLogout } = useContext(Contexto);
     const [painel, setPainel] = useState(false);
     const [descartarMudanca, setDescartarMudanca] = useState(false);
+    const [origem, setOrigem] = useState('');
 
     return(<>
 
@@ -36,32 +37,41 @@ const Painel = ({
                             history.push('/upload');
                         } else {
                             setDescartarMudanca(true);
+                            setOrigem('upload');
                         }
-
                     }}>UPLOAD</li>
-                    <li onClick={lidarComLogout}>EXIT</li>                    
+                    <li onClick={() => {
+                        if (arteSalva){
+                            lidarComLogout();
+                        } else {
+                            setDescartarMudanca(true);
+                            setOrigem('exit');
+                        }
+                    } }>EXIT</li>                    
                 </>)}
 
                 <li onClick={() => setPainel(!painel)}>DASHBOARD</li>
             </Lista>
         </Section>
         
-        {/* {descartarMudanca && (
-            <Absolute>
-                asdasdasd
-            </Absolute>
-        )} */}
-
-        
+        {descartarMudanca && (
+        <Container>
             <Div>
                 <h1>DESCARTAR ALTERAÇÕES</h1>
                 <p>Tem certeza de que deseja descartar as alterações?</p>
-                <Flex>
-                    <button>CANCELAR</button> 
-                    <button>DESCARTAR</button> 
-                </Flex>
+                <div className="buttons">
+                    <button onClick={() => setDescartarMudanca(false)}>CANCELAR</button> 
+                    <button onClick={() => {
+                        if(origem === 'upload') {
+                            history.push('/upload');
+                        } else {
+                            lidarComLogout();
+                        }
+                    }}>DESCARTAR</button> 
+                </div>
             </Div>
-    
+        </Container>
+        )}
 
     </>);
 
