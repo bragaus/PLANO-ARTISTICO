@@ -26,3 +26,14 @@ export const Lista = styled.ul`
         background: var(--amareloEscuro);
     }
 `;
+
+export const Absolute = styled.div`
+    position: fixed;
+    width: 50%;
+    height: 100px;
+    top: 40%;
+    left: 22%;
+    background-color: var(--amarelo);
+    border: 1px solid var(--preto);
+    z-index: 1000000;
+`;

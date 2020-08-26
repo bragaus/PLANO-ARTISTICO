@@ -6,7 +6,7 @@ import Controladores, { zIndex } from '../Controladores/Controladores';
 
 import { Link } from 'react-router-dom';
 
-import Fade from 'react-reveal/Fade';
+// import Fade from 'react-reveal/Fade';
 
 const Artwork = ({ 
     autenticado, 
@@ -31,7 +31,7 @@ const Artwork = ({
             </header>
 
             {artes.map(arte => (
-                <Fade bottom distance={'10%'}>
+                // <Fade bottom distance={'10%'}>
                     <Figure arte={artes} id_DaArte={arte.ID} key={arte.ID}>
 
                         <figcaption>
@@ -71,7 +71,7 @@ const Artwork = ({
                         )}                                               
 
                     </Figure>
-                </Fade>                
+                // </Fade>                
             ))}
         </section>        
     );

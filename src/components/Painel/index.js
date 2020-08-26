@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import history from '../../history';
 import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
 
-import { Section, Lista } from './styles';
+import { Section, Lista, Absolute } from './styles';
 
 const Painel = ({ 
     visualizarComoUsuario, 
@@ -14,7 +14,7 @@ const Painel = ({
 
     const { lidarComLogout } = useContext(Contexto);
     const [painel, setPainel] = useState(false);
-    // const [descartarMudanca, setDescartarMudanca] = useState(false);
+    const [descartarMudanca, setDescartarMudanca] = useState(false);
 
     return(<>
 
@@ -32,7 +32,12 @@ const Painel = ({
                     </li>
                     <li onClick={salvar}>{resposta}</li>
                     <li onClick={() => {
+                        if (arteSalva){
                             history.push('/upload');
+                        } else {
+                            setDescartarMudanca(true);
+                        }
+
                     }}>UPLOAD</li>
                     <li onClick={lidarComLogout}>EXIT</li>                    
                 </>)}
@@ -41,7 +46,11 @@ const Painel = ({
             </Lista>
         </Section>
         
-        {/* {descartarMudanca && <h1>DESEJA DESCARTAR MUDANÇAS?</h1>} */}
+        {descartarMudanca && (
+            <Absolute>
+                asdasdasd
+            </Absolute>
+        )}
 
     </>);
 
