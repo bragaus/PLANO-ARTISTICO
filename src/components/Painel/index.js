@@ -4,12 +4,19 @@ import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
 
 import { Section, Lista } from './styles';
 
-const Painel = ({ visualizarComoUsuario, setVisualizarComoUsuario, salvar, resposta }) => {
+const Painel = ({ 
+    visualizarComoUsuario, 
+    setVisualizarComoUsuario, 
+    salvar, 
+    resposta, 
+    arteSalva 
+}) => {
 
     const { lidarComLogout } = useContext(Contexto);
     const [painel, setPainel] = useState(false);
+    // const [descartarMudanca, setDescartarMudanca] = useState(false);
 
-    return(
+    return(<>
 
         <Section>
             <Lista>
@@ -24,15 +31,19 @@ const Painel = ({ visualizarComoUsuario, setVisualizarComoUsuario, salvar, respo
                         {visualizarComoUsuario ? 'ADM VIEW' : 'USER VIEW' }
                     </li>
                     <li onClick={salvar}>{resposta}</li>
-                    <li onClick={() => history.push('/upload')}>UPLOAD</li>
+                    <li onClick={() => {
+                            history.push('/upload');
+                    }}>UPLOAD</li>
                     <li onClick={lidarComLogout}>EXIT</li>                    
                 </>)}
 
                 <li onClick={() => setPainel(!painel)}>DASHBOARD</li>
             </Lista>
-        </Section>       
+        </Section>
+        
+        {/* {descartarMudanca && <h1>DESEJA DESCARTAR MUDANÇAS?</h1>} */}
 
-    );
+    </>);
 
 }
 

@@ -47,7 +47,6 @@ const Header = ({setMenuDispositivoMovel, menuDispositivoMovel}) => {
                 </Ancora>
 
                 <Logo onClick={animateScroll.scrollToTop}/>
-
                 <nav>
                     <ul>                                           
                         <li>

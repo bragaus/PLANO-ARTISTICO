@@ -29,6 +29,11 @@ export const Lista = styled.ul`
         border: 1px solid black;
         padding: 2%;
         background: var(--branco);
+
+        cursor: pointer;
+        &:hover{
+           background-color: gray; 
+        }
     }
 `;
 

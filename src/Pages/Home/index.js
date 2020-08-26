@@ -39,6 +39,8 @@ const Home = () => {
 
     const [resposta, setResposta] = useState('SAVE');
 
+    const [arteSalva, setArteSalva] = useState(true);
+
     useEffect(() => {
 
         // Requisições das artes
@@ -53,8 +55,13 @@ const Home = () => {
         })();
 
     }, []);
+
+    useEffect(() => {
+        setArteSalva(false)
+    }, [artesModificadas])
     
     function salvar() {
+        console.log(artesModificadas)
 
         if (artesModificadas.length > 0) {
             setResposta('Saving...');
@@ -77,6 +84,7 @@ const Home = () => {
             .then((resposta) => {
 
                 if (resposta.status === 200) {
+                    setArteSalva(true);
                     setResposta('SAVED SUCCESSFULLY!');
                     setTimeout(() => {
                         setResposta('SAVE')
@@ -98,8 +106,6 @@ const Home = () => {
         }
 
     }
-    
-    
 
     return (<>
     
@@ -166,6 +172,7 @@ const Home = () => {
                 setVisualizarComoUsuario={setVisualizarComoUsuario}
                 salvar={salvar}
                 resposta={resposta}
+                arteSalva={arteSalva}
             />
         )}
 

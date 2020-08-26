@@ -8832,7 +8832,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.4"
 
-prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -9080,6 +9080,13 @@ react-map-interaction@^2.0.0:
   resolved "https://registry.yarnpkg.com/react-map-interaction/-/react-map-interaction-2.0.0.tgz#093b3843741669b1b306e8cc5ce6725eada24bbc"
   integrity sha512-9KeyPHd95INODNUsx77/345vxOfN1WOtcjWXdxT92Sw+Y1GldVfmb4HnzNVtWoJg3T0Q1Yt3Sthq9IPN9OYy5w==
 
+react-reveal@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-reveal/-/react-reveal-1.2.2.tgz#f47fbc44debc4c185ae2163a215a9e822c7adfef"
+  integrity sha512-JCv3fAoU6Z+Lcd8U48bwzm4pMZ79qsedSXYwpwt6lJNtj/v5nKJYZZbw3yhaQPPgYePo3Y0NOCoYOq/jcsisuw==
+  dependencies:
+    prop-types "^15.5.10"
+
 react-router-dom@^5.1.2:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-5.2.0.tgz#9e65a4d0c45e13289e66c7b17c7e175d0ea15662"
@@ -9168,6 +9175,13 @@ react-scripts@3.4.1:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.1.2"
+
+react-scroll-effects@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/react-scroll-effects/-/react-scroll-effects-1.0.13.tgz#2f3531f00f46b5d210310cb1bfa5fb23e569b2cc"
+  integrity sha1-LzUx8A9GtdIQMQyxv6X7I+Vpssw=
+  dependencies:
+    lodash.throttle "^4.1.1"
 
 react-scroll@^1.7.16:
   version "1.8.0"

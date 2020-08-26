@@ -14,9 +14,11 @@ import {
 } from './estilo';
 
 export function zIndex(id_daArte, artes, setArtes, artesModificadas, setArtesModificadas) {
+console.log(id_daArte)
 
     const moverArte = artes.map(arte => {
         if(arte.ID === id_daArte) {
+            console.log(arte.zIndex)
             arte.zIndex = arte.zIndex + 1
         }
         return arte;
