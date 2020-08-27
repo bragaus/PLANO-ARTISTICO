@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Titulo, Figure } from './styles';
 
@@ -18,6 +18,8 @@ const Artwork = ({
     setArtesModificadas
 }) => {
 
+    const [editar, setEditar] = useState(false);
+
     return (
         <section>
             <header>
@@ -34,8 +36,11 @@ const Artwork = ({
                 
                 <Figure arte={artes} id_DaArte={arte.ID}>
                     
-                    {visualizarComoUsuario && (
+                    {!editar && (
                         <figcaption>
+                            {autenticado && !visualizarComoUsuario && (
+                                <button onClick={() => setEditar(true)}>EDIT</button>
+                            )}
                             <h5>{arte.titulo} {arte.descricao && ('- ' + arte.descricao)}</h5>
                         </figcaption>
                     )}
@@ -49,6 +54,8 @@ const Artwork = ({
                             setArtesModificadas={setArtesModificadas}
                             titulo={arte.titulo}
                             descricao={arte.descricao}
+                            editar={editar}
+                            setEditar={setEditar}
                         />  
                     )}                          
 

@@ -50,6 +50,10 @@ export const Figure = styled.figure`
 
         text-transform: uppercase;
 
+        button {
+            cursor: pointer;
+            font-style: italic;
+        }
 
         > h5 {
             font-size: max(1vw, 0.5rem);

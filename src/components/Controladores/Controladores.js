@@ -31,25 +31,32 @@ export function zIndex(id_daArte, artes, setArtes, artesModificadas, setArtesMod
     }
 }
 
-const Controladores = ({ id_daArte, tipo, arte, setArte, artesModificadas, setArtesModificadas, titulo, descricao }) => {
+const Controladores = ({ id_daArte, tipo, arte, setArte, artesModificadas, setArtesModificadas, titulo, descricao, editar, setEditar }) => {
     
     const [novoTitulo, setNovoTitulo] = useState('');
     const [novaDesc, setNovaDesc] = useState('');
 
     const lidarComTituloOuDescricao = () => {
-        const moverArte = arte.map(arte => {
-            if(arte.ID === id_daArte) {
-                if (novoTitulo) arte.titulo = novoTitulo
-                if (novaDesc) arte.descricao = novaDesc
-            }
-            return arte;
-        });
 
-        setArte(moverArte);
+        setEditar(false);
 
-        if (artesModificadas.filter(e => e.ID === id_daArte).length < 1) {
-            setArtesModificadas([...artesModificadas, arte.filter(arte => arte.ID === id_daArte)[0]])
-        }        
+        if ((novoTitulo || novaDesc) !== '') {
+
+            const moverArte = arte.map(arte => {
+                if(arte.ID === id_daArte) {
+                    if (novoTitulo) arte.titulo = novoTitulo
+                    if (novaDesc) arte.descricao = novaDesc
+                    if (novaDesc === ' ') arte.descricao = ''
+                }
+                return arte;
+            });
+
+            setArte(moverArte);
+
+            if (artesModificadas.filter(e => e.ID === id_daArte).length < 1) {
+                setArtesModificadas([...artesModificadas, arte.filter(arte => arte.ID === id_daArte)[0]])
+            } 
+        }
     }
 
     function moverArteParaEsquerda(id_daArte) {
@@ -154,7 +161,7 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, artesModificadas, setAr
     // Botões responsaveis por receber o id e o tipo e chamar as funções a cima
     return(<>
 
-        {!confirmacaoParaDeletar && (
+        {editar && (
             <DivInput>
                 <input type="text" placeholder={titulo} onChange={(e) => setNovoTitulo(e.target.value)}/>
                 <textarea type="text" placeholder={descricao || 'enter desc'} onChange={(e) => setNovaDesc(e.target.value)}/>

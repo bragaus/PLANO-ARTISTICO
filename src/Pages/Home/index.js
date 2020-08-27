@@ -57,7 +57,9 @@ const Home = () => {
     }, []);
 
     useEffect(() => {
-        setArteSalva(false)
+        
+        if(artesModificadas.length > 0) setArteSalva(false)
+
     }, [artesModificadas])
     
     function salvar() {
