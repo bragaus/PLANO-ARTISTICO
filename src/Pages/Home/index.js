@@ -61,7 +61,6 @@ const Home = () => {
     }, [artesModificadas])
     
     function salvar() {
-        console.log(artesModificadas)
 
         if (artesModificadas.length > 0) {
             setResposta('Saving...');
@@ -76,7 +75,8 @@ const Home = () => {
                     esquerda: e.esquerda,
                     largura: e.largura,
                     titulo: e.titulo,
-                    zIndex: e.zIndex
+                    zIndex: e.zIndex,
+                    titulo: e.titulo
                 }
             });
 
@@ -140,7 +140,7 @@ const Home = () => {
                 setArtes={setArtesDeCapa}
                 tipo="ALBUM COVER"
                 artesModificadas={artesModificadas}
-                setArtesModificadas={setArtesModificadas}
+                setArtesModificadas={setArtesModificadas}             
             />
 
             <Artwork 
@@ -150,7 +150,7 @@ const Home = () => {
                 setArtes={setColagens}
                 tipo="COLLAGE"
                 artesModificadas={artesModificadas}
-                setArtesModificadas={setArtesModificadas}
+                setArtesModificadas={setArtesModificadas}               
             />
  
         </Main>

@@ -10,6 +10,34 @@ import {
     LixeiraSVG 
 } from '../../styles/Icones';
 
+export const DivInput = styled.div`
+    position: absolute;
+    top: 0;
+    overflow: auto;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    width: 100%;
+    flex-direction: column;
+
+    input, textarea, button {
+        font-size: max(1vw, 0.5rem);
+        background-color: var(--amarelo); 
+        resize: none;
+        border: 1px solid var(--preto);
+        padding: 2%;
+    }
+
+    button {
+        &:hover {
+            background-color: var(--amareloEscuro);
+            cursor: pointer;
+        }
+    }
+`;
+
 export const Section = styled.section`
 
     position: absolute;
@@ -59,6 +87,10 @@ export const Container = styled.div`
             width: 30%;
             font-weight: bold;
             color: var(--vermelho);
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
         > button + button {
