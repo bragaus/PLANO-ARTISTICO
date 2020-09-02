@@ -6,8 +6,6 @@ import Controladores, { zIndex } from '../Controladores/Controladores';
 
 import { Link } from 'react-router-dom';
 
-import Fade from 'react-reveal/Fade';
-
 const Artwork = ({ 
     autenticado, 
     visualizarComoUsuario, 
@@ -81,15 +79,13 @@ const Artwork = ({
                             alt={arte.titulo}
                         />
                             
-                    ) : (
-                        <Fade bottom distance={'10%'}>   
+                    ) : (  
                         <Link to={{pathname: `/visualizarArte/${arte.ID}`, id: arte.ID}}>
                             <img
                                 src={`data:image/png;base64,${arte.arquivoBlob}`}
                                 alt={arte.titulo}
                             />
-                        </Link>
-                        </Fade>  
+                        </Link> 
                     )}                                               
 
                 </Figure>
