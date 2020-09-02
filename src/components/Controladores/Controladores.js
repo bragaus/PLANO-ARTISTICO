@@ -47,6 +47,7 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, artesModificadas, setAr
                     if (novoTitulo) arte.titulo = novoTitulo
                     if (novaDesc) arte.descricao = novaDesc
                     if (novaDesc === ' ') arte.descricao = ''
+                    if (novoTitulo === ' ') arte.titulo = ''
                 }
                 return arte;
             });
@@ -163,7 +164,7 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, artesModificadas, setAr
 
         {editar && (
             <DivInput>
-                <input type="text" placeholder={titulo} onChange={(e) => setNovoTitulo(e.target.value)}/>
+                <input type="text" placeholder={titulo || 'enter title'} onChange={(e) => setNovoTitulo(e.target.value)}/>
                 <textarea type="text" placeholder={descricao || 'enter desc'} onChange={(e) => setNovaDesc(e.target.value)}/>
                 <button onClick={lidarComTituloOuDescricao}>OK</button>
             </DivInput>
