@@ -89,7 +89,7 @@ const Upload = () => {
     }
 
     const validacao = Yup.object({
-        titulo: Yup.string().max(30, "Too Long!").required('Enter title'),
+        titulo: Yup.string().max(300, "Too Long!"),
         arquivo: Yup.array().required('Enter artwork').min(1).max(1),
         desc: Yup.string().max(500, "Too Long!"),
         tipo: Yup.string().required('Enter local')
