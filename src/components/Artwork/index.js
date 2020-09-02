@@ -41,7 +41,15 @@ const Artwork = ({
                             {autenticado && !visualizarComoUsuario && (
                                 <button onClick={() => setEditar(true)}>EDIT</button>
                             )}
-                            <h5>{arte.titulo} {arte.descricao && ('- ' + arte.descricao)}</h5>
+                            
+                            <h5>{arte.titulo} {
+                                // Se tiver titulo e descrição vai ser separado com (-)
+                                // Se não vai mostrar so a descrição
+                                (arte.titulo && arte.descricao) ? 
+                                ('- ' + arte.descricao) : 
+                                (!arte.titulo && arte.descricao) ? 
+                                arte.descricao : null
+                            }</h5>
                         </figcaption>
                     )}
 
