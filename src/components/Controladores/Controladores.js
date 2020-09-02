@@ -35,17 +35,33 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, artesModificadas, setAr
     
     const [novoTitulo, setNovoTitulo] = useState('');
     const [novaDesc, setNovaDesc] = useState('');
+    const [erro, setErro] = useState('');
 
+    useEffect(() => {
+        (novoTitulo && novoTitulo.length > 300) ? setErro('Title too long!') : setErro('');
+    }, [novoTitulo])
+
+    useEffect(() => {
+        (novaDesc && novaDesc.length > 500) ? setErro('Desc too long!') : setErro('');
+    }, [novaDesc])    
+    
     const lidarComTituloOuDescricao = () => {
 
-        setEditar(false);
+        if (!erro) setEditar(!editar);
 
         if ((novoTitulo || novaDesc) !== '') {
 
             const moverArte = arte.map(arte => {
                 if(arte.ID === id_daArte) {
-                    if (novoTitulo) arte.titulo = novoTitulo
-                    if (novaDesc) arte.descricao = novaDesc
+
+                    if (novoTitulo && novoTitulo.length <= 300) {
+                        arte.titulo = novoTitulo
+                    }
+
+                    if (novaDesc && novaDesc.length <= 500) {
+                        arte.descricao = novaDesc
+                    }
+
                     if (novaDesc === ' ') arte.descricao = ''
                     if (novoTitulo === ' ') arte.titulo = ''
                 }
@@ -163,10 +179,11 @@ const Controladores = ({ id_daArte, tipo, arte, setArte, artesModificadas, setAr
     return(<>
 
         {editar && (
-            <DivInput>
+            <DivInput erro={erro}>
                 <input type="text" placeholder={titulo || 'enter title'} onChange={(e) => setNovoTitulo(e.target.value)}/>
                 <textarea type="text" placeholder={descricao || 'enter desc'} onChange={(e) => setNovaDesc(e.target.value)}/>
                 <button onClick={lidarComTituloOuDescricao}>OK</button>
+                {erro && erro}
             </DivInput>
         )}
 

@@ -31,6 +31,7 @@ export const DivInput = styled.div`
     }
 
     button {
+        ${({erro}) => erro ? 'disabled' : null}
         &:hover {
             background-color: var(--amareloEscuro);
             cursor: pointer;
