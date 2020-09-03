@@ -5,6 +5,7 @@ import Header from '../../components/Header';
 import Email from '../../components/Email';
 import Artwork from '../../components/Artwork';
 import Painel from '../../components/Painel';
+import Loading from '../../components/Loading';
 
 import api from '../../services/api';
 
@@ -41,6 +42,8 @@ const Home = () => {
 
     const [arteSalva, setArteSalva] = useState(true);
 
+    const [loading, setLoading] = useState(true); 
+
     useEffect(() => {
 
         // Requisições das artes
@@ -51,6 +54,7 @@ const Home = () => {
             setIlustracoes(data.filter(file => file.tipo === "ILLUSTRATION"));
             setArtesDeCapa(data.filter(file => file.tipo === "COVER ART"));
             setColagens(data.filter(file => file.tipo === "COLLAGE"));
+            setLoading(false);
 
         })();
 
@@ -111,6 +115,8 @@ const Home = () => {
 
     return (<>
     
+        {loading && (<Loading />)}
+
         {(!autenticado && (
             <Header 
                 setMenuDispositivoMovel={setMenuDispositivoMovel}

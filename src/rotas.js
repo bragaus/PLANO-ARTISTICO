@@ -7,6 +7,7 @@ import Upload from './Pages/Upload';
 import Login from './Pages/Login';
 
 import VisualizarArte from './components/VisualizarArte/VisualizarArte';
+import Loading from './components/Loading';
 import Sobre from './components/Sobre/Sobre';
 
 
@@ -14,7 +15,7 @@ function Rota({ rotaPrivada, ...rest }) {
     const { carregando, autenticado } = useContext(Contexto);
 
     if (carregando) {
-        return <h1>Loading....</h1>
+        return <Loading />
     }
 
     // Se a rota for privada e o usuário não estiver autorizado

@@ -9063,6 +9063,11 @@ react-map-interaction@^2.0.0:
   resolved "https://registry.yarnpkg.com/react-map-interaction/-/react-map-interaction-2.0.0.tgz#093b3843741669b1b306e8cc5ce6725eada24bbc"
   integrity sha512-9KeyPHd95INODNUsx77/345vxOfN1WOtcjWXdxT92Sw+Y1GldVfmb4HnzNVtWoJg3T0Q1Yt3Sthq9IPN9OYy5w==
 
+react-progressive-image-loading@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/react-progressive-image-loading/-/react-progressive-image-loading-3.0.3.tgz#7e99298b9bd76bc7dcfba9cdf83c263d41f17dc3"
+  integrity sha1-fpkpi5vXa8fc+6nN+DwmPUHxfcM=
+
 react-reveal@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/react-reveal/-/react-reveal-1.2.2.tgz#f47fbc44debc4c185ae2163a215a9e822c7adfef"

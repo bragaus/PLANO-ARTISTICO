@@ -9,7 +9,8 @@ const Dropzone = ({ quandoinserirarte, mensagem, setfieldvalue, resposta }) => {
 
     useEffect(() => {
         setPreview([]);
-    }, [resposta])
+        preview.forEach(file => URL.revokeObjectURL(file.preview));
+    }, [resposta]);
 
     const {
         getRootProps,

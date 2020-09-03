@@ -57,7 +57,7 @@ export const Logo = styled(LogoSVG)`
         left: 20%;
         top: 1%;
 
-        z-index: 1000000000000000000;
+        z-index: 100000;
 
         width: 15%;
         -webkit-animation:${rotacao} 8s linear infinite;
@@ -115,7 +115,7 @@ export const Superior = styled.header`
 
         & .info {
             position: fixed;
-            z-index: 100000000000000;
+            z-index: 100000000;
             top: 0;
             width: 14%;
 
@@ -133,7 +133,7 @@ export const Superior = styled.header`
             right: 0;
             top: 0;
             text-align: right;
-            z-index: 1000000000000000;
+            z-index: 1000000000;
 
             li {
                 a {

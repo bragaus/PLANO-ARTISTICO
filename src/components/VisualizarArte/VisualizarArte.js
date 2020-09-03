@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import api from '../../services/api';
 import { CaixaDaImagem, ImagemFrente, ImagemVerso, Navegacao } from './estilo';
 import history from '../../history';
+import Loading from '../../components/Loading';
+// import ProgressiveImage from "react-progressive-image-loading";
 
 // Pendências:
 // Fazer zoom seguir o cursor igual quando faz zoom de uma imagem no whats
@@ -49,10 +51,11 @@ const VisualizarArte = (props) => {
 
     // Estratégia para fazer o loading da página
     if (carregando) {
-        return <h1>carregando</h1>
+        return <Loading />
     } else {
+        // src={`data:image/png;base64,${arte.arquivoBlob}`}
         // Desestruturando a arte carregada no estado
-        var [{ url, urlFrente: arteFrenteVerso, urlVerso }] = arte
+        var [{ url, urlFrente: arteFrenteVerso, urlVerso, arquivoBlob }] = arte
 
         return (
             <>
@@ -72,12 +75,17 @@ const VisualizarArte = (props) => {
                 </Navegacao>
                 
                 {/* Arte única, que não tem verso */}
-                {url && <CaixaDaImagem  zoom={zoom}>
+                {url && <CaixaDaImagem  zoom={zoom} mostrar={mostrar}>
                     <ImagemFrente 
                         src={url} 
                         mostrar={mostrar}
                         onClick={() => zoom ? setZoom(false) : setZoom(true)}
-                    />                        
+                    />
+                    {/* <ProgressiveImage
+                        // preview={`data:image/png;base64,${arquivoBlob}`}
+                        src={url}
+                        render={(src, style) => <img src={src} style={style} />}
+                    />                                      */}
                 </CaixaDaImagem>}
 
                 {/* Arte com frente e verso */}
