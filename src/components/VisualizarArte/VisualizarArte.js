@@ -76,10 +76,11 @@ const VisualizarArte = (props) => {
                 
                 {/* Arte única, que não tem verso */}
                 {url && <CaixaDaImagem  zoom={zoom} mostrar={mostrar}>
-                    <ImagemFrente 
+                    <img 
                         src={url} 
                         mostrar={mostrar}
                         onClick={() => zoom ? setZoom(false) : setZoom(true)}
+                        onload="console.log('Logo loaded!')"
                     />
                     {/* <ProgressiveImage
                         // preview={`data:image/png;base64,${arquivoBlob}`}

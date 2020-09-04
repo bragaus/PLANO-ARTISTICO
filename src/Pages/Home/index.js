@@ -82,7 +82,6 @@ const Home = () => {
                     largura: e.largura,
                     titulo: e.titulo,
                     zIndex: e.zIndex,
-                    titulo: e.titulo
                 }
             });
 

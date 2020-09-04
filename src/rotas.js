@@ -10,6 +10,8 @@ import VisualizarArte from './components/VisualizarArte/VisualizarArte';
 import Loading from './components/Loading';
 import Sobre from './components/Sobre/Sobre';
 
+import googleAnalytics from './services/googleAnalytics';
+
 
 function Rota({ rotaPrivada, ...rest }) {
     const { carregando, autenticado } = useContext(Contexto);
@@ -29,8 +31,8 @@ function Rota({ rotaPrivada, ...rest }) {
 export default function Rotas() {
     return (
         <Switch>
-            <Rota exact path="/" component={Home}/>
-            <Rota exact path="/about" component={Sobre}/>
+            <Rota exact path="/" component={googleAnalytics(Home)}/>
+            <Rota exact path="/about" component={googleAnalytics(Sobre)}/>
             <Rota exact path="/visualizarArte/:id" component={VisualizarArte}/>            
 
             <Rota path="/login" component={Login}/>

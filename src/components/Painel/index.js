@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import history from '../../history';
 import { Contexto } from '../../Contexto/ContextoDeAutorizacao';
 
-import { Section, Lista, Div, Flex, Container } from './styles';
+import { Section, Lista, Div, Container } from './styles';
 
 const Painel = ({ 
     visualizarComoUsuario, 
