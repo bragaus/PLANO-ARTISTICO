@@ -103,7 +103,9 @@ export const Container = styled.div`
                 > button {
                     font-size: 7vw !important;                    
                 }
-            }            
+            }
+
+
         }
     }    
 

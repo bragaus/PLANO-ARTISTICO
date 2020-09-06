@@ -4,6 +4,7 @@ import api from '../../services/api';
 import history from '../../history';
 
 import { Container, Section } from './styles';
+import Loading from '../../components/Loading';
 
 export default ({ match: { params: { chave } } }) => {
 
@@ -11,9 +12,13 @@ export default ({ match: { params: { chave } } }) => {
     const [artwork, setArtwork] = useState({})
 
     const [imagemCarregada, setImagemCarregada] = useState(false);
+    const [imagemPreviewCarregada, setImagemPreviewCarregada] = useState(false);
+    
     const [zoom, setZoom] = useState(false);
 
     const [verso, setVerso] = useState(false);
+
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
 
@@ -37,6 +42,8 @@ export default ({ match: { params: { chave } } }) => {
                     blobFrente: blobFrente !== null ? `data:image/png;base64,${blobFrente}` : '',
                     blobVerso: blobVerso !== null ? `data:image/png;base64,${blobVerso}` : '',
                 });
+
+                setLoading(false);
             }
 
             document.body.style.overflowX = 'auto'
@@ -51,9 +58,13 @@ export default ({ match: { params: { chave } } }) => {
 
     return (<>
 
+        { loading && <Loading /> }
 
-        <Container imagemCarregada={imagemCarregada} zoom={zoom}>
-          
+        <Container 
+            imagemCarregada={imagemCarregada} 
+            imagemPreviewCarregada={imagemPreviewCarregada} 
+            zoom={zoom}
+        >
 
             {!verso ? (<>
 
@@ -62,6 +73,7 @@ export default ({ match: { params: { chave } } }) => {
                     className="img--half" 
                     src={ artwork.blobFrente === '' ? artwork.blobPreview : artwork.blobFrente } 
                     alt={ artwork.titulo || chave }
+                    onLoad={() => setImagemPreviewCarregada(true)}
 
                 />
 

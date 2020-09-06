@@ -58,8 +58,9 @@ export const Container = styled.div`
     }
 
     .img--half {
-        filter: blur(8px);
-        -webkit-filter: blur(8px);
+
+        ${({ imagemPreviewCarregada }) => imagemPreviewCarregada ? 'filter: blur(8px);-webkit-filter: blur(8px);' : ''};
+
         opacity: ${({ imagemCarregada }) => !imagemCarregada ? '100' : '0' };
     }
 
