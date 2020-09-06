@@ -32,7 +32,7 @@ const Artwork = ({
 
             {artes.map(arte => (
                 
-                <Figure arte={artes} id_DaArte={arte.ID}>
+                <Figure arte={artes} id_DaArte={arte.ID} key={arte.ID}>
                     
                     {!editar && (
                         <figcaption>
@@ -75,17 +75,21 @@ const Artwork = ({
                                 artesModificadas,
                                 setArtesModificadas
                             )}
-                            src={`data:image/png;base64,${arte.arquivoBlob}`}
+                            src={`data:image/png;base64,${arte.blobPreview}`}
                             alt={arte.titulo}
                         />
                             
-                    ) : (  
-                        <Link to={{pathname: `/visualizarArte/${arte.ID}`, id: arte.ID}}>
+                    ) : (
+
+                        <Link 
+                            to={{pathname: `/artworks/${arte.chave}`, chave: arte.chave}}
+                        >
                             <img
-                                src={`data:image/png;base64,${arte.arquivoBlob}`}
+                                src={`data:image/png;base64,${arte.blobPreview}`}
                                 alt={arte.titulo}
                             />
-                        </Link> 
+                        </Link>
+
                     )}                                               
 
                 </Figure>

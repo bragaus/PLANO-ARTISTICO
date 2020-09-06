@@ -5,6 +5,7 @@ import { Contexto } from './Contexto/ContextoDeAutorizacao';
 import Home from './Pages/Home';
 import Upload from './Pages/Upload';
 import Login from './Pages/Login';
+import Artwork from './Pages/Artwork';
 
 import VisualizarArte from './components/VisualizarArte/VisualizarArte';
 import Loading from './components/Loading';
@@ -17,7 +18,7 @@ function Rota({ rotaPrivada, ...rest }) {
     const { carregando, autenticado } = useContext(Contexto);
 
     if (carregando) {
-        return <Loading />
+        return <Loading showGif={false} />
     }
 
     // Se a rota for privada e o usuário não estiver autorizado
@@ -33,7 +34,7 @@ export default function Rotas() {
         <Switch>
             <Rota exact path="/" component={googleAnalytics(Home)}/>
             <Rota exact path="/about" component={googleAnalytics(Sobre)}/>
-            <Rota exact path="/visualizarArte/:id" component={VisualizarArte}/>            
+            <Rota exact path="/artworks/:chave" component={Artwork}/>            
 
             <Rota path="/login" component={Login}/>
             <Rota rotaPrivada exact path="/upload" component={Upload}/>

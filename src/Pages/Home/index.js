@@ -50,7 +50,7 @@ const Home = () => {
         (async function carregarArtes() {
 
             const { data } = await api.get('/artworks');
-
+            console.log(data);
             setIlustracoes(data.filter(file => file.tipo === "ILLUSTRATION"));
             setArtesDeCapa(data.filter(file => file.tipo === "COVER ART"));
             setColagens(data.filter(file => file.tipo === "COLLAGE"));
@@ -114,7 +114,7 @@ const Home = () => {
 
     return (<>
     
-        {loading && (<Loading />)}
+        {loading && (<Loading showGif={true} color="#000" />)}
 
         {(!autenticado && (
             <Header 

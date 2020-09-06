@@ -73,7 +73,7 @@ const Sobre = () => {
                 <Estrela />
 
                 <p className="criadores">
-                    CODED BY <b>BM</b>
+                    CODED BY <b>BRAGA US</b>
                 </p>
 
                 <p className="criadores">

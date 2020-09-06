@@ -28,8 +28,7 @@ const VisualizarArte = (props) => {
         async function carregarArte() {
             // Chamando a api que busca arte de acordo com o id passado na url
             const arte = await api.get(`/visualizarArte/${props.match.params.id}`);
-            setArte(arte.data)
-            console.log(arte);
+            setArte(arte.data);
 
             // Fase de teste do carregamento da pagina
             setCarregando(false);
@@ -80,7 +79,7 @@ const VisualizarArte = (props) => {
                         src={url} 
                         mostrar={mostrar}
                         onClick={() => zoom ? setZoom(false) : setZoom(true)}
-                        onload="console.log('Logo loaded!')"
+                        onLoad={(e) => console.log(e)}
                     />
                     {/* <ProgressiveImage
                         // preview={`data:image/png;base64,${arquivoBlob}`}

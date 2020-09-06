@@ -13,6 +13,8 @@ export const Main = styled.main`
             }
         }}
     }
+
+    cursor: url(https://planoart.s3.amazonaws.com/Asset.cur) 43 43, auto !important;
 `;
 
 export const Portateis = styled.section`

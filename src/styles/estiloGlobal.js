@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import { MiraSVG } from '../styles/Icones';
+import mira from './mira.png'
 
 export default createGlobalStyle`
     * {
@@ -12,8 +13,6 @@ export default createGlobalStyle`
         -moz-user-select: none;     
         -ms-user-select: none;      
         user-select: none;
-        
-        /* cursor: url(https://planoart.s3.amazonaws.com/cursor.cur), auto;       */
     }
 
     body {
