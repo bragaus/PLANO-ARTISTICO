@@ -25,6 +25,8 @@ const Campo = ({ label, ...props }) => {
 const Upload = () => {
 
     const [arquivos, setArquivos] = useState([]);
+
+    // resposta da api
     const [resposta, setResposta] = useState('');
 
     // inserir as artes no estado conjutoArtes

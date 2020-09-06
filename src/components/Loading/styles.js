@@ -18,5 +18,6 @@ export const Container = styled.div`
 
     img {
       padding-bottom: 2%;
+      width: 70%;
     }
 `;

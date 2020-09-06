@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import api from '../../services/api';
 import history from '../../history';
 
-import { Container, Section, Logo } from './styles';
+import { Container, Section } from './styles';
 
 export default ({ match: { params: { chave } } }) => {
 
@@ -21,14 +21,11 @@ export default ({ match: { params: { chave } } }) => {
 
             const {
 
-                data,
                 data: { length },
                 data: [{ titulo, url, urlFrente, urlVerso, blobPreview, blobFrente, blobVerso }],
                 status
 
             } = await api.get(`/artworks/${chave}`);
-
-            console.log(data);
 
             if (status === 200 && length > 0) {
                 setArtwork({ 
@@ -109,7 +106,7 @@ export default ({ match: { params: { chave } } }) => {
             </Section>            
 
 
-            {!imagemCarregada && (<Logo />)}
+            {!imagemCarregada && (<h3>LOADING...</h3>)}
         </Container>
     );
 }

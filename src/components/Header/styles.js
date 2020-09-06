@@ -59,7 +59,8 @@ export const Logo = styled(LogoSVG)`
 
         z-index: 100000;
 
-        width: 15%;
+        width: min(15%, 200px);
+
         -webkit-animation:${rotacao} 8s linear infinite;
         -moz-animation:${rotacao} 8s linear infinite;
         animation:${rotacao} 8s linear infinite;
@@ -76,13 +77,16 @@ export const Pictograma = styled(PictogramaSVG)`
 `;
 
 export const Seta = styled(SetaSVG)`
-    width: 20%;
+    width: min(20%, 35px);
+
     fill: #000;
 `;
 
 export const Superior = styled.header`
     font-weight: bold;
-    font-size: 4vw; 
+    font-size: min(4vw, 50px);
+
+    cursor: url(https://planoart.s3.amazonaws.com/Asset.cur) 43 43, auto !important;
 
     & .desktop {
         display: none;

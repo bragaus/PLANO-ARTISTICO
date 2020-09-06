@@ -1,6 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
-
-import {  LogoSVG } from '../../styles/Icones';
+import styled, { css } from 'styled-components';
 
 const imagemNaoCarregada = css`
     opacity: 0;
@@ -22,32 +20,10 @@ const zoomOut = css`
     cursor: zoom-in;
 `;
 
-const rotacao = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  } 
-`;
-
-export const Logo = styled(LogoSVG)`
-
-    position: fixed;
-
-    fill: #fff;
-
-    width: 15%;
-    -webkit-animation:${rotacao} 8s linear infinite;
-    -moz-animation:${rotacao} 8s linear infinite;
-    animation:${rotacao} 8s linear infinite;
-
-`;
-
 export const Container = styled.div`
+
     width: 100vw;
-    height: ${({zoom}) => zoom ? '150vh' : '100vh'};
+    height: ${({zoom}) => zoom ? '150vh' : '100vh'}; 
 
     background-color: #141414;
 
@@ -55,12 +31,12 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
 
-    transition: all ease 0.7s;
-    
+    transition: opacity ease 0.7s;
+
     img {
         height: 100%;
         position: absolute;
-        transition: all ease 0.7s;
+        transition: opacity ease 0.7s;
         cursor: zoom-in;
         ${({zoom}) => zoom ? zoomIn : zoomOut}
     }
@@ -75,7 +51,11 @@ export const Container = styled.div`
         ${({ imagemCarregada }) => !imagemCarregada ? imagemNaoCarregada : imagemCarregadaCss}
     }
 
-
+    h3 {
+        color: white;
+        z-index: 100000;
+        font-weight: 1000;         
+    }  
 `;
 
 export const Section = styled.section`

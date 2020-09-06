@@ -41,6 +41,8 @@ export const Container = styled.div`
     > input {
         display: none;
     }
+
+    cursor: pointer;
 `;
 
 export const Figure = styled.figure`

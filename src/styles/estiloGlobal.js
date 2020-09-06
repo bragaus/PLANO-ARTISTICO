@@ -1,6 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import { MiraSVG } from '../styles/Icones';
-import mira from './mira.png'
 
 export default createGlobalStyle`
     * {
@@ -16,7 +15,7 @@ export default createGlobalStyle`
     }
 
     body {
-        overflow-x: hidden;        
+        overflow-x: hidden;
     }
 
     h1, h2, h3, a {
@@ -32,6 +31,7 @@ export default createGlobalStyle`
     html {
         /* a cada 1 rem será considerado 10px */
         font-size: 62.5%;
+        cursor: url(https://planoart.s3.amazonaws.com/Asset.cur) 43 43, auto !important;
     }
 
     html, body, #root {

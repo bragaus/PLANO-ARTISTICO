@@ -7,7 +7,6 @@ import Upload from './Pages/Upload';
 import Login from './Pages/Login';
 import Artwork from './Pages/Artwork';
 
-import VisualizarArte from './components/VisualizarArte/VisualizarArte';
 import Loading from './components/Loading';
 import Sobre from './components/Sobre/Sobre';
 
