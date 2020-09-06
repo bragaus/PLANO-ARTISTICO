@@ -96,7 +96,7 @@ export const Superior = styled.header`
         display: flex;
         justify-content: space-between;
         position: fixed;
-        z-index: 10000000000000;
+        z-index: 100000000;
         width: 100%;
         top: 0;
         
