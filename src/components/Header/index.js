@@ -108,7 +108,7 @@ const Header = ({setMenuDispositivoMovel, menuDispositivoMovel}) => {
                     <li>
                         <Link
                             activeClass="active"
-                            to="ilustrações"
+                            to="ILLUSTRATION"
                             offset={-70}
                             onClick={() => {
                                 setMenuDispositivoMovel(false)
@@ -120,7 +120,7 @@ const Header = ({setMenuDispositivoMovel, menuDispositivoMovel}) => {
                     <li>
                         <Link
                             activeClass="active"
-                            to="artesDeCapa"
+                            to="ALBUM COVER"
                             offset={-70}
                             onClick={() => {
                                 setMenuDispositivoMovel(false)
@@ -132,7 +132,7 @@ const Header = ({setMenuDispositivoMovel, menuDispositivoMovel}) => {
                     <li>
                         <Link
                             activeClass="active"
-                            to="colagens"
+                            to="COLLAGE"
                             offset={-70}
                             onClick={() => {
                                 setMenuDispositivoMovel(false)

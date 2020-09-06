@@ -49,8 +49,11 @@ export default ({ match: { params: { chave } } }) => {
 
     }, [chave])
 
-    return (
+    return (<>
+
+
         <Container imagemCarregada={imagemCarregada} zoom={zoom}>
+          
 
             {!verso ? (<>
 
@@ -92,7 +95,10 @@ export default ({ match: { params: { chave } } }) => {
 
                 />
 
-            </>)}
+            </>)}           
+
+            {!imagemCarregada && (<h3>LOADING...</h3>)}
+
 
             <Section>
                 <button onClick={() => history.goBack()}> <span>GO BACK</span> </button>
@@ -103,10 +109,8 @@ export default ({ match: { params: { chave } } }) => {
                         setImagemCarregada(false);
                     }}> <span>FRONT/BACK</span> </button>
                 )}     
-            </Section>            
-
-
-            {!imagemCarregada && (<h3>LOADING...</h3>)}
+            </Section>              
         </Container>
-    );
+       
+    </>);
 }

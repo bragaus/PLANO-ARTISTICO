@@ -64,7 +64,7 @@ export default createGlobalStyle`
         --vermelho: #ff0000;
         --azul: #001eff;
         --branco: #fff;
-        --preto: #000000;
+        --preto: #141414;
         --segundos: 0.2s;
         --tamanho: 2vw;
         --borda: 0.2vw;
