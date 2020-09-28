@@ -14,7 +14,15 @@ if (configs.forcarHTTPS) //Se o redirecionamento HTTP estiver habilitado, regist
             res.redirect(`https://${req.headers.host}${req.url}`); //Redireciona pra HTTPS
         else //Se a requisição já é HTTPS
             next(); //Não precisa redirecionar, passa para os próximos middlewares que servirão com o conteúdo desejado
-    });
+});
+
+app.use((req, res, next) => {
+    if (req.headers.host !== 'www.planoartistico.com') {
+        res.redirect('https://www.planoartistico.com');
+    } else {
+        next();
+    }
+})
 
 app.use(express.static(configs.caminho)); //Serve os outros arquivos, como CSSs, Javascripts, Imagens etc.
 
