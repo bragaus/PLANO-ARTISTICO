@@ -17,16 +17,16 @@ export default function useAuth() {
     // Usado para verificar se o usuario está autenticado quando carregar 
     // a página, se estiver é carregado true em autenticado
     useEffect(() => {
-        const token = localStorage.getItem('token');  
+        const token = localStorage.getItem('token'); 
 
         if(token) {
-
             // Verificando autenticidade do token
             jwt.verify(token, process.env.REACT_APP_KEY, (err) => {
                 if(err) {
+                    console.log(err);
                     return JSON.stringify(err)
                 } else {
-                    api.defaults.headers.Authorization = `Bearer ${token}`                    
+                    api.defaults.headers.Authorization = `Bearer ${token}`            
                     setAutenticado(true);
                 }
             })
