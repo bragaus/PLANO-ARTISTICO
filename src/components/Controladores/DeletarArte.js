@@ -8,7 +8,7 @@ export const DeletarArte = ({ id, setArte, arte, setConfirmacaoParaDeletar }) =>
     async function deletarArte(id) {
         
         setConfirmacaoParaDeletar(false)
-        await api.delete(`/deletarArte/${id}`);
+        await api.delete(`/artworks/${id}`);
 
         // Retirar arte exluida da pagina em tempo de execução
         setArte(arte.filter(artes => artes.ID !== id))

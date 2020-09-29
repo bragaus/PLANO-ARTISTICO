@@ -87,7 +87,7 @@ const Home = () => {
                 }
             });
 
-            api.post('/controlesDaArte', dados)
+            api.post('/artworks/update', dados)
             .then((resposta) => {
 
                 if (resposta.status === 200) {

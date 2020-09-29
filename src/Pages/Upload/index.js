@@ -63,7 +63,7 @@ const Upload = () => {
 
             // Enviando a arte e quando receber a resposta, vai parar de mostrar
             // carregando e vai guardar o status do upload
-            api.post('/postarArteFrenteVerso', formulario)
+            api.post('/artworks/posts', formulario)
             .then(({ status }) => {
                 status === 200 ? setResposta('OK') : setResposta('Oh fuck! try again.');
             })
@@ -75,7 +75,7 @@ const Upload = () => {
         } else {         
 
             // Enviando a arte, fazendo o percentual de upload e recebendo o status do upload
-            api.post('/postarArte', formulario)
+            api.post('/artworks/post', formulario)
             .then(({ status }) => {
                 status === 200 ? setResposta('OK') : setResposta('Oh fuck! try again.');
             })
